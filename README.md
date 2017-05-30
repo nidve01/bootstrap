@@ -18,7 +18,12 @@
     CONTAINER ID        IMAGE                                                             COMMAND                  CREATED             STATUS                  PORTS                                                                      NAMES
 ```
 5. Register the qubeship apps with your github using the <a href="https://github.com/Qubeship/bootstrap/blob/US346719_oauthreg_timeout_inst/README.md#github-configuration" target="_blank"> github configuration steps </a>
-6. Make sure that you can connect to the internet from within your corporate firewalls. Qubeship uses firebase and firebase    requires internet connectivity.
+6. Make sure you have git client installed on your machine. Run the below to verify same
+```
+   git --version
+   git version 2.11.0 (Apple Git-81)
+```
+7. Make sure that you can connect to the internet from within your corporate firewalls. Qubeship uses firebase and firebase    requires internet connectivity.
 ----
 
 ## Install
