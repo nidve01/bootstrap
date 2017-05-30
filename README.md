@@ -17,7 +17,7 @@
     docker ps -a 
     CONTAINER ID        IMAGE                                                             COMMAND                  CREATED             STATUS                  PORTS                                                                      NAMES
 ```
-5. Register the qubeship apps with your github. Please follow the 
+5. Register the qubeship apps with your github with the below github configuration https://github.com/Qubeship/bootstrap/blob/US346719_oauthreg_timeout_inst/README.md#github-configuration
 ----
 ## Install
 
