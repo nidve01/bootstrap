@@ -10,7 +10,6 @@ if [ "$return_code" -eq 1 ]; then
 fi
 echo $resolved_args
 
-
 source .env
 export PATH=$PATH:$DIR/qubeship_home/bin
 
@@ -103,8 +102,9 @@ else
     echo "INFO: $BETA_CONFIG_FILE not found. possibly running community edition"
 fi
 
+
 if [ ! -z $BETA_ACCESS_USERNAME ];  then
-  if [ $install_registry ]; then
+  if [ "$install_registry" == "true" ]; then
     docker-compose $files run docker_registry_configurator  2>/dev/null
     docker-compose $files up -d docker-registry  2>/dev/null
     docker cp "$(docker-compose $files ps -q docker-registry  2>/dev/null)":/auth/registry.config qubeship_home/endpoints/
@@ -113,7 +113,6 @@ if [ ! -z $BETA_ACCESS_USERNAME ];  then
     docker-compose $files run oauth_registrator $resolved_args  2>/dev/null \
     | grep -v "# " | awk '{gsub("\r","",$0);print}' > $SCM_CONFIG_FILE  
     # cat /tmp/scm.config |  grep -v "# "| sed -e 's/\r$//' >  $SCM_CONFIG_FILE
-    
 fi
 
 echo "copying client template"
