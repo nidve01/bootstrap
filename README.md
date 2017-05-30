@@ -12,12 +12,12 @@
 2. Text Editor
 3. Curl [download from official site](https://curl.haxx.se/download.html#MacOSX)
 4. **_A valid and running Docker Host._**
-   
    You should be able to run the following command and get a valid output:
 ```
     docker ps -a 
     CONTAINER ID        IMAGE                                                             COMMAND                  CREATED             STATUS                  PORTS                                                                      NAMES
 ```
+5. Register the qubeship apps with your github. Please follow the 
 ----
 ## Install
 
