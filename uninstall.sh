@@ -21,7 +21,7 @@ set -o allexport
 
 if [ -e $BETA_CONFIG_FILE ] ; then
     source $BETA_CONFIG_FILE
-    rm -rf $SCM_CONFIG_FILE
+    #rm -rf $SCM_CONFIG_FILE
 else
     source $SCM_CONFIG_FILE
 fi
