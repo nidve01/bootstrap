@@ -35,7 +35,8 @@ fi
 docker rm -vf $(docker ps -a -q -f name=bootstrap)
 docker rm -vf $(docker ps -a -q -f name=qube)
 docker rm -vf $(docker ps -a  | grep "qubeship" | awk '{print $1}')
-process_ids=$(docker-compose -f docker-compose.yaml ps -q 2>/dev/null)
+
+process_ids=$(docker-compose $files ps -q 2>/dev/null)
 set +e
 if [ ! -z  "$process_ids" ]; then
     echo "force remove: $process_ids"
