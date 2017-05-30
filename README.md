@@ -1,13 +1,13 @@
 # Install Qubeship Beta
 
 ## Prerequisites
-1. Docker Toolbox ()[https://www.docker.com/products/docker-toolbox] which includes the following items:
+1. Docker Toolbox [https://www.docker.com/products/docker-toolbox] which includes the following items:
 
    * Docker Runtime v1.11 and above
    * Docker-compose
    * Docker-machine
    
-   ** **_Note_** **: Qubeship for now only supports "Docker Toolbox" on macOS. "Docker for Mac" and Linux will be supported soon.
+   ** **_Note_** **: Qubeship currently supports "Docker Toolbox" on macOS. "Docker for Mac" and Linux will be supported soon.
 
 2. Text Editor
 3. Curl [download from the official site](https://curl.haxx.se/download.html#MacOSX)
@@ -19,11 +19,11 @@
     CONTAINER ID        IMAGE                                                             COMMAND                  CREATED             STATUS                  PORTS                                                                      NAMES
 ```
 ----
-5. Make sure that you can connect to the internet from within your corporate firewall. Qubeship uses firebase, which    requires internet connectivity.
+5. Internet connection: make sure that you can connect to the internet from within your corporate firewall. Qubeship uses firebase, which requires internet connectivity.
 
 ## Install
 
-1. Clone the repo
+1. Clone the repo: copy the following line into your terminal
 ```
 git clone https://github.com/Qubeship/bootstrap && cd bootstrap && git checkout community_beta 
 ```
