@@ -32,6 +32,13 @@ echo "install.sh: $( date ) : starting qubeship install"
 if [ -f $BETA_CONFIG_FILE ]; then
     echo "sourcing $BETA_CONFIG_FILE"
     source $BETA_CONFIG_FILE
+
+    if [ -f $SCM_CONFIG_FILE ] ; then
+        echo "Found a $SCM_CONFIG_FILE, proceeding with the file..."
+    else
+        echo "$SCM_CONFIG_FILE not found. Please follow pre-requisite step 5 https://github.com/Qubeship/bootstrap/blob/master/README.md#prerequisites"
+        exit -1
+    fi
 else
     echo "INFO: running community edition"
     if [ ! -f $SCM_CONFIG_FILE ]; then
