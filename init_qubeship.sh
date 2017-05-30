@@ -10,7 +10,6 @@ if [ "$return_code" -eq 1 ]; then
 fi
 echo $resolved_args
 
-
 source .env
 export PATH=$PATH:$DIR/qubeship_home/bin
 
@@ -111,8 +110,9 @@ if [ -f $SCM_CONFIG_FILE ] ; then
     exit -1
 fi
 
+
 if [ ! -z $BETA_ACCESS_USERNAME ];  then
-  if [ $install_registry ]; then
+  if [ "$install_registry" == "true" ]; then
     docker-compose $files run docker_registry_configurator  2>/dev/null
     docker-compose $files up -d docker-registry  2>/dev/null
     docker cp "$(docker-compose $files ps -q docker-registry  2>/dev/null)":/auth/registry.config qubeship_home/endpoints/
