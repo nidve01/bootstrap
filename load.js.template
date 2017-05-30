@@ -127,7 +127,7 @@ db.Opinion.insertMany(
 ]
 );
 use qubeship;
-if (true) {
+if (beta_access) {
     db.endPoint.remove(
         {_id: ObjectId("58edb422238503000b74d7a6")}
     );

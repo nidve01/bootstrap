@@ -40,8 +40,7 @@ fi
 qube auth login $extra_args
 
 orgId=$(qube auth user-info --org | jq -r '.tenant.orgs[0].id')
-sed "s/<SYSTEM_GITHUB_ORG>/${orgId}/g" load.js.template | sed  "s/beta_access/${is_beta:-false}/g" > load.js
-
+sed "s/<SYSTEM_GITHUB_ORG>/${orgId}/g" load.js.template | sed  "s/beta_access/${is_beta:-false}/g" | sed "s/install_registry/${install_registry:-false}/g" | sed "s/install_target_cluster/${install_target_cluster:-false}/g"  > load.js
 
 docker cp load.js $(docker-compose ps -q qube_mongodb 2>/dev/null):/tmp
 docker-compose exec qube_mongodb sh -c "mongo < /tmp/load.js" 2>/dev/null
@@ -74,16 +73,16 @@ if [ $verbose ]; then
     set -x
 fi
 
-#$DIR/run.sh
+$DIR/run.sh
 if [ $is_beta ];  then
-    if [ $install_target_cluster ]; then
+    if [ "$install_target_cluster" == "true" ]; then
         if [ $target_cluster_type == "minikube" ]; then
             echo "provisioning minikube"
             ./provision_minikube.sh
          fi
     fi
 fi
-if [ $install_registry && $install_registry != "false" ];  then
+if [ "$install_registry" == "true" ];  then
     if [ -e $REGISTRY_CONFIG_FILE ]; then
         source $REGISTRY_CONFIG_FILE
         registry_endpoint_id=58edb422238503000b74d7a6
@@ -98,9 +97,12 @@ if [ $install_registry && $install_registry != "false" ];  then
             --credential-data "${data}"
         echo "endpoint for default registry created successfully"
     fi
+else 
+	echo "INFO: Registry installation skipped"
 fi
 
-if [ $install_target_cluster && $install_target_cluster != "false" ]; then
+
+if [ "$install_target_cluster" == "true" ]; then
     if [ -e $KUBE_CONFIG_FILE ]; then
         source $KUBE_CONFIG_FILE
         minikube_endpoint_id=58e3fad42a0603000b3e58a8
@@ -114,6 +116,8 @@ if [ $install_target_cluster && $install_target_cluster != "false" ]; then
             --credential-data "${data}"
         echo "endpoint for minikube registered successfully"
     fi
+else
+	echo "INFO: Target cluster installlation skipped"
 fi
 
 
@@ -125,7 +129,7 @@ echo "You can use your GITHUB credentials to login !!!!"
 if [ ! -z $BETA_ACCESS_USERNAME ];  then
     echo "APP: $APP_URL"
 fi
-if [ $install_sample_projects ] ; then
+if [ "$install_sample_projects" == "true" ] ; then
     pguid=$(uuidgen)
     jguid=$(uuidgen)
     qube service postconfiguration
