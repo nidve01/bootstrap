@@ -36,7 +36,7 @@ if [ -f $BETA_CONFIG_FILE ]; then
     if [ -f $SCM_CONFIG_FILE ] ; then
         echo "Found a $SCM_CONFIG_FILE, proceeding with the file..."
     else
-        echo "$SCM_CONFIG_FILE not found. Please follow pre-requisite step 5 https://github.com/Qubeship/bootstrap/blob/master/README.md#prerequisites"
+        echo "$SCM_CONFIG_FILE not found. Please follow pre-requisite step 5 https://github.com/Qubeship/bootstrap/blob/community_beta/README.md#prerequisites"
         exit -1
     fi
 else
