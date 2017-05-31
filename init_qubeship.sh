@@ -8,7 +8,6 @@ eval $(get_options $@)
 if [ "$return_code" -eq 1 ]; then
     exit $return_code
 fi
-echo $resolved_args
 
 source .env
 export PATH=$PATH:$DIR/qubeship_home/bin
