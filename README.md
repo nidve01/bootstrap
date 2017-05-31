@@ -72,25 +72,29 @@ APP: http://192.168.99.100:7000
 6. Sonar Qube
 
 ### Github Configuration 
-There are three primary interfaces to Qubeship. 
+There are three primary interfaces to Qubeship.
   * Qubeship GUI application - Qubeship user interface access
   * Qubeship CLI application - Qubeship command line access
   * Qubeship Builder - orchestrates the Qubeship workflow
-
-With open source Qubeship, you only have access to the Builder only. 
-
+ 
 Qubeship manages authentication for all three interfaces through Github OAuth. This allows for single sign-on 
-through Github identity management. The first time you use Qubeship, register the Builder 
+through Github identity management. The first time you use Qubeship, register the above applications
 as an 0Auth application in GitHub. You only need to do this once. 
  
-To configure OAuth applications, enter the following information in GitHub OAuth:
+To configure  <a href="https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/registering-oauth-apps/" target="_blank">OAuth applications</a>, enter the following information in GitHub OAuth:
+
 
 #### 1. Builder:  
 ```
     Client Name : qubeship-builder
     Home Page : https://qubeship.io
     Description : Qubeship Builder
-    call back URL: http://<docker endpoint>:8080/securityRealm/finishLogin
+    call back URL: http://<docker-machine-ip>:8080/securityRealm/finishLogin
+```
+Note: Run the below command to find the docker-machine-ip, if you have multiple pick the right docker machine ip.
+```
+ docker-machine ip
+ 192.168.99.100
 ```
 Copy and paste the client id and secret into the qubeship_home/config/scm.config 
 in the variables **GITHUB_BUILDER_CLIENTID** and **GITHUB_BUILDER_SECRET**
@@ -110,7 +114,7 @@ in the variables **GITHUB_CLI_CLIENTID** and **GITHUB_CLI_SECRET**
     Client Name : qubeship-gui
     Home Page : https://qubeship.io
     Description : Qubeship GUI client
-    call back URL:  http://<docker endpoint>:7000/api/v1/auth/callback?provider=github
+    call back URL:  http://<docker-machine-ip>:7000/api/v1/auth/callback?provider=github
 ```
 
 Copy and paste the client id and secret into the qubeship_home/config/scm.config 
