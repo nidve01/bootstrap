@@ -106,7 +106,7 @@ if [ -f $SCM_CONFIG_FILE ] ; then
     echo "Found a $SCM_CONFIG_FILE, proceeding with the file..."
     source $SCM_CONFIG_FILE
   else
-    echo "$SCM_CONFIG_FILE not found. Please follow o pre-requisite step https://github.com/Qubeship/bootstrap/blob/community_beta/README.md#github-configuration"
+    echo "$SCM_CONFIG_FILE not found. Please follow pre-requisite step https://github.com/Qubeship/bootstrap/blob/community_beta/README.md#github-configuration"
     exit -1
 fi
 
@@ -132,15 +132,6 @@ sed -ibak "s#<api_url_base>#$API_URL_BASE#g" .client_env
 sed -ibak "s#<app_url>#$APP_URL#g" .client_env
 sed -ibak "s#<qube_builder_url>#$BUILDER_URL#g" .client_env
 sed -ibak "s#<qube_host>#$QUBE_HOST#g" .client_env
-
-# #github api url adjustments
-# if [ -f $SCM_CONFIG_FILE ] ; then
-#     echo "sourcing $SCM_CONFIG_FILE"
-#     source $SCM_CONFIG_FILE
-# else
-#     echo "ERROR: $SCM_CONFIG_FILE not found. please create the file $SCM_CONFIG_FILE. follow $SCM_CONFIG_FILE.template and retry install"
-#     exit -1
-# fi
 
 GITHUB_ENTERPRISE_HOST=${GITHUB_ENTERPRISE_HOST:-https://github.com}
 
