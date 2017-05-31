@@ -123,7 +123,7 @@ in the variables **GITHUB_GUI_CLIENTID** and **GITHUB_GUI_SECRET**
 ### Other Configuration Entries
 
 #### 4. GITHUB_ENTERPRISE_HOST:
-This is the url for the Github SCM instance to be used with qubeship. Qubeship will use this system as the defacto identity manager for Qubeship authentication , as well as use this for pulling the source code for builds. if this is left blank, the GITHUB_ENTERPRISE_HOST will be defaulted to https://github.com
+This is the Github entrerprise instance url to be used with qubeship. Qubeship will use this system as the defacto identity manager for Qubeship authentication , as well as use this for pulling the source code for builds. if this is left blank, the GITHUB_ENTERPRISE_HOST will be defaulted to https://github.com
 Qubeship currently supports only http(s):// . SSH is in pipeline. 
 
 ```
@@ -140,22 +140,22 @@ SYSTEM_GITHUB_ORG  =  # if left blank , default will be install  users personal 
 
 ### Config File Example
 
-This is what the config file looks like:
+This is what an example config file looks like:
 ```
 #optional - use only for onprem github : format : https://github_enterprise_host (no trailing slash)
-GITHUB_ENTERPRISE_HOST=
+GITHUB_ENTERPRISE_HOST= https://github_enterpise_url
 
 # required
-SYSTEM_GITHUB_ORG=
 # Qubeship GUI client Authentication Realm
-GITHUB_GUI_CLIENTID=
-GITHUB_GUI_SECRET=
+GITHUB_GUI_CLIENTID=32425453647567568768567868
+GITHUB_GUI_SECRET=342534253245767867586476577
 # Qubeship CLI client Authentication Realm
-GITHUB_BUILDER_CLIENTID=
-GITHUB_BUILDER_SECRET=
+GITHUB_BUILDER_CLIENTID=5436453645754674567654
+GITHUB_BUILDER_SECRET=75686756879867564353445
 # Qubeship Builder Authentication Realm
-GITHUB_CLI_CLIENTID=
-GITHUB_CLI_SECRET=
+GITHUB_CLI_CLIENTID=34645675647578867867857857
+GITHUB_CLI_SECRET=3546543645756876868797897869
+SYSTEM_GITHUB_ORG=
 ```
 
 
