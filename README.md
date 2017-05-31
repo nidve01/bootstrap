@@ -126,6 +126,8 @@ curl http://10.0.0.63/api
 {"api": "hello world"}
 ```   
 
+Step 3: 
+You're done! Now you can use Qubeship to import your first project from your repo.  [Use our handy web app to do this](http://qubeship.nickelled.com/welcome) or if you prefer, [use our command-line interface](http://qubeship.io/docs)
 
 
 ### FAQ:
