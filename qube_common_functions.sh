@@ -1,6 +1,7 @@
 #!/bin/bash
 
-set -o allexport -x
+set -o allexport
+
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 cd $DIR
 export PATH=$PATH:$DIR/qubeship_home/bin
@@ -182,7 +183,6 @@ function get_options() {
                         printf 'ERROR: "--password" requires valid password\n' >&2
                     fi
                 fi
-                echo "github_password=$github_password"
 
                 resolved_args="$resolved_args --password $github_password"
                ;;
@@ -220,7 +220,6 @@ function get_options() {
         shift
     done
     echo "return_code=0"
-    echo 'resolved_args="'$resolved_args'"'
 
 }
 
