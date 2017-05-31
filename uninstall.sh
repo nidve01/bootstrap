@@ -32,8 +32,7 @@ if [ !  -z "$BETA_ACCESS_USERNAME" ]; then
     files="$files -f docker-compose-beta.yaml"
 fi
 #docker rm -f $(docker ps --filter name=bootstrap --format "{{lower .ID}}")
-docker rm -vf $(docker ps -a -q -f name=bootstrap)
-docker rm -vf $(docker ps -a -q -f name=qube)
+docker rm -vf $(docker ps -a -q -f name=qube -f name=bootstrap)
 docker rm -vf $(docker ps -a  | grep "qubeship" | awk '{print $1}')
 
 process_ids=$(docker-compose $files ps -q 2>/dev/null)
