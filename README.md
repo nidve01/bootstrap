@@ -23,6 +23,13 @@
    git version 2.11.0 (Apple Git-81)
 ```
 6. Register the qubeship apps with your github using the <a href="https://github.com/Qubeship/bootstrap/blob/US346719_oauthreg_timeout_inst/README.md#github-configuration" target="_blank"> github configuration steps </a>
+  
+  or 
+
+  optionally run the below script to automate the steps. Please fall back to manual steps in case of any failure 
+<pre>
+./register-qubeship.sh --username <i>github_username</i> --password [github_password] [--organization github_organization] [--github-host github_enterprise_url]
+</pre>
 
 7. Internet connection: make sure that you can connect to the internet from within your corporate firewall. Qubeship uses firebase, which requires internet connectivity.
 ----

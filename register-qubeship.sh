@@ -1,8 +1,10 @@
 #!/bin/bash
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 cd $DIR
-set -o allexport +x
+set -o allexport
 source $DIR/qube_common_functions.sh
+set +x
+get_options $@ > /dev/null 2>&1
 eval $(get_options $@)
 if [ "$return_code" -eq 1 ]; then
     exit $return_code
@@ -30,20 +32,6 @@ echo "install.sh: $( date ) : starting qubeship install"
 if [ -f $BETA_CONFIG_FILE ]; then
     echo "sourcing $BETA_CONFIG_FILE"
     source $BETA_CONFIG_FILE
-
-    if [ -f $SCM_CONFIG_FILE ] ; then
-        echo "Found a $SCM_CONFIG_FILE, proceeding with the file..."
-        for key in $(echo GITHUB_CLI_CLIENTID GITHUB_CLI_SECRET GITHUB_BUILDER_CLIENTID GITHUB_CLI_SECRET); do
-          value=${!key}
-          if [ -z $value ]; then
-              (>&2 echo "The pre-requisite to registering with github is not complete. Please the instructions")
-              rm -rf $SCM_CONFIG_FILE
-              exit -1
-          fi
-    else
-        echo "$SCM_CONFIG_FILE not found. Please follow pre-requisite step https://github.com/Qubeship/bootstrap/blob/community_beta/README.md#github-configuration"
-        exit -1
-    fi
 else
     echo "INFO: running community edition"
     if [ ! -f $SCM_CONFIG_FILE ]; then
@@ -90,15 +78,22 @@ if [ -z "$github_password" ] ; then
     exit -1
 fi
 
-echo "install.sh: $( date ) : running preinstall scripts"
-$DIR/init_qubeship.sh $resolved_args
+if [ -e $SCM_CONFIG_FILE ] ; then
+  echo "cleaning the previously configured scm.config file"
+  rm -rf $SCM_CONFIG_FILE
+fi
 
-echo "install.sh: $( date ) :starting qubeship server"
-$DIR/run.sh
+echo $files
+echo $resolved_args
 
-echo "install.sh: $( date ) :waiting until all qubeship services are up"
-./status.sh "true"
-
-echo "install.sh: $( date ) :running post configuration"
-$DIR/post_configuration.sh $resolved_args
-echo "install.sh: $( date ) :completed qubeship installation in $SECONDS seconds"
+docker-compose $files pull oauth_registrator
+docker-compose $files run oauth_registrator $resolved_args  2>/dev/null | grep -v "# " | awk '{gsub("\r","",$0);print}' > $SCM_CONFIG_FILE
+for key in $(echo GITHUB_CLI_CLIENTID GITHUB_CLI_SECRET GITHUB_BUILDER_CLIENTID GITHUB_CLI_SECRET); do
+  value=${!key}
+  if [ -z $value ]; then
+      (>&2 echo "There is some error registering with github. Please configure manually with reference to https://github.com/Qubeship/bootstrap/blob/master/OPEN_SOURCE_README.md#github-configuration")
+      rm -rf $SCM_CONFIG_FILE
+      exit -1
+  fi
+done
+echo "Qubeship is successfull registered with github. Please proceed with the install step."
