@@ -169,7 +169,7 @@ function get_options() {
                  read_password=true
                  if [ -n "$2" ]; then
                     if [ "${2:0:2}" != "--" ]; then
-                        github_password=$2
+			github_password=$(printf %q $2)
                         unset read_password
                         shift
                     fi
@@ -178,6 +178,7 @@ function get_options() {
                 if [ $read_password ]; then
                     if [ -z "$github_password" ]; then
                         read -s -p "github password: " github_password
+			github_password=$(printf %q $github_password)
                     fi
                     if [ -z $github_password ];  then
                         printf 'ERROR: "--password" requires valid password\n' >&2
