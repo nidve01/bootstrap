@@ -1,10 +1,8 @@
 #!/bin/bash
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 cd $DIR
-set -o allexport
+set -o allexport +x
 source $DIR/qube_common_functions.sh
-set +x
-get_options $@
 eval $(get_options $@)
 if [ "$return_code" -eq 1 ]; then
     exit $return_code

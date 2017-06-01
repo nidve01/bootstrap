@@ -26,7 +26,7 @@ DOCKER_INSTALL_TYPE="docker-machine"
 if [ "$(uname)" == "Darwin" ]
 then
   is_osx=true
-  echo "DEBUG: detected OSX"
+  echo "DEBUG: detected OSX">&2
   if [ ! -z $(which base64) ]; then
         if [ ! -z $(docker info | grep -q moby) ]; then
            DOCKER_INSTALL_TYPE="mac"
@@ -34,24 +34,24 @@ then
         base64_bin="base64"
         base64_encode="$base64_bin"
         if [ ! -z "$(base64 --help | grep -i gnu )" ]; then
-            echo "DEBUG: found gnu base 64 "
+            echo "DEBUG: found gnu base 64 ">&2
             base64_decode_opts="-d"
         else
-            echo "DEBUG: found OSX base64"
+            echo "DEBUG: found OSX base64" >&2
             base64_decode_opts="-D"
         fi
         base64_decode="$base64_bin $base64_decode_opts"
   else
-     echo "ERROR : base64 utility not found. this is usually a standard for OSX . exiting"
+     echo "ERROR : base64 utility not found. this is usually a standard for OSX . exiting" >&2
      exit 1
   fi
 
 else
-  echo "DEBUG: detected linux"
+  echo "DEBUG: detected linux" >&2
   base64_encode="base64"
   base64_decode="base64 -d"
 fi
-echo "INFO: base64 utility : $base64_encode $base64_decode"
+echo "INFO: base64 utility : $base64_encode $base64_decode" >&2
 
 
 function show_help() {
@@ -93,12 +93,12 @@ exit 1
 
 function url_ready() {
   url="$1"
-  echo -n "Waiting for ${url} to become available."
+  echo -n "Waiting for ${url} to become available." >&2
   while [ ! "200" = "$(curl -sLiI -w "%{http_code}\\n" -o /dev/null ${url})" ]; do
-    echo -n '.'
+    echo -n '.' >&2
     sleep 1
   done
-  echo 'ready.'
+  echo 'ready.' >&2
 }
 
 function get_options() {
@@ -169,7 +169,7 @@ function get_options() {
                  read_password=true
                  if [ -n "$2" ]; then
                     if [ "${2:0:2}" != "--" ]; then
-                        github_password=$2
+			github_password=$(printf %q $2)
                         unset read_password
                         shift
                     fi
@@ -178,12 +178,13 @@ function get_options() {
                 if [ $read_password ]; then
                     if [ -z "$github_password" ]; then
                         read -s -p "github password: " github_password
+			github_password=$(printf %q $github_password)
                     fi
                     if [ -z $github_password ];  then
                         printf 'ERROR: "--password" requires valid password\n' >&2
                     fi
                 fi
-
+		echo "github_password=$github_password"
                 resolved_args="$resolved_args --password $github_password"
                ;;
             --install-registry)       # Takes an option argument, ensuring it has been specified.
@@ -220,7 +221,7 @@ function get_options() {
         shift
     done
     echo "return_code=0"
-
+    echo 'resolved_args="'$resolved_args'"'
 }
 
 function update_endpoint_target_data() {
