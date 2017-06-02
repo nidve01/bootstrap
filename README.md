@@ -25,7 +25,12 @@
  ```
    git version 2.11.0 (Apple Git-81)
 ```
-6. Register the Qubeship apps with your github using the <a href="https://github.com/Qubeship/bootstrap/blob/community_beta/README.md#github-configuration" target="_blank"> github configuration steps </a>
+6. Register the Qubeship apps with your github using the <a href="https://github.com/Qubeship/bootstrap/blob/community_beta/README.md#github-configuration" target="_blank"> github configuration manual steps </a>
+or 
+optionally run the below command for the automated script. Please fall back to manual steps in case of any error. 
+<pre>
+./register-qubeship.sh --username <i>github_username</i> --password [github_password] [--organization github_organization] [--github-host github_enterprise_url]
+</pre>
 
 7. The Internet connection: make sure that you can connect to the internet from within your corporate firewall. Qubeship uses Firebase, which requires internet connectivity.
 ----
@@ -286,4 +291,3 @@ You're done! Now you can use Qubeship to import your first project from your rep
    3. How to install Qubeship with Kubernetes?
    4. How to install Qubeship with a default Docker registry?
    5. How can I view services deployed by Qubeship to Minikube? 
-
