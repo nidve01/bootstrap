@@ -27,7 +27,7 @@
 ```
 6. Register the Qubeship apps with your github using the <a href="https://github.com/Qubeship/bootstrap/blob/community_beta/README.md#github-configuration" target="_blank"> github configuration steps </a>
 
-7. The Internet connection: make sure that you can connect to the internet from within your corporate firewall. Qubeship uses firebase, which requires internet connectivity.
+7. The Internet connection: make sure that you can connect to the internet from within your corporate firewall. Qubeship uses Firebase, which requires internet connectivity.
 ----
 
 ## Install
@@ -38,7 +38,7 @@ git clone https://github.com/Qubeship/bootstrap && cd bootstrap && git checkout 
 ```
 
 2. **Configuration** 
-   * **Beta Users**: copy the **beta.config** file to qubeship_home/config  (** this file will be a part of beta welcome kit email that you received from qubeship **)
+   * **Beta Users**: copy the **beta.config** file to qubeship_home/config  (** this file will be a part of Beta Welcome Kit email that you've received from Qubeship **)
    
    * **Community users**: create  scm.config file in qubeship_home/config. For instructions, please refer to: https://github.com/Qubeship/bootstrap/blob/master/OPEN_SOURCE_README.md
 
@@ -49,7 +49,7 @@ git clone https://github.com/Qubeship/bootstrap && cd bootstrap && git checkout 
 
 Note: if you are the **Github Enterprise** user, the argument <code>--github-host <i>github_enterprise_url</i></code> should be also passed to the script. Please refer to [Help](#help) for all available agruments.
 
-At the end of installation, you should see a message like this
+At the end of installation, you should see a message like this:
 ```
 Your Qubeship Installation is ready for use!!!!
 Here are some useful urls!!!!
@@ -58,21 +58,21 @@ You can use your GITHUB credentials to login !!!!
 APP: http://192.168.99.100:7000
 ```
 
-4. login to the qubeship app url, showed at the end of step 3.
+4. Login to Qubeship app using the url showed in the message you see when done with the step 3.
 
 
 ### Uninstall:
-1. If your release has errors, simply run the following from the qubeship release directory  
+1. If your release has errors, simply run the following command from the Qubeship release directory:  
     ./uninstall.sh —remove-minikube
 2. Restart the installation process
 
 ### Features:
 1. Github.com / Github Enterprise
-2. Registry support : Private Docker Registry, DockerHub, Quay.io
+2. Registry support: Private Docker Registry, DockerHub, Quay.io
 3. Deployment: Kubernetes, Minikube
-4. Default out of the box toolchains for python, java, gradle and go
-5. Default out of the box opinion for end to end build, test and deploy
-6. Sonar Qube
+4. Default out of the box toolchains for Python, Java, Gradle and Go
+5. Default out of the box opinion for an end to end build, test and deploy
+6. SonarQube
 
 ### Github Configuration 
 There are three primary interfaces to Qubeship.
