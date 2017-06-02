@@ -17,14 +17,17 @@
     docker ps -a 
     CONTAINER ID        IMAGE                                                             COMMAND                  CREATED             STATUS                  PORTS                                                                      NAMES
 ```
-5. Make sure you have git client installed on your machine. Run the below to verify same
+5. Git client has to be installed on your machine. Run the below command to verify:
 ```
    git --version
+```
+   You should see your Git version displayed back to you:
+ ```
    git version 2.11.0 (Apple Git-81)
 ```
-6. Register the qubeship apps with your github using the <a href="https://github.com/Qubeship/bootstrap/blob/community_beta/README.md#github-configuration" target="_blank"> github configuration steps </a>
+6. Register the Qubeship apps with your github using the <a href="https://github.com/Qubeship/bootstrap/blob/community_beta/README.md#github-configuration" target="_blank"> github configuration steps </a>
 
-7. Internet connection: make sure that you can connect to the internet from within your corporate firewall. Qubeship uses firebase, which requires internet connectivity.
+7. The Internet connection: make sure that you can connect to the internet from within your corporate firewall. Qubeship uses firebase, which requires internet connectivity.
 ----
 
 ## Install
