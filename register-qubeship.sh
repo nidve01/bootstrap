@@ -55,16 +55,13 @@ if [ -e $SCM_CONFIG_FILE ] ; then
   rm -rf $SCM_CONFIG_FILE
 fi
 
-QUBE_DOCKER_HOST=${DOCKER_HOST:-localhost}
+
 if [ -z $DOCKER_HOST ]; then
     echo "DOCKER_HOST is not defined. Please run again from docker terminal"
     exit -1
 fi
+QUBE_HOST=$(echo $DOCKER_HOST | awk '{ sub(/tcp:\/\//, ""); sub(/:.*/, ""); print $0}')
 
-QUBE_HOST=$(echo $QUBE_DOCKER_HOST | awk '{ sub(/tcp:\/\//, ""); sub(/:.*/, ""); print $0}')
-API_URL_BASE=http://$QUBE_HOST:$API_REGISTRY_PORT
-APP_URL=http://$QUBE_HOST:$APP_PORT
-BUILDER_URL=http://$QUBE_HOST:$QUBE_BUILDER_PORT
 
 docker-compose $files pull oauth_registrator
 docker-compose $files run oauth_registrator $resolved_args  2>/dev/null | grep -v "# " | awk '{gsub("\r","", $0);print}' > $SCM_CONFIG_FILE

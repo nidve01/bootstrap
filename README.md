@@ -29,6 +29,7 @@
 or 
 optionally run the below command for the automated script. Please fall back to manual steps in case of any error. 
 <pre>
+git clone https://github.com/Qubeship/bootstrap && cd bootstrap && git checkout community_beta 
 ./register-qubeship.sh --username <i>github_username</i> --password [github_password] [--organization github_organization] [--github-host github_enterprise_url]
 </pre>
 
@@ -37,7 +38,7 @@ optionally run the below command for the automated script. Please fall back to m
 
 ## Install
 
-1. Clone the repo: copy the following line into your terminal
+1. Download the qubeship installation scripts: copy the following line into your terminal
 ```
 git clone https://github.com/Qubeship/bootstrap && cd bootstrap && git checkout community_beta 
 ```
