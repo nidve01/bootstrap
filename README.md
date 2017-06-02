@@ -17,11 +17,15 @@
     docker ps -a 
     CONTAINER ID        IMAGE                                                             COMMAND                  CREATED             STATUS                  PORTS                                                                      NAMES
 ```
-5. Make sure you have git client installed on your machine. Run the below to verify same
+5. Git client has to be installed on your machine. Run the below command to verify:
 ```
    git --version
+```
+   You should see your Git version displayed back to you:
+ ```
    git version 2.11.0 (Apple Git-81)
 ```
+
 6. Register the qubeship apps with your github using the <a href="https://github.com/Qubeship/bootstrap/blob/US346719_oauthreg_timeout_inst/README.md#github-configuration" target="_blank"> github configuration steps </a>
   
   or 
@@ -31,8 +35,10 @@
 ./register-qubeship.sh --username <i>github_username</i> --password [github_password] [--organization github_organization] [--github-host github_enterprise_url]
 </pre>
 
-7. Internet connection: make sure that you can connect to the internet from within your corporate firewall. Qubeship uses firebase, which requires internet connectivity.
-----
+6. Register the Qubeship apps with your github using the <a href="https://github.com/Qubeship/bootstrap/blob/community_beta/README.md#github-configuration" target="_blank"> github configuration steps </a>
+
+7. The Internet connection: make sure that you can connect to the internet from within your corporate firewall. Qubeship uses Firebase, which requires internet connectivity.
+
 
 ## Install
 
@@ -42,7 +48,7 @@ git clone https://github.com/Qubeship/bootstrap && cd bootstrap && git checkout 
 ```
 
 2. **Configuration** 
-   * **Beta Users**: copy the **beta.config** file to qubeship_home/config  (** this file will be a part of beta welcome kit email that you received from qubeship **)
+   * **Beta Users**: copy the **beta.config** file to qubeship_home/config  (** this file will be a part of Beta Welcome Kit email that you've received from Qubeship **)
    
    * **Community users**: create  scm.config file in qubeship_home/config. For instructions, please refer to: https://github.com/Qubeship/bootstrap/blob/master/OPEN_SOURCE_README.md
 
@@ -53,7 +59,7 @@ git clone https://github.com/Qubeship/bootstrap && cd bootstrap && git checkout 
 
 Note: if you are the **Github Enterprise** user, the argument <code>--github-host <i>github_enterprise_url</i></code> should be also passed to the script. Please refer to [Help](#help) for all available agruments.
 
-At the end of installation, you should see a message like this
+At the end of installation, you should see a message like this:
 ```
 Your Qubeship Installation is ready for use!!!!
 Here are some useful urls!!!!
@@ -62,21 +68,25 @@ You can use your GITHUB credentials to login !!!!
 APP: http://192.168.99.100:7000
 ```
 
-4. login to the qubeship app url, showed at the end of step 3.
+4. Login to Qubeship app using the URL showed in the message you see when done with the step 3.
+```
+You can use your GITHUB credentials to login !!!!
+APP: http://192.168.99.100:7000
+```
 
 
 ### Uninstall:
-1. If your release has errors, simply run the following from the qubeship release directory  
+1. If your release has errors, simply run the following command from the Qubeship release directory:  
     ./uninstall.sh —remove-minikube
 2. Restart the installation process
 
 ### Features:
 1. Github.com / Github Enterprise
-2. Registry support : Private Docker Registry, DockerHub, Quay.io
+2. Registry support: Private Docker Registry, DockerHub, Quay.io
 3. Deployment: Kubernetes, Minikube
-4. Default out of the box toolchains for python, java, gradle and go
-5. Default out of the box opinion for end to end build, test and deploy
-6. Sonar Qube
+4. Default out of the box toolchains for Python, Java, Gradle and Go
+5. Default out of the box opinion for an end to end build, test and deploy
+6. SonarQube
 
 ### Github Configuration 
 There are three primary interfaces to Qubeship.
@@ -86,7 +96,7 @@ There are three primary interfaces to Qubeship.
  
 Qubeship manages authentication for all three interfaces through Github OAuth. This allows for single sign-on 
 through Github identity management. The first time you use Qubeship, register the above applications
-as an 0Auth application in GitHub. You only need to do this once. 
+as 0Auth applications in GitHub. You will only need to do this once. 
  
 To configure  <a href="https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/registering-oauth-apps/" target="_blank">OAuth applications</a>, enter the following information in GitHub OAuth:
 
@@ -98,7 +108,7 @@ To configure  <a href="https://developer.github.com/apps/building-integrations/s
     Description : Qubeship Builder
     call back URL: http://<docker-machine-ip>:8080/securityRealm/finishLogin
 ```
-Note: Run the below command to find the docker-machine-ip, if you have multiple pick the right docker machine ip.
+Note: Run the below command to find the docker-machine IP. If you have multiple IPs, make sure to provide the correct one.
 ```
  docker-machine ip
  192.168.99.100
@@ -202,13 +212,13 @@ e.  --install-sample-projects   install sample qubeship projects
 
 ```
 
-### Post Install - viewing services deployed to qubeship
-In order to view the services deployed via qubeship, you will have to take some special steps. This is necessary because the local kubernetes installation doesn't give access to services over standard endpoints. As a one time setup effort, you have to run this from the bootsrap directory.
+### Post Install - viewing services deployed to Qubeship
+You will need to take a few additional steps in order to view the services deployed via Qubeship. This is necessary because the local Kubernetes installation doesn't give access to the services over standard endpoints. As a one time setup effort, you have to run this from the bootsrap directory.
 ```
   qubeship_home/bin/kube-service-patch.sh
 ```
 Step 1: determine your service name:
-    this is the container prefix of your project.
+    this is the container prefix of your project
     `kubectl get services`
 ```
 NAME                             CLUSTER-IP   EXTERNAL-IP   PORT(S)          AGE
@@ -216,8 +226,7 @@ kubernetes                       10.0.0.1     <none>        443/TCP          3d
 qubefirstpythonproject-service   10.0.0.63    <none>        443/TCP,80/TCP   2h
 ```
 
-Step 2:
-use the access_qubeservice utilty to figure out your service url  
+Step 2: use the access_qubeservice utilty to figure out your service URL  
 ```
 qubeship_home/bin/access_qubeservice.sh qubefirstpythonproject-service /api
 qubefirstjavaproject-service
@@ -244,7 +253,7 @@ You're done! Now you can use Qubeship to import your first project from your rep
 
    1. I rebooted my machine and Qubeship stopped working, what should I do?
       
-      The best way to avoid this problem is to "Save State" in VirtualBox before rebooting and then "start" the VM again.
+      The best way to avoid this problem is to "Save State" in the VirtualBox before rebooting and then "start" the VM again.
 
       If you didn't do this, here are some more options:
       
@@ -258,7 +267,7 @@ You're done! Now you can use Qubeship to import your first project from your rep
     This can happen if you’ve converted from Docker for Mac to Docker Toolbox,
     or similar nonstandard situations. Your system thinks that your credentials are being stored on an 
     external credentials store such as native keychain of operating system (which is good, 
-    as it’s typically much more secure than storing it in docker configuration file),
+    as it’s typically much more secure than storing it in a docker configuration file),
     but it lacks the actual docker-credential-osxkeychain executable to make the connection. 
     You can confirm this by looking in your ~/.docker/config.json file for
     “credsStore”: “osxkeychain”
@@ -283,8 +292,8 @@ You're done! Now you can use Qubeship to import your first project from your rep
 
 
         
-   1. How do I install using Github Enterprise?
-   1. How to install Qubeship with Kubernetes?
-   1. How to install Qubeship with a default Docker registry?
-   1. How can I view services deployed by Qubeship to Minikube? 
+   2. How do I install using Github Enterprise?
+   3. How to install Qubeship with Kubernetes?
+   4. How to install Qubeship with a default Docker registry?
+   5. How can I view services deployed by Qubeship to Minikube? 
 
