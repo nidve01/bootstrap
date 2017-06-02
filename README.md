@@ -122,11 +122,11 @@ in the variables **GITHUB_BUILDER_CLIENTID** and **GITHUB_BUILDER_SECRET**
 Copy and paste the client id and secret into the qubeship_home/config/scm.config 
 in the variables **GITHUB_CLI_CLIENTID** and **GITHUB_CLI_SECRET**
 
-#### 3. GUI:  
+#### 3. APP:  
 ```
-    Client Name : qubeship-gui
+    Client Name : qubeship-app
     Home Page : https://qubeship.io
-    Description : Qubeship GUI client
+    Description : Qubeship GUI APP client
     call back URL:  http://<docker-machine-ip>:7000/api/v1/auth/callback?provider=github
 ```
 
