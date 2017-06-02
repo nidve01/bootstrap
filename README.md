@@ -58,7 +58,11 @@ You can use your GITHUB credentials to login !!!!
 APP: http://192.168.99.100:7000
 ```
 
-4. Login to Qubeship app using the url showed in the message you see when done with the step 3.
+4. Login to Qubeship app using the URL showed in the message you see when done with the step 3.
+```
+You can use your GITHUB credentials to login !!!!
+APP: http://192.168.99.100:7000
+```
 
 
 ### Uninstall:
@@ -82,7 +86,7 @@ There are three primary interfaces to Qubeship.
  
 Qubeship manages authentication for all three interfaces through Github OAuth. This allows for single sign-on 
 through Github identity management. The first time you use Qubeship, register the above applications
-as an 0Auth application in GitHub. You only need to do this once. 
+as 0Auth applications in GitHub. You will only need to do this once. 
  
 To configure  <a href="https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/registering-oauth-apps/" target="_blank">OAuth applications</a>, enter the following information in GitHub OAuth:
 
@@ -94,7 +98,7 @@ To configure  <a href="https://developer.github.com/apps/building-integrations/s
     Description : Qubeship Builder
     call back URL: http://<docker-machine-ip>:8080/securityRealm/finishLogin
 ```
-Note: Run the below command to find the docker-machine-ip, if you have multiple pick the right docker machine ip.
+Note: Run the below command to find the docker-machine IP. If you have multiple IPs, make sure to provide the correct one.
 ```
  docker-machine ip
  192.168.99.100
@@ -198,13 +202,13 @@ e.  --install-sample-projects   install sample qubeship projects
 
 ```
 
-### Post Install - viewing services deployed to qubeship
-In order to view the services deployed via qubeship, you will have to take some special steps. This is necessary because the local kubernetes installation doesn't give access to services over standard endpoints. As a one time setup effort, you have to run this from the bootsrap directory.
+### Post Install - viewing services deployed to Qubeship
+You will need to take a few additional steps in order to view the services deployed via Qubeship. This is necessary because the local Kubernetes installation doesn't give access to the services over standard endpoints. As a one time setup effort, you have to run this from the bootsrap directory.
 ```
   qubeship_home/bin/kube-service-patch.sh
 ```
 Step 1: determine your service name:
-    this is the container prefix of your project.
+    this is the container prefix of your project
     `kubectl get services`
 ```
 NAME                             CLUSTER-IP   EXTERNAL-IP   PORT(S)          AGE
@@ -212,8 +216,7 @@ kubernetes                       10.0.0.1     <none>        443/TCP          3d
 qubefirstpythonproject-service   10.0.0.63    <none>        443/TCP,80/TCP   2h
 ```
 
-Step 2:
-use the access_qubeservice utilty to figure out your service url  
+Step 2: use the access_qubeservice utilty to figure out your service URL  
 ```
 qubeship_home/bin/access_qubeservice.sh qubefirstpythonproject-service /api
 qubefirstjavaproject-service
@@ -240,7 +243,7 @@ You're done! Now you can use Qubeship to import your first project from your rep
 
    1. I rebooted my machine and Qubeship stopped working, what should I do?
       
-      The best way to avoid this problem is to "Save State" in VirtualBox before rebooting and then "start" the VM again.
+      The best way to avoid this problem is to "Save State" in the VirtualBox before rebooting and then "start" the VM again.
 
       If you didn't do this, here are some more options:
       
@@ -254,7 +257,7 @@ You're done! Now you can use Qubeship to import your first project from your rep
     This can happen if you’ve converted from Docker for Mac to Docker Toolbox,
     or similar nonstandard situations. Your system thinks that your credentials are being stored on an 
     external credentials store such as native keychain of operating system (which is good, 
-    as it’s typically much more secure than storing it in docker configuration file),
+    as it’s typically much more secure than storing it in a docker configuration file),
     but it lacks the actual docker-credential-osxkeychain executable to make the connection. 
     You can confirm this by looking in your ~/.docker/config.json file for
     “credsStore”: “osxkeychain”
@@ -279,8 +282,8 @@ You're done! Now you can use Qubeship to import your first project from your rep
 
 
         
-   1. How do I install using Github Enterprise?
-   1. How to install Qubeship with Kubernetes?
-   1. How to install Qubeship with a default Docker registry?
-   1. How can I view services deployed by Qubeship to Minikube? 
+   2. How do I install using Github Enterprise?
+   3. How to install Qubeship with Kubernetes?
+   4. How to install Qubeship with a default Docker registry?
+   5. How can I view services deployed by Qubeship to Minikube? 
 
