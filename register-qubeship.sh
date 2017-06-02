@@ -4,8 +4,8 @@ cd $DIR
 set -o allexport
 source $DIR/qube_common_functions.sh
 set +x
-get_options $@ > /dev/null 2>&1
-eval $(get_options $@)
+get_options $@ > /dev/null
+#eval $(get_options $@)
 if [ "$return_code" -eq 1 ]; then
     exit $return_code
 fi
@@ -19,53 +19,25 @@ if [ ! -z "$DOCKER_INSTALL_TYPE" ]; then
     fi
 fi
 source .env
-touch .client_env
 set -e
 if [ $verbose ]; then
     set -x
 fi
-export PATH=$PATH:$DIR/qubeship_home/bin
-SECONDS=0
-echo "install.sh: $( date ) : starting qubeship install"
 
+echo "register-qubeship.sh: $( date ) : starting registering qubeship with github"
 
 if [ -f $BETA_CONFIG_FILE ]; then
     echo "sourcing $BETA_CONFIG_FILE"
     source $BETA_CONFIG_FILE
 else
-    echo "INFO: running community edition"
-    if [ ! -f $SCM_CONFIG_FILE ]; then
-        echo "ERROR: $SCM_CONFIG_FILE not found. please create this file. refer to https://github.com/Qubeship/bootstrap/blob/master/OPEN_SOURCE_README.md"
-        exit -1
-    fi
-    for key in $(echo GITHUB_CLI_CLIENTID GITHUB_CLI_SECRET GITHUB_BUILDER_CLIENTID GITHUB_CLI_SECRET); do
-        value=${!key}
-        echo $key $value
-        if [ -z $value ]; then
-            echo "ERROR $key not defined in $SCM_CONFIG_FILE. refer to https://github.com/Qubeship/bootstrap/blob/master/OPEN_SOURCE_README.md"
-            exit -1
-        fi
-    done
-    source $SCM_CONFIG_FILE
-fi
-
-if [ $is_beta ];  then
-    docker login -u $BETA_ACCESS_USERNAME -p $BETA_ACCESS_TOKEN quay.io
-    if [ $? -ne 0 ]; then
-        echo "ERROR : failed to do docker login. please check your docker installation"
-        exit 1
-    fi
+    echo "ERROR: community edition is not supported"
+    exit -1
 fi
 
 if [ $auto_pull ] ; then
     docker-compose $files pull
 fi
 
-
-if [ -z "$(which curl)" ]; then
-    echo "ERROR: missing curl utility. please install and try again"
-    exit -1
-fi
 if [ -z "$github_username" ] ; then
     echo "ERROR: missing username"
     show_help
@@ -83,17 +55,16 @@ if [ -e $SCM_CONFIG_FILE ] ; then
   rm -rf $SCM_CONFIG_FILE
 fi
 
-echo $files
-echo $resolved_args
-
 docker-compose $files pull oauth_registrator
-docker-compose $files run oauth_registrator $resolved_args  2>/dev/null | grep -v "# " | awk '{gsub("\r","",$0);print}' > $SCM_CONFIG_FILE
+docker-compose $files run oauth_registrator $resolved_args  2>/dev/null | grep -v "# " | awk '{gsub("\r","", $0);print}' > $SCM_CONFIG_FILE
+source $SCM_CONFIG_FILE
 for key in $(echo GITHUB_CLI_CLIENTID GITHUB_CLI_SECRET GITHUB_BUILDER_CLIENTID GITHUB_CLI_SECRET); do
   value=${!key}
   if [ -z $value ]; then
-      (>&2 echo "There is some error registering with github. Please configure manually with reference to https://github.com/Qubeship/bootstrap/blob/master/OPEN_SOURCE_README.md#github-configuration")
+      cat $SCM_CONFIG_FILE
+      echo "There is an error registering with github. You may want to configure manually https://github.com/Qubeship/bootstrap/blob/community_beta/README.md#github-configuration"
       rm -rf $SCM_CONFIG_FILE
       exit -1
   fi
 done
-echo "Qubeship is successfull registered with github. Please proceed with the install step."
+echo "Qubeship is successfull registered with github. Please verify other pre-requisites and proceed with install https://github.com/Qubeship/bootstrap/blob/community_beta/README.md#install"
