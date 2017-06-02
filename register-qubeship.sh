@@ -55,6 +55,14 @@ if [ -e $SCM_CONFIG_FILE ] ; then
   rm -rf $SCM_CONFIG_FILE
 fi
 
+
+if [ -z $DOCKER_HOST ]; then
+    echo "DOCKER_HOST is not defined. Please run again from docker terminal"
+    exit -1
+fi
+QUBE_HOST=$(echo $DOCKER_HOST | awk '{ sub(/tcp:\/\//, ""); sub(/:.*/, ""); print $0}')
+
+
 docker-compose $files pull oauth_registrator
 docker-compose $files run oauth_registrator $resolved_args  2>/dev/null | grep -v "# " | awk '{gsub("\r","", $0);print}' > $SCM_CONFIG_FILE
 source $SCM_CONFIG_FILE
