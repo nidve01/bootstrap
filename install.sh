@@ -1,10 +1,9 @@
 #!/bin/bash
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 cd $DIR
-set -o allexport
+set -o allexport +x
 source $DIR/qube_common_functions.sh
-set +x
-get_options $@
+get_options $@ > /dev/null
 eval $(get_options $@)
 if [ "$return_code" -eq 1 ]; then
     exit $return_code
@@ -32,6 +31,20 @@ echo "install.sh: $( date ) : starting qubeship install"
 if [ -f $BETA_CONFIG_FILE ]; then
     echo "sourcing $BETA_CONFIG_FILE"
     source $BETA_CONFIG_FILE
+    if [ -f $SCM_CONFIG_FILE ] ; then
+        source $SCM_CONFIG_FILE
+        echo "Found a $SCM_CONFIG_FILE, proceeding with the file..."
+        for key in $(echo GITHUB_CLI_CLIENTID GITHUB_CLI_SECRET GITHUB_BUILDER_CLIENTID GITHUB_CLI_SECRET); do
+          value=${!key}
+          if [ -z $value ]; then
+              (>&2 echo "The pre-requisite to registering with github is not complete. Please follow pre-requisite step https://github.com/Qubeship/bootstrap/blob/community_beta/README.md#github-configuration")
+              exit -1
+          fi
+        done
+    else
+        echo "$SCM_CONFIG_FILE not found. Please follow pre-requisite step https://github.com/Qubeship/bootstrap/blob/community_beta/README.md#github-configuration"
+        exit -1
+    fi
 else
     echo "INFO: running community edition"
     if [ ! -f $SCM_CONFIG_FILE ]; then
