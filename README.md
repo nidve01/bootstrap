@@ -29,8 +29,8 @@
 or 
 optionally run the below command for the automated script. Please fall back to manual steps in case of any error. 
 <pre>
-git clone https://github.com/Qubeship/bootstrap && cd bootstrap && git checkout community_beta 
-./register-qubeship.sh --username <i>github_username</i> --password [github_password] [--organization github_organization] [--github-host github_enterprise_url]
+$ git clone https://github.com/Qubeship/bootstrap && cd bootstrap && git checkout community_beta 
+$ ./register-qubeship.sh --username <i>github_username</i> --password [github_password] [--organization github_organization] [--github-host github_enterprise_url]
 </pre>
 
 7. The Internet connection: make sure that you can connect to the internet from within your corporate firewall. Qubeship uses Firebase, which requires internet connectivity.
@@ -38,10 +38,11 @@ git clone https://github.com/Qubeship/bootstrap && cd bootstrap && git checkout 
 
 ## Install
 
-1. Download the qubeship installation scripts: copy the following line into your terminal
+1. Download the qubeship installation scripts, copy the following line into your terminal
 ```
 git clone https://github.com/Qubeship/bootstrap && cd bootstrap && git checkout community_beta 
 ```
+Note: skip this step if you have already downloaded to run pre-requisite ./register-qubeship.sh
 
 2. **Configuration** 
    * **Beta Users**: copy the **beta.config** file to qubeship_home/config  (** this file will be a part of Beta Welcome Kit email that you've received from Qubeship **)
@@ -73,7 +74,7 @@ APP: http://192.168.99.100:7000
 
 ### Uninstall:
 1. If your release has errors, simply run the following command from the Qubeship release directory:  
-    ./uninstall.sh —remove-minikube
+    ./uninstall.sh
 2. Restart the installation process
 
 ### Features:
@@ -177,35 +178,17 @@ SYSTEM_GITHUB_ORG=yourorgname
 1. ./install.sh --help
 ```
 /install.sh --help
-Usage: install.sh [-h|--help] [--verbose] [--username githubusername] [--password githubpassword]  [--organization orgname] [--github-host host ] [--install-registry] [--install-target target_cluster_type]  [--install-sample-projects]
+Usage: install.sh [-h|--help] [--verbose] [--username githubusername] [--password githubpassword]  [--organization orgname] [--github-host host ]
     --username                  github username
     --password                  github password. password can be provided in command line. if not, qubeship will prompt for password
     --organization              default github organization
     --github-host               github host [ format: http(s)://hostname ]
-    --install-target            install a target endpoint of target_cluster_type [minikube, swarm] (**default true for beta users)
-    --install-registry          install a private docker registry endpoint (**default true for beta users))
-    --install-sample-projects   install sample qubeship projects
     --verbose                   verbose mode.
     --auto-pull                 automatic pull of docker images from qubeship
 
 a. --organization :             the name of the Github organization of which Qubeship gives the admin access to every member. by default, Qubeship will give admin access to only you.
 b. --github-host:               if is not supplied, Qubeship will default the SCM to https://github.com. it should only be of the pattern https://hostname.
                                 DO NOT specify context path. Qubeship will automatically remove the trailing slashes if specified
-c. --install-registry :         if you want to register  a default registry on installation , set to true.
-                                Community Users:
-                                    Qubeship will expect  the registry details to be provided by user in  qubeship_home/endpoints/registry.config
-                                    Please refer to qubeship_home/endpoints/registry.config.template for example.
-                                BETA Users:
-                                    this is done automatically. no action required
-d. --install-target :           if you want to register  a default target endpoint for deployment , set value to one of the supported cluster types
-                                supported cluster values are : ["minikube"]
-                                Community Users:
-                                    Qubeship will expect  the kubernetes config details to be provided by user in qubeship_home/endpoints/kube.config
-                                    Please refer to qubeship_home/endpoints/kube.config.template for example.
-                                BETA Users:
-                                    this is done automatically.
-e.  --install-sample-projects   install sample qubeship projects
-
 ```
 
 ### Post Install - viewing services deployed to Qubeship
