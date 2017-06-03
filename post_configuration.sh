@@ -74,54 +74,10 @@ if [ $verbose ]; then
 fi
 
 $DIR/run.sh
-if [ $is_beta ];  then
-    if [ "$install_target_cluster" == "true" ]; then
-        if [ $target_cluster_type == "minikube" ]; then
-            echo "provisioning minikube"
-            ./provision_minikube.sh
-         fi
-    fi
-fi
-if [ "$install_registry" == "true" ];  then
-    if [ -e $REGISTRY_CONFIG_FILE ]; then
-        source $REGISTRY_CONFIG_FILE
-        registry_endpoint_id=58edb422238503000b74d7a6
-        registry_endpoint_url=$registry_url
-        echo "updating registry"
-        # update_endpoint_target_data $registry_endpoint_id $registry_endpoint_url
-        endpoint_addl_info='{"account":"'${registry_prefix}'"}'
-        qube endpoints update --endpoint-id $registry_endpoint_id --endpoint-url $registry_endpoint_url --additional-info $endpoint_addl_info --default --visibility=public
-        data='{"username":"'${registry_userid}'","password":"'${registry_password}'"}'
-        qube endpoints postcredential --endpoint-id $registry_endpoint_id \
-            --credential-type username_password \
-            --credential-data "${data}"
-        echo "endpoint for default registry created successfully"
-    fi
-else 
-	echo "INFO: Registry installation skipped"
-fi
-
-
-if [ "$install_target_cluster" == "true" ]; then
-    if [ -e $KUBE_CONFIG_FILE ]; then
-        source $KUBE_CONFIG_FILE
-        minikube_endpoint_id=58e3fad42a0603000b3e58a8
-        echo "updating endpoint database"
-        # update_endpoint_target_data $minikube_endpoint_id $kube_api_server
-        endpoint_addl_info='{"namespace":"'${kube_namespace}'"}'
-        qube endpoints update --endpoint-id $minikube_endpoint_id --endpoint-url $kube_api_server --additional-info $endpoint_addl_info --default --visibility=public
-        data='{"token":"'${kube_token}'"}'
-        qube endpoints postcredential --endpoint-id $minikube_endpoint_id \
-            --credential-type access_token \
-            --credential-data "${data}"
-        echo "endpoint for minikube registered successfully"
-    fi
-else
-	echo "INFO: Target cluster installlation skipped"
-fi
-
-
 set +x
+qube service postconfiguration
+
+echo "=================================================="
 echo "Your Qubeship Installation is ready for use!!!!"
 echo "Here are some useful urls!!!!"
 echo "API: $API_URL_BASE"
@@ -129,13 +85,4 @@ echo "You can use your GITHUB credentials to login !!!!"
 if [ ! -z $BETA_ACCESS_USERNAME ];  then
     echo "APP: $APP_URL"
 fi
-qube service postconfiguration
-
-if [ "$install_sample_projects" == "true" ] ; then
-    pguid=$(uuidgen)
-    jguid=$(uuidgen)
-    echo "creating python sample project"
-    qube service create --service-name "QubeFirstPythonProject" --repo-name "$pguid" --language=python
-    echo "creating java sample project"
-    qube service create --service-name "QubeFirstJavaProject" --repo-name "$jguid" --language=java
-fi
+echo "=================================================="
