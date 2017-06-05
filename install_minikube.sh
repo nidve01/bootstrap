@@ -33,35 +33,35 @@ else
     echo "DEBUG: kubectl already present"
 fi
 
-minikube_context=$(kubectl config get-contexts | grep minikube | awk '{print $2}')
+minikube_context=$(/usr/local/bin/kubectl config get-contexts | grep minikube | awk '{print $2}')
 if [ ! -z $minikube_context ] ; then
     echo "INFO: minikube already exists"
     kubectl config use-context minikube
 fi
 
 echo "INFO: confirming minikube is running"
-if [ $(kubectl config  current-context) != "minikube" ]; then
+if [ $(/usr/local/bin/kubectl config  current-context) != "minikube" ]; then
     echo "WARN: minikube context not found...attempting to start"
-    minikube start
+    /usr/local/bin/minikube start
 fi
 
-if [ $(kubectl config  current-context) != "minikube" ]; then
+if [ $(/usr/local/bin/kubectl config  current-context) != "minikube" ]; then
     echo "ERROR: minikube configuration failed. endpoint configuration may not be successful"
     exit 0
 fi
 
 get_minikube_status() {
-  vmstatus=$(minikube status | grep "minikubeVM:" | awk -F":" '{gsub(/ /,"",$2); print $2}' | tr '[:upper:]' '[:lower:]')
-  kubestatus=$(minikube status | grep "localkube:" | awk -F":" '{gsub(/ /,"",$2); print $2}' | tr '[:upper:]' '[:lower:]')
+  vmstatus=$(/usr/local/bin/minikube status | grep "minikubeVM:" | awk -F":" '{gsub(/ /,"",$2); print $2}' | tr '[:upper:]' '[:lower:]')
+  kubestatus=$(/usr/local/bin/minikube status | grep "localkube:" | awk -F":" '{gsub(/ /,"",$2); print $2}' | tr '[:upper:]' '[:lower:]')
 }
 
 get_minikube_status
 if [ \( "$vmstatus" != "running" \) -o  \( "$kubestatus" != "running" \) ]; then
-    minikube start
+    /usr/local/bin/minikube start
 else
     echo "DEBUG: minikube already running"
 fi
-minikube_ip=$(minikube ip)
+minikube_ip=$(/usr/local/bin/minikube ip)
 if [  "$minikube_ip" == "" ]; then
     echo "ERROR: unable to identify minikube ip. endpoint configuration may not be successful"
     exit 0
