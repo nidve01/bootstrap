@@ -25,31 +25,29 @@
  ```
    git version 2.11.0 (Apple Git-81)
 ```
-6. Register the Qubeship apps with your github using the <a href="https://github.com/Qubeship/bootstrap/blob/community_beta/README.md#github-configuration" target="_blank"> github configuration manual steps </a>
-or 
-optionally run the below command for the automated script. Please fall back to manual steps in case of any error. 
+
+6. Download the qubeship installation scripts, copy the following line into your terminal
+```
+git clone https://github.com/Qubeship/bootstrap && cd bootstrap && git checkout community_beta 
+```
+
+7. **Configuration** 
+   * **Beta Users**: copy the **beta.config** file to qubeship_home/config  (** this file will be a part of Beta Welcome Kit email that you've received from Qubeship **)
+   
+   * **Community users**: create  scm.config file in qubeship_home/config. For instructions, please refer to: https://github.com/Qubeship/bootstrap/blob/master/OPEN_SOURCE_README.md
+   
+8. Register the Qubeship apps with your github using the <a href="https://github.com/Qubeship/bootstrap/blob/community_beta/README.md#github-configuration" target="_blank"> github configuration manual steps </a> or optionally run the below command for the automated script. Please fall back to manual steps in case of any error. 
 <pre>
 $ git clone https://github.com/Qubeship/bootstrap && cd bootstrap && git checkout community_beta 
 $ ./register-qubeship.sh --username <i>github_username</i> --password [github_password] [--organization github_organization] [--github-host github_enterprise_url]
 </pre>
 
-7. The Internet connection: make sure that you can connect to the internet from within your corporate firewall. Qubeship uses Firebase, which requires internet connectivity.
+9. The Internet connection: make sure that you can connect to the internet from within your corporate firewall. Qubeship uses Firebase, which requires internet connectivity.
 ----
 
 ## Install
 
-1. Download the qubeship installation scripts, copy the following line into your terminal
-```
-git clone https://github.com/Qubeship/bootstrap && cd bootstrap && git checkout community_beta 
-```
-Note: skip this step if you have already downloaded to run pre-requisite ./register-qubeship.sh
-
-2. **Configuration** 
-   * **Beta Users**: copy the **beta.config** file to qubeship_home/config  (** this file will be a part of Beta Welcome Kit email that you've received from Qubeship **)
-   
-   * **Community users**: create  scm.config file in qubeship_home/config. For instructions, please refer to: https://github.com/Qubeship/bootstrap/blob/master/OPEN_SOURCE_README.md
-
-3.  Run the install script
+1.  Run the install script
 <pre>
 ./install.sh --username <i>github_username</i> --password [github_password] [--organization github_organization] [--github-host github_enterprise_url]
 </pre>
@@ -65,7 +63,7 @@ You can use your GITHUB credentials to login !!!!
 APP: http://192.168.99.100:7000
 ```
 
-4. Login to Qubeship app using the URL showed in the message you see when done with the step 3.
+2. Login to Qubeship app using the URL showed in the message you see when done with the step 3.
 ```
 You can use your GITHUB credentials to login !!!!
 APP: http://192.168.99.100:7000
