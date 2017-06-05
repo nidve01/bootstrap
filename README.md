@@ -14,21 +14,18 @@
 4. **_A valid and running Docker Host._**
    You should be able to run the following command and get a valid output:
 ```
-    docker ps -a 
+    $ docker ps -a 
     CONTAINER ID        IMAGE                                                             COMMAND                  CREATED             STATUS                  PORTS                                                                      NAMES
 ```
-5. Git client has to be installed on your machine. Run the below command to verify:
+5. Git client has to be installed on your machine. Run the below command to verify, you should see your Git version displayed back to you:
 ```
-   git --version
-```
-   You should see your Git version displayed back to you:
- ```
+   $ git --version
    git version 2.11.0 (Apple Git-81)
 ```
 
 6. Download the qubeship installation scripts, copy the following line into your terminal
 ```
-git clone https://github.com/Qubeship/bootstrap && cd bootstrap && git checkout community_beta 
+$ git clone https://github.com/Qubeship/bootstrap && cd bootstrap && git checkout community_beta 
 ```
 
 7. **Configuration** 
@@ -37,8 +34,7 @@ git clone https://github.com/Qubeship/bootstrap && cd bootstrap && git checkout 
    * **Community users**: create  scm.config file in qubeship_home/config. For instructions, please refer to: https://github.com/Qubeship/bootstrap/blob/master/OPEN_SOURCE_README.md
    
 8. Register the Qubeship apps with your github using the <a href="https://github.com/Qubeship/bootstrap/blob/community_beta/README.md#github-configuration" target="_blank"> github configuration manual steps </a> or optionally run the below command for the automated script. Please fall back to manual steps in case of any error. 
-<pre>
-$ git clone https://github.com/Qubeship/bootstrap && cd bootstrap && git checkout community_beta 
+<pre> 
 $ ./register-qubeship.sh --username <i>github_username</i> --password [github_password] [--organization github_organization] [--github-host github_enterprise_url]
 </pre>
 
@@ -49,7 +45,7 @@ $ ./register-qubeship.sh --username <i>github_username</i> --password [github_pa
 
 1.  Run the install script
 <pre>
-./install.sh --username <i>github_username</i> --password [github_password] [--organization github_organization] [--github-host github_enterprise_url]
+$ ./install.sh --username <i>github_username</i> --password [github_password] [--organization github_organization] [--github-host github_enterprise_url]
 </pre>
 
 Note: if you are the **Github Enterprise** user, the argument <code>--github-host <i>github_enterprise_url</i></code> should be also passed to the script. Please refer to [Help](#help) for all available agruments.
@@ -71,8 +67,10 @@ APP: http://192.168.99.100:7000
 
 
 ### Uninstall:
-1. If your release has errors, simply run the following command from the Qubeship release directory:  
-    ./uninstall.sh
+1. If your release has errors, simply run the following command from the Qubeship release directory:
+```
+   $ ./uninstall.sh
+```
 2. Restart the installation process
 
 ### Features:
