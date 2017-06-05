@@ -19,6 +19,7 @@ if [ ! -z "$DOCKER_INSTALL_TYPE" ]; then
     fi
 fi
 source .env
+touch .client_env
 set -e
 if [ $verbose ]; then
     set -x
