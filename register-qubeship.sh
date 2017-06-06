@@ -36,7 +36,7 @@ else
 fi
 
 if [ $is_beta ];  then
-    echo "docker login"
+    echo "login to Qubeship docker registry"
     docker login -u $BETA_ACCESS_USERNAME -p $BETA_ACCESS_TOKEN quay.io
     if [ $? -ne 0 ]; then
         echo "ERROR : failed to do docker login. please check your docker installation"
