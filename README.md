@@ -266,6 +266,26 @@ You're done! Now you can use Qubeship to import your first project from your rep
 
     Again, we highly recommend that you try for option ‘a’ as it’s definitely the most secure way to go.
 
+1. Installation failed due to the login failure.
+
+    1. If the error message was:
+    
+        <pre>Error response from daemon: Get https://quay.io/v2/: unauthorized: Could not find robot with username: qubeship+test and supplied password.</pre>
+
+       Open the `qubeship_home/config/beta.config` with Vim in binary mode:  
+       `vim -b qubeship_home/config/beta.config`  
+       and make sure the file DOES NOT have ANY trailing `^M` characters.
+
+    1. If the error message was:
+
+        <pre>Get https://registry-1.docker.io/v2/library/ruby/manifests/2.3: unauthorized: incorrect username or password</pre>
+
+       Run  
+       `set -o allexport; source qubeship_home/config/beta.config; docker login -u $BETA_ACCESS_USERNAME -p $BETA_ACCESS_TOKEN quay.io`  
+       to see if the command works. If not, backup the existing docker config.json file, delete it, and re-run the command:
+       
+       <pre>mv ~/.docker/config.json ~/.docker/config.json.bck</pre>
+
 1. How do I install using Github Enterprise?
    
 1. How to install Qubeship with Kubernetes?
