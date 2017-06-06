@@ -1,4 +1,4 @@
-# bootstrap
+# Bootstrap
 1. Clone the repo
 ```
     git clone https://github.com/Qubeship/bootstrap
@@ -22,7 +22,7 @@
    ./post_configuration.sh 
 ```
 
-6. Use Qubeship.
+6. Use Qubeship
 ```
   
 ```
