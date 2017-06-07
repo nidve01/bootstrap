@@ -60,7 +60,7 @@ Endpoint namespace    :  default
 Endpoint default token:  xxxxxxxxxxxxxxxxxx
 ```
 
-### Target Endpoint
+#### Target Endpoint
 
 The target endpoint is used to deploy your built project containers to the target environment (E.g. QA/Sandbox etc)
 
@@ -87,7 +87,7 @@ The registry endpoint is used to push your project image to this registry and ca
 
 Please <a href="https://hub.docker.com/" target="new">signup</a> with docker hub for an account. Use the docker hub login info to create registry endpoint in qubeship
 
-### Registry Endpoint
+#### Registry Endpoint
 
 Open the qubeship app http://192.168.99.100:7000 (refer to the installation success message for APP url)
 1. Login to app with your github credentials
