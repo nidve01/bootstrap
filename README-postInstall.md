@@ -68,15 +68,15 @@ Open the qubeship app http://192.168.99.100:7000 (refer to the installation succ
 3. Enter the below details and save
 ```
 Name: "MinikubeSandbox"
-URL: https://192.168.99.101:8443 (refer to above output value Endpoint IP address)
+URL: https://xxx.xxx.xx.xxx:xxxx (refer to minikube_registration_info.sh console output for 'Endpoint IP address')
 Type: Target
 Provider: Kubernetes
 AdditionalInfo:
 {
-    "namespace": "default" (refer to above output value Endpoint namespace)
+    "namespace": "xxxxx" (refer to minikube_registration_info.sh console output for 'Endpoint namespace')
 }
 Credential Type: Access Token
-Token: xxxxxxxxxxx (refer to above output value Endpoint default token)
+Token: xxxxxxxxxxx (refer to minikube_registration_info.sh console output for 'Endpoint default token')
 Enable checkbox [x] Set as default when adding projects
 ```
 
@@ -128,4 +128,16 @@ Note:
 2. If your project use any custom scripts, you may have to modify the opinion (and/or) toolchain manifest
 
 Now open the qubeship app http://192.168.99.100:7000 (refer to the installation success message for APP URL) and follow the life cycle of the project build.
+
+Once your project is successfully built, you may verify the below things
+1. Your project image being pushed to your <a href="https://hub.docker.com/" target="new">docker hub account</a>
+2. Run the below commands to verify
+```
+$ /usr/local/bin/kubectl get services
+
+```
+```
+$ /usr/local/bin/kubectl get pods
+
+```
 
