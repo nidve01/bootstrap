@@ -122,7 +122,7 @@ Repo Branch: master
 Language: java/python
 Show Advanced Option v
 Opinion: Qubeship build-bake-deploy opinion
-Toolchain: you may leave blank
+Toolchain: you may leave blank (default toolchain will be assigned)
 Endpoint: MinikubeSandbox
 ```
 Note: 
