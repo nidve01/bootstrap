@@ -190,31 +190,7 @@ b. --github-host:               if is not supplied, Qubeship will default the SC
 ```
 
 ### Post Install - viewing services deployed to Qubeship
-You will need to take a few additional steps in order to view the services deployed via Qubeship. This is necessary because the local Kubernetes installation doesn't give access to the services over standard endpoints. As a one time setup effort, you have to run this from the bootsrap directory.
-```
-  qubeship_home/bin/kube-service-patch.sh
-```
-Step 1: determine your service name:
-    this is the container prefix of your project
-    `kubectl get services`
-```
-NAME                             CLUSTER-IP   EXTERNAL-IP   PORT(S)          AGE
-kubernetes                       10.0.0.1     <none>        443/TCP          3d
-qubefirstpythonproject-service   10.0.0.63    <none>        443/TCP,80/TCP   2h
-```
-
-Step 2: use the access_qubeservice utilty to figure out your service URL  
-```
-qubeship_home/bin/access_qubeservice.sh qubefirstpythonproject-service /api
-qubefirstjavaproject-service
-IP address of the qubefirstjavaproject-service-service : 10.0.0.63 for api
-curl http://10.0.0.63/api
-{"api": "hello world"}
-```   
-
-Step 3: 
-You're done! Now you can use Qubeship to import your first project from your repo.  [Use our handy web app to do this](http://qubeship.nickelled.com/welcome) or if you prefer, [use our command-line interface](http://qubeship.io/docs)
-
+Congratulation, you have successfully installed qubeship. Now, it is time to try qubeship. Please follow the <a href="https://github.com/Qubeship/bootstrap/edit/community_beta/README-postinstall.md" post install instructions
 
 ### FAQ:
 1. How do I stop Qubeship services?
@@ -288,10 +264,3 @@ You're done! Now you can use Qubeship to import your first project from your rep
        
        <pre>mv ~/.docker/config.json ~/.docker/config.json.bck</pre>
 
-1. How do I install using Github Enterprise?
-   
-1. How to install Qubeship with Kubernetes?
-
-1. How to install Qubeship with a default Docker registry?
-   
-1. How can I view services deployed by Qubeship to Minikube? 
