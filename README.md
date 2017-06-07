@@ -33,12 +33,12 @@ $ git clone https://github.com/Qubeship/bootstrap && cd bootstrap && git checkou
    
    * **Community users**: create  scm.config file in qubeship_home/config. For instructions, please refer to: https://github.com/Qubeship/bootstrap/blob/master/OPEN_SOURCE_README.md
    
-8. Register the Qubeship with your GitHub account: run the below command for the automated script. 
+8. Register Qubeship with your GitHub account: run the below command for the automated script. 
 <pre> 
 $ ./register-qubeship.sh --username <i>github_username</i> --password [github_password] [--organization github_organization] [--github-host github_enterprise_url]
 </pre>
 
-In case of error, please use the <a href="https://github.com/Qubeship/bootstrap/blob/community_beta/README.md#github-configuration" target="_blank"> GitHub configuration manual steps </a> 
+Optional: you can use the <a href="https://github.com/Qubeship/bootstrap/blob/community_beta/README.md#github-configuration" target="_blank"> GitHub configuration manual steps </a> in case of an error.
 
 9. The Internet connection: make sure that you can connect to the internet from within your corporate firewall. Qubeship uses Firebase, which requires internet connectivity.
 ----
