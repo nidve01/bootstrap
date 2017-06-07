@@ -24,17 +24,15 @@ creating java sample project
     "version": "v2"
 }
 ```
-Note: The basic demo includes pushing images to registry and deploying to target endpoints.
+Note: The basic demo does not includes pushing images to registry and deploying to target endpoints.
 
-Open the qubeship app http://192.168.99.100:7000 (refer to the installation success message for APP url) and follow the life cycle of the project.
+Now open the qubeship app http://192.168.99.100:7000 (refer to the installation success message for APP URL) and follow the life cycle of the project build.
 
 ## Bring your own repo, registry & target
 
 ### Install minikube (target)
 
 <a href="https://kubernetes.io/docs/getting-started-guides/minikube/" target="_new">Minikube</a> is a tool that makes it easy to run Kubernetes locally. Minikube runs a single-node Kubernetes cluster inside a VM on your laptop for users looking to try out Kubernetes or develop with it day-to-day.
-
-Obtain the script install_minikube.sh and minikube_registration_info.sh (TBD)
 
 Make sure you have Virtual Box installed in your system. Run the below command to install Minikube on your system.
 ```
@@ -129,5 +127,5 @@ Note:
 1. If your project needs more advanced tools you may have to <a href="https://qubeship.io/docs/toolchains-ui/">create a new toolchain</a>
 2. If your project use any custom scripts, you may have to modify the opinion (and/or) toolchain manifest
 
-
+Now open the qubeship app http://192.168.99.100:7000 (refer to the installation success message for APP URL) and follow the life cycle of the project build.
 
