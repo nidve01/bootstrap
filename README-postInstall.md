@@ -6,6 +6,7 @@ Running the following creates sample projects for you to demo Qubeship capabilit
 
 ```
 $ ./demo-basic-builds.sh
+creating sample python project
 {
     "id": "5934354368e4c1c1001f054f3d",
     "project_id": "c66e99f5-28b6-47f7-9170-1f93b655102b",
@@ -14,7 +15,7 @@ $ ./demo-basic-builds.sh
     "service": "QubeFirstPythonProject",
     "version": "v2"
 }
-creating java sample project
+creating sample java project
 {
     "id": "59374f75e4c1c1001f054f3e",
     "project_id": "f7072490-40bb-4f9f-a6ee-d79fcf783666",
