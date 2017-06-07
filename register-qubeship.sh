@@ -44,10 +44,6 @@ if [ $is_beta ];  then
     fi
 fi
 
-if [ $auto_pull ] ; then
-    docker-compose $files pull
-fi
-
 if [ -z "$github_username" ] ; then
     echo "ERROR: missing username"
     show_help
