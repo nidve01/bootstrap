@@ -24,7 +24,7 @@ creating java sample project
     "version": "v2"
 }
 ```
-Note: Please be understand pushing images to registry and deployment to target endpoints are included in this basic demo
+Note: The basic demo includes pushing images to registry and deploying to target endpoints.
 
 Open the qubeship app http://192.168.99.100:7000 (refer to the installation success message for APP url) and follow the life cycle of the project.
 
@@ -66,7 +66,7 @@ The target endpoint is used to deploy your built project containers to the targe
 
 Open the qubeship app http://192.168.99.100:7000 (refer to the installation success message for APP url)
 1. Login to app with your github credentials
-2. Open the Menu --> Opinions --> New
+2. Open the Menu --> Endpoints --> New
 3. Enter the below details and save
 ```
 Name: "MinikubeSandbox"
@@ -91,7 +91,7 @@ Please <a href="https://hub.docker.com/" target="new">signup</a> with docker hub
 
 Open the qubeship app http://192.168.99.100:7000 (refer to the installation success message for APP url)
 1. Login to app with your github credentials
-2. Open the Menu --> Opinions --> New
+2. Open the Menu --> Endpoints --> New
 3. Enter the below details and save
 ```
 Name: "DockerHubRegistry"
