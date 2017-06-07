@@ -112,7 +112,8 @@ b. --github-host:               if is not supplied, Qubeship will default the SC
 ----
 
 ## Github Configuration
-**Note**: The following instructions opitional ONLY in case the automatic registration script fails.
+**Note**: The following instructions optional, follow ONLY in case the automatic registration script fails.
+
 There are three primary interfaces to Qubeship.
   * Qubeship GUI application - Qubeship user interface access
   * Qubeship CLI application - Qubeship command line access
