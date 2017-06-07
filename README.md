@@ -1,29 +1,29 @@
 # Install Qubeship Beta
 
 ## Prerequisites
-1. Docker Toolbox [https://www.docker.com/products/docker-toolbox] which includes the following items:
+1. **Docker Toolbox** [https://www.docker.com/products/docker-toolbox] which includes the following items:
 
    * Docker Runtime v1.11 and above
    * Docker-compose
    * Docker-machine
    
-   ** **_Note_** **: Qubeship currently supports "Docker Toolbox" on macOS. "Docker for Mac" and Linux will be supported soon.
+   ** **_Note_** **: Qubeship currently supports "Docker Toolbox" on MacOS. "Docker for Mac" and Linux will be supported soon.
 
-2. Text Editor
-3. Curl [download from the official site](https://curl.haxx.se/download.html#MacOSX)
+2. **Text Editor***
+3. **Curl** [download from the official site](https://curl.haxx.se/download.html#MacOSX)
 4. **_A valid and running Docker Host._**
    You should be able to run the following command and get a valid output:
 ```
     $ docker ps -a 
     CONTAINER ID        IMAGE                                                             COMMAND                  CREATED             STATUS                  PORTS                                                                      NAMES
 ```
-5. Git client has to be installed on your machine. Run the below command to verify, you should see your Git version displayed back to you:
+5. **Git client** has to be installed on your machine. Run the below command to verify, you should see your Git version displayed back to you:
 ```
    $ git --version
    git version 2.11.0 (Apple Git-81)
 ```
 
-6. Download the qubeship installation scripts, copy the following line into your terminal
+6. To **download Qubeship installation scripts**, copy the following line into your terminal:
 ```
 $ git clone https://github.com/Qubeship/bootstrap && cd bootstrap && git checkout community_beta 
 ```
