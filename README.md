@@ -83,7 +83,8 @@ APP: http://192.168.99.100:7000
 5. Default out of the box opinion for an end to end build, test and deploy
 6. SonarQube
 
-### Github Configuration 
+### Github Configuration (Optional)
+Use the following instructions ONLY in case the automatic registration script fails.
 There are three primary interfaces to Qubeship.
   * Qubeship GUI application - Qubeship user interface access
   * Qubeship CLI application - Qubeship command line access
