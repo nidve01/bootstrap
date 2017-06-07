@@ -9,7 +9,7 @@
    
    ** **_Note_** **: Qubeship currently supports "Docker Toolbox" on MacOS. "Docker for Mac" and Linux will be supported soon.
 
-2. **Text Editor***
+2. **Text Editor**
 3. **Curl** [download from the official site](https://curl.haxx.se/download.html#MacOSX)
 4. **_A valid and running Docker Host._**
    You should be able to run the following command and get a valid output:
