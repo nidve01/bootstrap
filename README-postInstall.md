@@ -30,19 +30,17 @@ Open the qubeship app http://192.168.99.100:7000 (refer to the installation succ
 
 ## Bring your own repo, registry & target
 
-### Install minikube
+### Install minikube (target)
 
 <a href="https://kubernetes.io/docs/getting-started-guides/minikube/" target="_new">Minikube</a> is a tool that makes it easy to run Kubernetes locally. Minikube runs a single-node Kubernetes cluster inside a VM on your laptop for users looking to try out Kubernetes or develop with it day-to-day.
 
 Obtain the script install_minikube.sh and minikube_registration_info.sh (TBD)
 
-Make sure you have Virtual Box installed in your system.
+Make sure you have Virtual Box installed in your system. Run the below command to install Minikube on your system.
 ```
 $ ./install_minikube.sh
 ```
-
-This will install Minikube on your system.
-To verify that Minikube is installed:
+Run below to verify  minikube is succesfully installed
 
 ```
   $ minikube status
@@ -50,10 +48,9 @@ To verify that Minikube is installed:
   localkube: Running
 ```
 
-You can also verify that Minikube is running by checking your Virtual Box,  a VM named "minikube" will be created and started.
+You can optionally verify minikube is running in your Virtual Box,  a VM named "minikube" will be created and started.
 
-
-### Minikube info
+Run the below command to see the information about your minikube environment, this will needed to create 'target' endpoints in qubeship
 ```
 $ ./minikube_registration_info.sh
 Endpoint registration information:
@@ -62,7 +59,6 @@ Endpoint IP address   :  https://192.168.99.101:8443
 Endpoint namespace    :  default
 Endpoint default token:  xxxxxxxxxxxxxxxxxx
 ```
-This information will be needed to create an 'target' endpoints in qubeship.
 
 ### Target Endpoint
 
@@ -73,7 +69,7 @@ Open the qubeship app http://192.168.99.100:7000 (refer to the installation succ
 2. Open the Menu --> Opinions --> New
 3. Enter the below details and save
 ```
-Name: "Minikubesandbox"
+Name: "MinikubeSandbox"
 URL: https://192.168.99.101:8443 (refer to above output value Endpoint IP address)
 Type: Target
 Provider: Kubernetes
@@ -86,10 +82,12 @@ Token: xxxxxxxxxxx (refer to above output value Endpoint default token)
 Enable checkbox [x] Set as default when adding projects
 ```
 
-### Registry Endpoint
-
+### Registry
 The registry endpoint is used to push your project image to this registry and can be later used to deploy target endpoint. 
+
 Please <a href="https://hub.docker.com/" target="new">signup</a> with docker hub for an account. Use the docker hub login info to create registry endpoint in qubeship
+
+### Registry Endpoint
 
 Open the qubeship app http://192.168.99.100:7000 (refer to the installation success message for APP url)
 1. Login to app with your github credentials
@@ -109,5 +107,27 @@ UserName: {dockerhub-username}
 Password: {dockerhub-password}
 Enable checkbox [x] Set as default when adding projects
 ```
+
+### Configure project
+Open the qubeship app http://192.168.99.100:7000 (refer to the installation success message for APP url)
+1. Login to app with your github credentials
+2. Open the Menu --> Project --> New
+3. Enter the below details and save
+
+Note: You may user your qubeship qualified project to configured below
+```
+Project Name: "MyCustomProject"
+Repo URL: https://github-enterpise.com/demouser/mycustomproject
+Repo Branch: master
+Language: java/python
+Show Advanced Option v
+Opinion: Qubeship build-bake-deploy opinion
+Toolchain: you may leave blank
+Endpoint: MinikubeSandbox
+```
+Note: 
+1. If your project needs more advanced tools you may have to <a href="https://qubeship.io/docs/toolchains-ui/">create a new toolchain</a>
+2. If your project use any custom scripts, you may have to modify the opinion (and/or) toolchain manifest
+
 
 
