@@ -74,7 +74,7 @@ APP: http://192.168.99.100:7000
 ## Post Install
 Congratulations, you have successfully installed qubeship.
 
-Now, it is time to try qubeship. Please follow the <a href="https://github.com/Qubeship/bootstrap/edit/community_beta/README-postinstall.md"> post install instructions </a>
+Now, it is time to try qubeship. Please follow the <a href="https://github.com/Qubeship/bootstrap/blob/community_beta/README-postInstall.md"> post install instructions </a>
 
 ----
 
@@ -111,7 +111,8 @@ b. --github-host:               if is not supplied, Qubeship will default the SC
 5. Default out of the box opinion for an end to end build, test and deploy
 ----
 
-## Github Configuration (Optional - use the following instructions ONLY in case the automatic registration script fails).
+## Github Configuration
+**Note**: The following instructions opitional ONLY in case the automatic registration script fails.
 There are three primary interfaces to Qubeship.
   * Qubeship GUI application - Qubeship user interface access
   * Qubeship CLI application - Qubeship command line access
