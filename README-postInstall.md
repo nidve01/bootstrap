@@ -131,13 +131,12 @@ Now open the qubeship app http://192.168.99.100:7000 (refer to the installation 
 
 Once your project is successfully built, you may verify the below things
 1. Your project image being pushed to your <a href="https://hub.docker.com/" target="new">docker hub account</a>
-2. Run the below commands to verify pods and service running in your minikube cluster
+2. Run the below commands to verify pods and service running in your minikube cluster with below
 ```
 $ /usr/local/bin/kubectl get services
-
+mycustomproject-service   10.0.0.247   <none>        443/TCP,80/TCP   2m
 ```
 ```
 $ /usr/local/bin/kubectl get pods
-
+mycustomproject-deployment-3538093953-jw22t   1/1       Running   0          1m
 ```
-
