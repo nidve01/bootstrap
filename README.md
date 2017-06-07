@@ -70,19 +70,22 @@ APP: http://192.168.99.100:7000
 You can use your GITHUB credentials to login !!!!
 APP: http://192.168.99.100:7000
 ```
-### Post Install
+----
+## Post Install
 Congratulations, you have successfully installed qubeship.
 
 Now, it is time to try qubeship. Please follow the <a href="https://github.com/Qubeship/bootstrap/edit/community_beta/README-postinstall.md"> post install instructions </a>
 
-### Uninstall:
+----
+
+## Uninstall:
 1. If your release has errors, simply run the following command from the Qubeship release directory:
 ```
    $ ./uninstall.sh
 ```
 2. Restart the <a href="https://github.com/Qubeship/bootstrap/blob/community_beta/README.md#install" target="_blank">installation process
-
-### Help
+----
+## Help
 
 1. ./install.sh --help
 ```
@@ -99,16 +102,16 @@ a. --organization :             the name of the Github organization of which Qub
 b. --github-host:               if is not supplied, Qubeship will default the SCM to https://github.com. it should only be of the pattern https://hostname.
                                 DO NOT specify context path. Qubeship will automatically remove the trailing slashes if specified
 ```
-
+----
 ## Features:
 1. Github.com / Github Enterprise
 2. Registry support: Private Docker Registry, DockerHub, Quay.io
 3. Deployment: Kubernetes, Minikube
 4. Default out of the box toolchains for Python, Java, Gradle and Go
 5. Default out of the box opinion for an end to end build, test and deploy
+----
 
-
-### Github Configuration (Optional - use the following instructions ONLY in case the automatic registration script fails).
+## Github Configuration (Optional - use the following instructions ONLY in case the automatic registration script fails).
 There are three primary interfaces to Qubeship.
   * Qubeship GUI application - Qubeship user interface access
   * Qubeship CLI application - Qubeship command line access
@@ -193,8 +196,8 @@ GITHUB_CLI_CLIENTID=34645675647578867867857857
 GITHUB_CLI_SECRET=3546543645756876868797897869
 SYSTEM_GITHUB_ORG=yourorgname
 ```
-
-### FAQ:
+----
+## FAQ:
 1. How do I stop Qubeship services?
 
     In the bootstrap folder, do a: `./down.sh`
