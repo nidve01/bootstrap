@@ -105,7 +105,7 @@ if [ -f $SCM_CONFIG_FILE ] ; then
     echo "Found a $SCM_CONFIG_FILE, proceeding with the file..."
     source $SCM_CONFIG_FILE
   else
-    echo "$SCM_CONFIG_FILE not found. Please follow pre-requisite step https://github.com/Qubeship/bootstrap/blob/community_beta/README.md#github-configuration"
+    echo "$SCM_CONFIG_FILE not found. Please follow pre-requisite step https://github.com/Qubeship/bootstrap/blob/community_beta/README-githubconfiguration.md"
     exit -1
 fi
 

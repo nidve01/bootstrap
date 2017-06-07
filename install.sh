@@ -37,12 +37,12 @@ if [ -f $BETA_CONFIG_FILE ]; then
         for key in $(echo GITHUB_CLI_CLIENTID GITHUB_CLI_SECRET GITHUB_BUILDER_CLIENTID GITHUB_CLI_SECRET); do
           value=${!key}
           if [ -z $value ]; then
-              (>&2 echo "The pre-requisite to registering with github is not complete. Please follow pre-requisite step https://github.com/Qubeship/bootstrap/blob/community_beta/README.md#github-configuration")
+              (>&2 echo "The pre-requisite to registering with github is not complete. Please follow pre-requisite step https://github.com/Qubeship/bootstrap/blob/community_beta/README-githubconfiguration.md")
               exit -1
           fi
         done
     else
-        echo "$SCM_CONFIG_FILE not found. Please follow pre-requisite step https://github.com/Qubeship/bootstrap/blob/community_beta/README.md#github-configuration"
+        echo "$SCM_CONFIG_FILE not found. Please follow pre-requisite step https://github.com/Qubeship/bootstrap/blob/community_beta/README-githubconfiguration.md"
         exit -1
     fi
 else

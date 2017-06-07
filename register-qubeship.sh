@@ -76,7 +76,7 @@ for key in $(echo GITHUB_CLI_CLIENTID GITHUB_CLI_SECRET GITHUB_BUILDER_CLIENTID 
   value=${!key}
   if [ -z $value ]; then
       cat $SCM_CONFIG_FILE
-      echo "There is an error registering with github. You may want to configure manually https://github.com/Qubeship/bootstrap/blob/community_beta/README.md#github-configuration"
+      echo "There is an error registering with github. You may want to configure manually https://github.com/Qubeship/bootstrap/blob/community_beta/README-githubconfiguration.md"
       rm -rf $SCM_CONFIG_FILE
       exit -1
   fi
