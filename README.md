@@ -7,7 +7,7 @@
    * Docker-compose
    * Docker-machine
    
-   ** **_Note_** **: Qubeship currently supports "Docker Toolbox" on MacOS. "Docker for Mac" and Linux will be supported soon.
+   ** **Note**: Qubeship currently supports "Docker Toolbox" only on MacOS. "Docker for Mac" and Linux will be supported soon.
 
 2. **Text Editor**
 3. **Curl** [download from the official site](https://curl.haxx.se/download.html#MacOSX)
@@ -35,8 +35,10 @@ $ git clone https://github.com/Qubeship/bootstrap && cd bootstrap && git checkou
    
 8. **Register Qubeship** with your GitHub account: run the following command for the automated script. 
 <pre> 
-$ ./register-qubeship.sh --username <i>github_username</i> --password [github_password] [--organization github_organization] [--github-host github_enterprise_url]
+$ ./register-qubeship.sh --username <i>github_username</i> --password [github_password] [--github-host github_enterprise_url] [--organization github_organization]
 </pre>
+
+**Note**: if you are the **Github Enterprise** user, the argument <code>--github-host <i>github_enterprise_url</i></code> should be also passed to the script. Please refer to [Help](#help) for all available agruments.
 
 Optional: you can use the <a href="https://github.com/Qubeship/bootstrap/blob/community_beta/README.md#github-configuration" target="_blank"> GitHub configuration manual steps </a> in case of an error.
 
@@ -45,12 +47,12 @@ Optional: you can use the <a href="https://github.com/Qubeship/bootstrap/blob/co
 
 ## Install
 
-1.  Run the install script
+1.  **Run** the install script
 <pre>
-$ ./install.sh --username <i>github_username</i> --password [github_password] [--organization github_organization] [--github-host github_enterprise_url]
+$ ./install.sh --username <i>github_username</i> --password [github_password] [--github-host github_enterprise_url]  [--organization github_organization]
 </pre>
 
-Note: if you are the **Github Enterprise** user, the argument <code>--github-host <i>github_enterprise_url</i></code> should be also passed to the script. Please refer to [Help](#help) for all available agruments.
+Note: if you are the **Github Enterprise** user, the argument <code>--github-host <i>github_enterprise_url</i></code> should be also passed to the script. Please refer to [Help](#help) for all available arguments.
 
 At the end of installation, you should see a message like this:
 ```
@@ -63,7 +65,7 @@ APP: http://192.168.99.100:7000
 ===================================================
 ```
 
-2. Login to Qubeship app using the URL showed in the message you see when done with the step 3.
+2. **Login** to Qubeship app using the URL showed in the message you see when done with the step 3.
 ```
 You can use your GITHUB credentials to login !!!!
 APP: http://192.168.99.100:7000
@@ -78,14 +80,14 @@ Now, it is time to try qubeship. Please follow the <a href="https://github.com/Q
 ```
    $ ./uninstall.sh
 ```
-2. Restart the  <a href="https://github.com/Qubeship/bootstrap/blob/community_beta/README.md#install" target="_blank">installation process
+2. Restart the <a href="https://github.com/Qubeship/bootstrap/blob/community_beta/README.md#install" target="_blank">installation process
 
 ### Help
 
 1. ./install.sh --help
 ```
 /install.sh --help
-Usage: install.sh [-h|--help] [--verbose] --username githubusername --password [githubpassword]  [--organization orgname] [--github-host host]
+Usage: install.sh [-h|--help] [--verbose] --username githubusername --password [githubpassword] [--github-host host] [--organization orgname]
     --username                  github username
     --password                  github password. password can be provided in command line. if not, qubeship will prompt for password
     --organization              default github organization
@@ -98,7 +100,7 @@ b. --github-host:               if is not supplied, Qubeship will default the SC
                                 DO NOT specify context path. Qubeship will automatically remove the trailing slashes if specified
 ```
 
-### Features:
+## Features:
 1. Github.com / Github Enterprise
 2. Registry support: Private Docker Registry, DockerHub, Quay.io
 3. Deployment: Kubernetes, Minikube
