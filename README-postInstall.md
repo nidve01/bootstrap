@@ -24,7 +24,7 @@ creating java sample project
     "version": "v2"
 }
 ```
-Note: Please be understand pushing images to registry and deployment to target endpoints are included in this demo
+Note: Please be understand pushing images to registry and deployment to target endpoints are included in this basic demo
 
 Open the qubeship app http://192.168.99.100:7000 (refer to the installation success message for APP url) and follow the life cycle of the project.
 
