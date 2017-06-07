@@ -2,7 +2,7 @@
 
 ## Basic Capabilities Demo 
 
-Running the following allows you to watch a quick demo of Qubeship capabilities by creating sample projects. You will be able to monitor the builds of those projects with a basic opinion (build only).
+Running the following creates sample projects for you to demo Qubeship capabilities. You will be able to monitor the builds of those projects with a basic opinion (build only).
 
 ```
 $ ./demo-basic-builds.sh
@@ -24,9 +24,9 @@ creating java sample project
     "version": "v2"
 }
 ```
-Note: The basic demo does not includes pushing images to registry and deploying to target endpoints.
+Note: This basic demo does not includes pushing images to registry and deploying to target endpoints.
 
-Now open the qubeship app http://192.168.99.100:7000 (refer to the installation success message for APP URL) and follow the life cycle of the project build.
+Now open the Qubeship app http://192.168.99.100:7000 (please refer to the installation success message for your APP URL, as it may differ from the default) and follow the project build.
 
 ## Bring your own repo, registry & target
 
