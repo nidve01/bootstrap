@@ -1,5 +1,5 @@
 # Github Configuration
-**Note**: The following instructions optional, follow ONLY in case the automatic registration script fails.
+**Note**: The following instructions are optional, follow ONLY in case the automatic registration script fails.
 
 There are three primary interfaces to Qubeship.
   * Qubeship GUI application - Qubeship user interface access
@@ -52,14 +52,14 @@ in the variables **GITHUB_GUI_CLIENTID** and **GITHUB_GUI_SECRET**
 ### Other Configuration Entries
 
 #### 4. GITHUB_ENTERPRISE_HOST:
-This is the Github entrerprise instance url to be used with qubeship. Qubeship will use this system as the defacto identity manager for Qubeship authentication , as well as use this for pulling the source code for builds. if this is left blank, the GITHUB_ENTERPRISE_HOST will be defaulted to https://github.com
+This is the Github entrerprise instance url to be used with qubeship. Qubeship will use this system as the defacto identity manager for Qubeship authentication, as well as use this for pulling the source code for builds. If this is left blank, the GITHUB_ENTERPRISE_HOST will be defaulted to https://github.com
 Qubeship currently supports only http(s):// . SSH is in pipeline. 
 
 ```
 GITHUB_ENTERPRISE_HOST  =   # no trailing slashes , only schema://hostname
 ```
 #### 5. SYSTEM_GITHUB_ORG:  
-This denotes the default system  organization for Qubeship. All users with membership to this org will be considered admin users for that Qubeship instance.   
+This denotes the default system organization for Qubeship. All users with membership to this org will be considered admin users for that Qubeship instance.   
 ![Example](https://raw.githubusercontent.com/Qubeship/bootstrap/master/GithubORG.png)   
 
 ```
