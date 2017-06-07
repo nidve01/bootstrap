@@ -1,8 +1,8 @@
 # Post Install Qubeship Beta
 
-## Basic Demo 
+## Basic Capabilities Demo 
 
-You may see a quick qubeship demo with auto creating sample projects with qubeship and monitor the builds with basic opinion (build only).
+Running the following allows you to watch a quick demo of Qubeship capabilities by creating sample projects. You will be able to monitor the builds of those projects with a basic opinion (build only).
 
 ```
 $ ./demo-basic-builds.sh
