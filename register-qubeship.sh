@@ -35,8 +35,13 @@ else
     exit -1
 fi
 
-if [ $auto_pull ] ; then
-    docker-compose $files pull
+if [ $is_beta ];  then
+    echo "login to Qubeship docker registry"
+    docker login -u $BETA_ACCESS_USERNAME -p $BETA_ACCESS_TOKEN quay.io
+    if [ $? -ne 0 ]; then
+        echo "ERROR : failed to do docker login. please check your docker installation"
+        exit 1
+    fi
 fi
 
 if [ -z "$github_username" ] ; then
