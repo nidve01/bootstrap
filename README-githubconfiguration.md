@@ -85,4 +85,6 @@ GITHUB_CLI_CLIENTID=34645675647578867867857857
 GITHUB_CLI_SECRET=3546543645756876868797897869
 SYSTEM_GITHUB_ORG=yourorgname
 ```
+You are good to go, go back to your <a href="https://github.com/Qubeship/bootstrap/blob/community_beta/README.md#install"/> installation instructions </a> and proceed now
+
 ----
