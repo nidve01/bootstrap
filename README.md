@@ -1,7 +1,7 @@
 # Install Qubeship Beta
 
 ## Prerequisites
-1. **Docker Toolbox** [https://www.docker.com/products/docker-toolbox] which includes the following items:
+1. Download and install <a href="https://www.docker.com/products/docker-toolbox">**Docker Toolbox**</a> which includes the following items:
 
    * Docker Runtime v1.11 and above
    * Docker-compose
@@ -54,11 +54,13 @@ Note: if you are the **Github Enterprise** user, the argument <code>--github-hos
 
 At the end of installation, you should see a message like this:
 ```
+==================================================
 Your Qubeship Installation is ready for use!!!!
 Here are some useful urls!!!!
 API: http://192.168.99.100:9080
 You can use your GITHUB credentials to login !!!!
 APP: http://192.168.99.100:7000
+===================================================
 ```
 
 2. Login to Qubeship app using the URL showed in the message you see when done with the step 3.
@@ -66,14 +68,35 @@ APP: http://192.168.99.100:7000
 You can use your GITHUB credentials to login !!!!
 APP: http://192.168.99.100:7000
 ```
+### Post Install
+Congratulations, you have successfully installed qubeship.
 
+Now, it is time to try qubeship. Please follow the <a href="https://github.com/Qubeship/bootstrap/edit/community_beta/README-postinstall.md"> post install instructions </a>
 
 ### Uninstall:
 1. If your release has errors, simply run the following command from the Qubeship release directory:
 ```
    $ ./uninstall.sh
 ```
-2. Restart the installation process
+2. Restart the  <a href="https://github.com/Qubeship/bootstrap/blob/community_beta/README.md#install" target="_blank">installation process
+
+### Help
+
+1. ./install.sh --help
+```
+/install.sh --help
+Usage: install.sh [-h|--help] [--verbose] --username githubusername --password [githubpassword]  [--organization orgname] [--github-host host]
+    --username                  github username
+    --password                  github password. password can be provided in command line. if not, qubeship will prompt for password
+    --organization              default github organization
+    --github-host               github host [ format: http(s)://hostname ]
+    --verbose                   verbose mode.
+    --auto-pull                 automatic pull of docker images from qubeship
+
+a. --organization :             the name of the Github organization of which Qubeship gives the admin access to every member. by default, Qubeship will give admin access to only you.
+b. --github-host:               if is not supplied, Qubeship will default the SCM to https://github.com. it should only be of the pattern https://hostname.
+                                DO NOT specify context path. Qubeship will automatically remove the trailing slashes if specified
+```
 
 ### Features:
 1. Github.com / Github Enterprise
@@ -81,7 +104,7 @@ APP: http://192.168.99.100:7000
 3. Deployment: Kubernetes, Minikube
 4. Default out of the box toolchains for Python, Java, Gradle and Go
 5. Default out of the box opinion for an end to end build, test and deploy
-6. SonarQube
+
 
 ### Github Configuration (Optional - use the following instructions ONLY in case the automatic registration script fails).
 There are three primary interfaces to Qubeship.
@@ -168,29 +191,6 @@ GITHUB_CLI_CLIENTID=34645675647578867867857857
 GITHUB_CLI_SECRET=3546543645756876868797897869
 SYSTEM_GITHUB_ORG=yourorgname
 ```
-
-
-
-### Help
-
-1. ./install.sh --help
-```
-/install.sh --help
-Usage: install.sh [-h|--help] [--verbose] [--username githubusername] [--password githubpassword]  [--organization orgname] [--github-host host ]
-    --username                  github username
-    --password                  github password. password can be provided in command line. if not, qubeship will prompt for password
-    --organization              default github organization
-    --github-host               github host [ format: http(s)://hostname ]
-    --verbose                   verbose mode.
-    --auto-pull                 automatic pull of docker images from qubeship
-
-a. --organization :             the name of the Github organization of which Qubeship gives the admin access to every member. by default, Qubeship will give admin access to only you.
-b. --github-host:               if is not supplied, Qubeship will default the SCM to https://github.com. it should only be of the pattern https://hostname.
-                                DO NOT specify context path. Qubeship will automatically remove the trailing slashes if specified
-```
-
-### Post Install - viewing services deployed to Qubeship
-Congratulation, you have successfully installed qubeship. Now, it is time to try qubeship. Please follow the <a href="https://github.com/Qubeship/bootstrap/edit/community_beta/README-postinstall.md" post install instructions
 
 ### FAQ:
 1. How do I stop Qubeship services?
