@@ -29,7 +29,7 @@ Note: This basic demo does not includes pushing images to a registry and deployi
 
 Now open the Qubeship app http://192.168.99.100:7000 (please refer to the installation success message for your APP URL, as it may differ from the shown default) and follow the project build.
 
-## Bring your own repo, registry & target
+## Bring Over Your Repo, Registry & Target
 
 ### Install Minikube (Do this if you will need a new target endpoint for your deployments)
 
