@@ -38,10 +38,10 @@ mac1234:bootstrap username$ pwd
 <pre> 
 mac1234:bootstrap user$ pwd 
 ~/bootstrap
-mac1234:bootstrap user$ ./register-qubeship.sh --username <i>github_username</i> --password --github-host github_enterprise_url
+mac1234:bootstrap user$ ./register-qubeship.sh --username <i>your_github_username</i> --password --github-host your_github_enterprise_url
 </pre>
 
-**Note**: if you are the **Github Enterprise** user, the argument <code>--github-host <i>github_enterprise_url</i></code> should be the github enterprise url. please make sure you have access to corporate network. Please refer to [Help](#help) for all other available agruments.
+**Note**: **Github Enterprise** users, connect to VPN and supply the argument <code>--github-host <i>your_github_enterprise_url</i></code> Please refer to [Help](#help) for all other available agruments.
 
 Optional: you can use the <a href="https://github.com/Qubeship/bootstrap/blob/community_beta/README-githubconfiguration.md" target="_blank"> GitHub configuration manual steps </a> in case of an error.
 
@@ -54,7 +54,7 @@ Optional: you can use the <a href="https://github.com/Qubeship/bootstrap/blob/co
 <pre>
 mac1234:bootstrap user$ pwd 
 ~/bootstrap
-mac1234:bootstrap user$ ./install.sh --username <i>github_username</i> --password --github-host github_enterprise_url
+mac1234:bootstrap user$ ./install.sh --username <i>your_github_username</i> --password --github-host <i>your_github_enterprise_url</i>
 </pre>
 
 Note: if you are the **Github Enterprise** user, the argument <code>--github-host <i>github_enterprise_url</i></code> should be github enterprise url. Please refer to [Help](#help) for all other available arguments.
@@ -70,7 +70,7 @@ APP: http://192.168.99.100:7000
 ===================================================
 ```
 
-2. **Login** to Qubeship app using the URL showed in the message you see when done with the step 3.
+2. **Login** to Qubeship app using the URL showed in the message shown above.
 ```
 You can use your GITHUB credentials to login !!!!
 APP: http://192.168.99.100:7000
@@ -86,7 +86,7 @@ Now, it is time to try qubeship. Please follow the <a href="https://github.com/Q
 ## Uninstall:
 1. If your release has errors, simply run the following command from the Qubeship release directory:
 ```
-   mac1234:bootstrap user$ ./uninstall.sh
+mac1234:bootstrap user$ ./uninstall.sh
 ```
 2. Restart the <a href="https://github.com/Qubeship/bootstrap/blob/community_beta/README.md#install" target="_blank">installation process
 ----
