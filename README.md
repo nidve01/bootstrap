@@ -34,26 +34,22 @@ mac1234:bootstrap username$ pwd
 7. **Configuration**: copy the **beta.config** file to ~/bootstrap/qubeship_home/config  (** this file will be a part of Beta Welcome Kit email that you've received from Qubeship **)
    
    
-8. **Register Qubeship** with your GitHub account: run the following command for the automated script. 
+8. **Register Qubeship** with your GitHub account: run the following command from **bootstrap** folder to automate the registration. 
 <pre> 
-mac1234:bootstrap user$ pwd 
-~/bootstrap
 mac1234:bootstrap user$ ./register-qubeship.sh --username <i>your_github_username</i> --password --github-host your_github_enterprise_url
 </pre>
 
 **Note**: **Github Enterprise** users, connect to VPN and supply the argument <code>--github-host <i>your_github_enterprise_url</i></code> Please refer to [Help](#help) for all other available agruments.
 
-Optional: you can use the <a href="https://github.com/Qubeship/bootstrap/blob/community_beta/README-githubconfiguration.md" target="_blank"> GitHub configuration manual steps </a> in case of an error.
+**Optional**: you can use the <a href="https://github.com/Qubeship/bootstrap/blob/community_beta/README-githubconfiguration.md" target="_blank"> Register Qubeship manual steps </a> in case of any errors with register-qubeship.sh script.
 
 9. **The Internet Connection:** make sure that you can connect to the internet from within your corporate firewall. Qubeship uses Firebase, which requires internet connectivity.
 ----
 
 ## Install
 
-1.  **Run** the install script
+1.  **Run** the install script from **bootstrap** folder
 <pre>
-mac1234:bootstrap user$ pwd 
-~/bootstrap
 mac1234:bootstrap user$ ./install.sh --username <i>your_github_username</i> --password --github-host <i>your_github_enterprise_url</i>
 </pre>
 
