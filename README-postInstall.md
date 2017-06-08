@@ -27,19 +27,19 @@ creating sample java project
 ```
 Note: This basic demo does not includes pushing images to registry and deploying to target endpoints.
 
-Now open the Qubeship app http://192.168.99.100:7000 (please refer to the installation success message for your APP URL, as it may differ from the default) and follow the project build.
+Now open the Qubeship app http://192.168.99.100:7000 (please refer to the installation success message for your APP URL, as it may differ from the shown default) and follow the project build.
 
 ## Bring your own repo, registry & target
 
-### Install minikube (target)
+### Install Minikube (Do this if you will need to create a target endpoint for your deployments)
 
-<a href="https://kubernetes.io/docs/getting-started-guides/minikube/" target="_new">Minikube</a> is a tool that makes it easy to run Kubernetes locally. Minikube runs a single-node Kubernetes cluster inside a VM on your laptop for users looking to try out Kubernetes or develop with it day-to-day.
+<a href="https://kubernetes.io/docs/getting-started-guides/minikube/" target="_new">Minikube</a> is a tool that makes it easy to run Kubernetes locally. Minikube runs a single-node Kubernetes cluster inside a VM on your laptop. It is suitable both for users looking to try out Kubernetes and to develop with it day-to-day.
 
-Make sure you have Virtual Box installed in your system. Run the below command to install Minikube on your system.
+Make sure that you have Virtual Box installed on your system. Run the below command to install Minikube:
 ```
 $ ./install_minikube.sh
 ```
-Run below to verify  minikube is succesfully installed
+Run the following command to verify that Minikube is succesfully installed:
 
 ```
   $ minikube status
@@ -47,9 +47,9 @@ Run below to verify  minikube is succesfully installed
   localkube: Running
 ```
 
-You can optionally verify minikube is running in your Virtual Box,  a VM named "minikube" will be created and started.
+You can (optionally) verify that Minikube is running in your Virtual Box: see if a VM named "minikube" has been created and started.
 
-Run the below command to see the information about your minikube environment, this will needed to create 'target' endpoints in qubeship
+Run the below command to see the information about your Minikube environment. You will need this information to create 'target' endpoints in Qubeship:
 ```
 $ ./minikube_registration_info.sh
 Endpoint registration information:
@@ -61,12 +61,12 @@ Endpoint default token:  xxxxxxxxxxxxxxxxxx
 
 #### Target Endpoint
 
-The target endpoint is used to deploy your built project containers to the target environment (E.g. QA/Sandbox etc)
+The target endpoint is used to deploy your built project containers to the target environment (Ex: QA, Sandbox, etc.)
 
-Open the qubeship app http://192.168.99.100:7000 (refer to the installation success message for APP url)
-1. Login to app with your github credentials
-2. Open the Menu --> Endpoints --> New
-3. Enter the below details and save
+Open the qubeship app http://192.168.99.100:7000 (please refer to the installation success message for your APP URL, as it may differ from the shown default)
+1. Login to app with your GitHub credentials
+2. Open the left navigation menu --> Endpoints --> New
+3. Enter the below details and save:
 ```
 Name: "MinikubeSandbox"
 URL: https://xxx.xxx.xx.xxx:xxxx (refer to minikube_registration_info.sh console output for 'Endpoint IP address')
@@ -82,15 +82,15 @@ Enable checkbox [x] Set as default when adding projects
 ```
 
 ### Registry
-The registry endpoint is used to push your project image to this registry and can be later used to deploy target endpoint. 
+The registry endpoint is used to push your project image to this registry; it can be later used as a deployment target endpoint. 
 
-Please <a href="https://hub.docker.com/" target="new">signup</a> with docker hub for an account. Use the docker hub login info to create registry endpoint in qubeship
+Please <a href="https://hub.docker.com/" target="new">signup</a> with Docker Hub for an account. Use the Docker Hub login info to create registry endpoint in qubeship
 
 #### Registry Endpoint
 
 Open the qubeship app http://192.168.99.100:7000 (refer to the installation success message for APP url)
 1. Login to app with your github credentials
-2. Open the Menu --> Endpoints --> New
+2. Open the left navigation menu --> Endpoints --> New
 3. Enter the below details and save
 ```
 Name: "DockerHubRegistry"
@@ -108,9 +108,9 @@ Enable checkbox [x] Set as default when adding projects
 ```
 
 ### Configure project
-Open the qubeship app http://192.168.99.100:7000 (refer to the installation success message for APP url)
-1. Login to app with your github credentials
-2. Open the Menu --> Project --> New
+Open the qubeship app http://192.168.99.100:7000 (please refer to the installation success message for your APP URL, as it may differ from the shown default)
+1. Log into the app with your GitHub credentials
+2. Open the left navigation menu --> Project --> New
 3. Enter the below details and save
 
 Note: You may user your qubeship qualified project to configured below
