@@ -9,6 +9,8 @@ There are three primary interfaces to Qubeship.
 Qubeship manages authentication for all three interfaces through Github OAuth. This allows for single sign-on 
 through Github identity management. The first time you use Qubeship, register the above applications
 as 0Auth applications in GitHub. You will only need to do this once. 
+
+![Example](https://raw.githubusercontent.com/Qubeship/bootstrap/community_beta/beforeauthsetup.png)
  
 To configure  <a href="https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/registering-oauth-apps/" target="_blank">OAuth applications</a>, enter the following information in GitHub OAuth:
 
@@ -55,6 +57,10 @@ in the variables **GITHUB_CLI_CLIENTID** and **GITHUB_CLI_SECRET**
 Copy and paste the client id and secret into the qubeship_home/config/scm.config 
 in the variables **GITHUB_GUI_CLIENTID** and **GITHUB_GUI_SECRET**
 
+If you have something like this, you have successfully registered the oauth applications
+
+![Example](https://raw.githubusercontent.com/Qubeship/bootstrap/community_beta/afteroauthsetup.png)
+
 ### Other Configuration Entries
 
 #### 4. GITHUB_ENTERPRISE_HOST:
@@ -65,7 +71,8 @@ Qubeship currently supports only http(s):// . SSH is in pipeline.
 GITHUB_ENTERPRISE_HOST  =   # no trailing slashes , only schema://hostname
 ```
 #### 5. SYSTEM_GITHUB_ORG:  
-This denotes the default system  organization for Qubeship. All users with membership to this org will be considered admin users for that Qubeship instance.   
+This denotes the default system  organization for Qubeship. All users with membership to this org will be considered admin users for that Qubeship instance. 
+
 ![Example](https://raw.githubusercontent.com/Qubeship/bootstrap/community_beta/githuborg.png)    
 
 ```
