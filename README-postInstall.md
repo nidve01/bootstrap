@@ -25,13 +25,13 @@ creating a sample Java project:
     "version": "v2"
 }
 ```
-Note: This basic demo does not includes pushing images to registry and deploying to target endpoints.
+Note: This basic demo does not includes pushing images to a registry and deploying to target endpoints.
 
 Now open the Qubeship app http://192.168.99.100:7000 (please refer to the installation success message for your APP URL, as it may differ from the shown default) and follow the project build.
 
 ## Bring your own repo, registry & target
 
-### Install Minikube (Do this if you will need to create a target endpoint for your deployments)
+### Install Minikube (Do this if you will need a new target endpoint for your deployments)
 
 <a href="https://kubernetes.io/docs/getting-started-guides/minikube/" target="_new">Minikube</a> is a tool that makes it easy to run Kubernetes locally. Minikube runs a single-node Kubernetes cluster inside a VM on your laptop. It is suitable both for users looking to try out Kubernetes and to develop with it day-to-day.
 
