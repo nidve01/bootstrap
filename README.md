@@ -86,7 +86,7 @@ Now, it is time to try qubeship. Please follow the <a href="https://github.com/Q
 ## Uninstall:
 1. If your release has errors, simply run the following command from the Qubeship release directory:
 ```
-   mac1234:~ bootstrap$ ./uninstall.sh
+   mac1234:bootstrap user$ ./uninstall.sh
 ```
 2. Restart the <a href="https://github.com/Qubeship/bootstrap/blob/community_beta/README.md#install" target="_blank">installation process
 ----
