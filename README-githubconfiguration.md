@@ -11,9 +11,13 @@ through Github identity management. The first time you use Qubeship, register th
 as 0Auth applications in GitHub. You will only need to do this once. 
 
 
-To configure  <a href="https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/registering-oauth-apps/" target="_blank">OAuth applications</a>, enter the following information in GitHub OAuth:
+To configure  <a href="https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/registering-oauth-apps/" target="_blank">OAuth applications</a>, please follow these steps:
 
-Start here and hit the button to register a new application
+Hit the settings button on your github home page
+
+![Example](https://raw.githubusercontent.com/Qubeship/bootstrap/community_beta/gitsettings.png)
+
+Click the button to register a new application 
 
 ![Example](https://raw.githubusercontent.com/Qubeship/bootstrap/community_beta/beforeauthsetup.png)
 
