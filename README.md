@@ -25,8 +25,9 @@
 
 6. To **download Qubeship installation scripts**, copy the following line into your terminal:
 ```
-$ git clone https://github.com/Qubeship/bootstrap && cd bootstrap && git checkout community_beta 
-$ pwd
+mac1234:~ user$ cd ~
+mac1234:~ user$ git clone https://github.com/Qubeship/bootstrap && cd bootstrap && git checkout community_beta 
+mac1234:bootstrap username$ pwd
 ~/bootstrap
 ```
 
@@ -35,10 +36,9 @@ $ pwd
    
 8. **Register Qubeship** with your GitHub account: run the following command for the automated script. 
 <pre> 
-$ pwd 
+mac1234:bootstrap user$ pwd 
 ~/bootstrap
-Run the command from ~/bootstrap
-$ ./register-qubeship.sh --username <i>github_username</i> --password --github-host github_enterprise_url
+mac1234:bootstrap user$ ./register-qubeship.sh --username <i>github_username</i> --password --github-host github_enterprise_url
 </pre>
 
 **Note**: if you are the **Github Enterprise** user, the argument <code>--github-host <i>github_enterprise_url</i></code> should be the github enterprise url. please make sure you have access to corporate network. Please refer to [Help](#help) for all other available agruments.
@@ -52,10 +52,9 @@ Optional: you can use the <a href="https://github.com/Qubeship/bootstrap/blob/co
 
 1.  **Run** the install script
 <pre>
-$ pwd 
+mac1234:bootstrap user$ pwd 
 ~/bootstrap
-Run the command from ~/bootstrap
-$ ./install.sh --username <i>github_username</i> --password --github-host github_enterprise_url
+mac1234:bootstrap user$ ./install.sh --username <i>github_username</i> --password --github-host github_enterprise_url
 </pre>
 
 Note: if you are the **Github Enterprise** user, the argument <code>--github-host <i>github_enterprise_url</i></code> should be github enterprise url. Please refer to [Help](#help) for all other available arguments.
@@ -87,7 +86,7 @@ Now, it is time to try qubeship. Please follow the <a href="https://github.com/Q
 ## Uninstall:
 1. If your release has errors, simply run the following command from the Qubeship release directory:
 ```
-   $ ./uninstall.sh
+   mac1234:~ bootstrap$ ./uninstall.sh
 ```
 2. Restart the <a href="https://github.com/Qubeship/bootstrap/blob/community_beta/README.md#install" target="_blank">installation process
 ----
