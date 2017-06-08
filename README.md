@@ -22,8 +22,13 @@
    mac1234:~ user$ git --version
    git version 2.11.0 (Apple Git-81)
 ```
+6. Please have your **enterprise github url**, **username** & **password** handy and also an active connection with your corporate network before proceeding
+```
+   mac1234:~ user$ curl -k -I {your_github_enterprise_url} | grep HTTP/1.1
+   HTTP/1.1 200 OK
+```
 
-6. To **download Qubeship installation scripts**, copy the following line into your terminal:
+7. To **download Qubeship installation scripts**, copy the following line into your terminal:
 ```
 mac1234:~ user$ cd ~
 mac1234:~ user$ git clone https://github.com/Qubeship/bootstrap && cd bootstrap && git checkout community_beta 
@@ -31,10 +36,10 @@ mac1234:bootstrap username$ pwd
 ~/bootstrap
 ```
 
-7. **Configuration**: copy the **beta.config** file to ~/bootstrap/qubeship_home/config  (** this file will be a part of Beta Welcome Kit email that you've received from Qubeship **)
+8. **Configuration**: copy the **beta.config** file to ~/bootstrap/qubeship_home/config  (** this file will be a part of Beta Welcome Kit email that you've received from Qubeship **)
    
    
-8. **Register Qubeship** with your GitHub account: run the following command from **bootstrap** folder to automate the registration. 
+9. **Register Qubeship** with your GitHub account: run the following command from **bootstrap** folder to automate the registration. 
 <pre> 
 mac1234:bootstrap user$ ./register-qubeship.sh --username <i>your_github_username</i> --password --github-host your_github_enterprise_url
 </pre>
@@ -43,7 +48,7 @@ mac1234:bootstrap user$ ./register-qubeship.sh --username <i>your_github_usernam
 
 **Optional**: you can use the <a href="https://github.com/Qubeship/bootstrap/blob/community_beta/README-githubconfiguration.md" target="_blank"> Register Qubeship manual steps </a> in case of any errors with register-qubeship.sh script.
 
-9. **The Internet Connection:** make sure that you can connect to the internet from within your corporate firewall. Qubeship uses Firebase, which requires internet connectivity.
+10. **The Internet Connection:** make sure that you can connect to the internet from within your corporate firewall. Qubeship uses Firebase, which requires internet connectivity.
 ----
 
 ## Install
