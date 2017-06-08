@@ -14,12 +14,12 @@
 4. **_A valid and running Docker Host._**
    You should be able to run the following command and get a valid output:
 ```
-    $ docker ps -a 
+    mac1234:~ user$ docker ps -a 
     CONTAINER ID        IMAGE                                                             COMMAND                  CREATED             STATUS                  PORTS                                                                      NAMES
 ```
 5. **Git client** has to be installed on your machine. Run the below command to verify, you should see your Git version displayed back to you:
 ```
-   $ git --version
+   mac1234:~ user$ git --version
    git version 2.11.0 (Apple Git-81)
 ```
 
