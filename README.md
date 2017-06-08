@@ -22,7 +22,7 @@
    mac1234:~ user$ git --version
    git version 2.11.0 (Apple Git-81)
 ```
-6. Please have your **github enterprise url**, **username** & **password** handy and also an active connection with your corporate network before proceeding. You need to provide these info as arguments for following steps.
+6. Please have your **github enterprise url**, **username** & **password** handy and also an active connection with your corporate network before proceeding. You need to provide them as arguments for below step 9 and Install-step 1.
 ```
    mac1234:~ user$ curl -k -I {your_github_enterprise_url} | grep HTTP/1.1
    HTTP/1.1 200 OK
