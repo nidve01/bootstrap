@@ -26,7 +26,8 @@
 
 ```
    mac1234:~ user$ curl -k -I {your_github_enterprise_url} | grep HTTP/1.1
-   HTTP/1.1 200 OK
+   HTTP/1.1 200 OK (or)
+   HTTP/1.1 302 Found
 ```
 
 7. To **download Qubeship installation scripts**, copy the following line into your terminal:
