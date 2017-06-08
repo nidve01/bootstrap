@@ -112,21 +112,20 @@ Open the qubeship app http://192.168.99.100:7000 (please refer to the installati
 1. Log into the app with your GitHub credentials
 2. Open the left navigation menu --> Project --> + (Add Project)
 3. Enter the below details and save:
-
-Note: You may user your qubeship qualified project to configured below
 ```
-Project Name: "MyCustomProject"
-Repo URL: https://github-enterpise.com/demouser/mycustomproject
-Repo Branch: master
-Language: java/python
-Show Advanced Option v
+Project Name: "YourProjectName"
+Repo URL: https://github-enterpise.com/yourusername/yourprojectname
+Repo Branch: (enter your branch name)
+Language: (select Java or Python)
+Show Advanced Options v
 Opinion: Qubeship build-bake-deploy opinion
-Toolchain: you may leave blank (default toolchain will be assigned)
+Toolchain: (you may leave this blank (default toolchain will be assigned))
 Endpoint: MinikubeSandbox
 ```
 Note: 
-1. If your project needs more advanced tools, you may need to <a href="https://qubeship.io/docs/toolchains-ui/">create a new toolchain.</a>
-2. If your project uses any custom scripts, you may have to modify the opinion (and/or) toolchain manifest.
+1. Your project has to have a Dockerfile to build successfully in Qubeship
+2. If your project needs more advanced tools, you may need to <a href="https://qubeship.io/docs/toolchains-ui/">create a new toolchain.</a>
+3. If your project uses any custom scripts, you may have to modify the opinion (and/or) toolchain manifest.
 
 Now open the Qubeship app http://192.168.99.100:7000 (refer to the installation success message for APP URL) and follow the the project build.
 
