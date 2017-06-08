@@ -65,7 +65,7 @@ The target endpoint is used to deploy your built project containers to the targe
 
 Open the qubeship app http://192.168.99.100:7000 (please refer to the installation success message for your APP URL, as it may differ from the shown default)
 1. Login to app with your GitHub credentials
-2. Open the left navigation menu --> Endpoints --> New
+2. Open the left navigation menu --> Endpoints --> + (Add Endpoint)
 3. Enter the below details and save:
 ```
 Name: "MinikubeSandbox"
@@ -84,14 +84,14 @@ Enable checkbox [x] Set as default when adding projects
 ### Registry
 The registry endpoint is used to push your project image to this registry; it can be later used as a deployment target endpoint. 
 
-Please <a href="https://hub.docker.com/" target="new">signup</a> with Docker Hub for an account. Use the Docker Hub login info to create registry endpoint in qubeship
+Please <a href="https://hub.docker.com/" target="new">signup</a> with Docker Hub for an account, then use the Docker Hub login info to create your registry endpoint in Qubeship.
 
 #### Create Your Registry Endpoint
 
 Open the qubeship app http://192.168.99.100:7000 (refer to the installation success message for APP url)
-1. Login to app with your github credentials
-2. Open the left navigation menu --> Endpoints --> New
-3. Enter the below details and save
+1. Login to app with your GitHub credentials
+2. Open the left navigation menu --> Endpoints --> + (Add Endpoint)
+3. Enter the below details and save:
 ```
 Name: "DockerHubRegistry"
 URL: https://registry.hub.docker.com/
@@ -110,8 +110,8 @@ Enable checkbox [x] Set as default when adding projects
 ### Configure Your Project
 Open the qubeship app http://192.168.99.100:7000 (please refer to the installation success message for your APP URL, as it may differ from the shown default)
 1. Log into the app with your GitHub credentials
-2. Open the left navigation menu --> Project --> New
-3. Enter the below details and save
+2. Open the left navigation menu --> Project --> + (Add Project)
+3. Enter the below details and save:
 
 Note: You may user your qubeship qualified project to configured below
 ```
@@ -125,14 +125,14 @@ Toolchain: you may leave blank (default toolchain will be assigned)
 Endpoint: MinikubeSandbox
 ```
 Note: 
-1. If your project needs more advanced tools you may have to <a href="https://qubeship.io/docs/toolchains-ui/">create a new toolchain</a>
-2. If your project use any custom scripts, you may have to modify the opinion (and/or) toolchain manifest
+1. If your project needs more advanced tools, you may need to <a href="https://qubeship.io/docs/toolchains-ui/">create a new toolchain.</a>
+2. If your project uses any custom scripts, you may have to modify the opinion (and/or) toolchain manifest.
 
-Now open the qubeship app http://192.168.99.100:7000 (refer to the installation success message for APP URL) and follow the life cycle of the project build.
+Now open the Qubeship app http://192.168.99.100:7000 (refer to the installation success message for APP URL) and follow the the project build.
 
-Once your project is successfully built, you may verify the below things
-1. Your project image being pushed to your <a href="https://hub.docker.com/" target="new">docker hub account</a>
-2. Run the below commands to verify pods and service running in your minikube cluster. 
+Once your project is successfully built, you may verify the following:
+1. Check if your project image has been pushed to your <a href="https://hub.docker.com/" target="new">Docker Hub account</a>
+2. Run the below commands to verify pods and service running in your Minikube cluster: 
 ```
 $ /usr/local/bin/kubectl get services
 mycustomproject-service   10.0.0.247   <none>        443/TCP,80/TCP   2m
@@ -142,4 +142,4 @@ $ /usr/local/bin/kubectl get pods
 mycustomproject-deployment-3538093953-jw22t   1/1       Running   0          1m
 ```
 
-Great, your new project container is now deployed to your minikube sandbox environment.
+You are done! Your new project container is now deployed to your Minikube sandbox environment.
