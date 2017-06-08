@@ -121,6 +121,3 @@ b. --github-host:               if is not supplied, Qubeship will default the SC
 ----
 
 ##  <a href="https://github.com/Qubeship/bootstrap/blob/community_beta/README-faq.md">FAQ</a>
-
-
-
