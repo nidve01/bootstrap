@@ -41,7 +41,7 @@ Run the command from ~/bootstrap
 $ ./register-qubeship.sh --username <i>github_username</i> --password --github-host github_enterprise_url
 </pre>
 
-**Note**: if you are the **Github Enterprise** user, the argument <code>--github-host <i>github_enterprise_url</i></code> should be the github enterprise url. Please refer to [Help](#help) for all other available agruments.
+**Note**: if you are the **Github Enterprise** user, the argument <code>--github-host <i>github_enterprise_url</i></code> should be the github enterprise url. please make sure you have access to corporate network. Please refer to [Help](#help) for all other available agruments.
 
 Optional: you can use the <a href="https://github.com/Qubeship/bootstrap/blob/community_beta/README-githubconfiguration.md" target="_blank"> GitHub configuration manual steps </a> in case of an error.
 
