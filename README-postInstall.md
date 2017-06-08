@@ -81,7 +81,7 @@ Token: xxxxxxxxxxx (refer to minikube_registration_info.sh console output for 'E
 Enable checkbox [x] Set as default when adding projects
 ```
 
-### Registry
+### Set up Registry
 The registry endpoint is used to push your project image to this registry; it can be later used as a deployment target endpoint. 
 
 Please <a href="https://hub.docker.com/" target="new">signup</a> with Docker Hub for an account, then use the Docker Hub login info to create your registry endpoint in Qubeship.
