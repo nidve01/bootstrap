@@ -31,6 +31,8 @@ Note: Run the below command to find the docker-machine IP. If you have multiple 
  docker-machine ip
  192.168.99.100
 ```
+Once the  application is created, you will get the Client id and Client secret 
+![Example](https://raw.githubusercontent.com/Qubeship/bootstrap/community_beta/clientidsecret.png)
 
 Copy and paste the client id and secret into the qubeship_home/config/scm.config 
 in the variables **GITHUB_BUILDER_CLIENTID** and **GITHUB_BUILDER_SECRET**
