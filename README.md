@@ -52,6 +52,9 @@ Optional: you can use the <a href="https://github.com/Qubeship/bootstrap/blob/co
 
 1.  **Run** the install script
 <pre>
+$ pwd 
+~/bootstrap
+Run the command from ~/bootstrap
 $ ./install.sh --username <i>github_username</i> --password --github-host github_enterprise_url
 </pre>
 
