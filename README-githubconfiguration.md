@@ -69,7 +69,7 @@ If you have something like this, you have successfully registered the oauth appl
 
 ![Example](https://raw.githubusercontent.com/Qubeship/bootstrap/community_beta/afteroauthsetup.png)
 
-### Other Configuration Entries
+### Other entries that are needed for scm.config file are listed below
 
 #### 4. GITHUB_ENTERPRISE_HOST:
 This is the Github entrerprise instance url to be used with qubeship. Qubeship will use this system as the defacto identity manager for Qubeship authentication , as well as use this for pulling the source code for builds. if this is left blank, the GITHUB_ENTERPRISE_HOST will be defaulted to https://github.com
