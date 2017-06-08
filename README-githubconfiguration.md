@@ -10,10 +10,12 @@ Qubeship manages authentication for all three interfaces through Github OAuth. T
 through Github identity management. The first time you use Qubeship, register the above applications
 as 0Auth applications in GitHub. You will only need to do this once. 
 
-![Example](https://raw.githubusercontent.com/Qubeship/bootstrap/community_beta/beforeauthsetup.png)
- 
+
 To configure  <a href="https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/registering-oauth-apps/" target="_blank">OAuth applications</a>, enter the following information in GitHub OAuth:
 
+Start here and hit the button to register a new application
+
+![Example](https://raw.githubusercontent.com/Qubeship/bootstrap/community_beta/beforeauthsetup.png)
 
 #### 1. Builder:  
 ```
@@ -83,10 +85,8 @@ SYSTEM_GITHUB_ORG  =  #pick one from your list of organization as shown similar 
 
 This is what an example config file looks like:
 ```
-#optional - use only for onprem github : format : https://github_enterprise_host (no trailing slash)
-GITHUB_ENTERPRISE_HOST= https://github_enterpise_url
-
-# required
+#format : https://github_enterprise_host (no trailing slash)
+GITHUB_ENTERPRISE_HOST= https://<your-github-enterprise-host>
 # Qubeship GUI client Authentication Realm
 GITHUB_GUI_CLIENTID=32425453647567568768567868
 GITHUB_GUI_SECRET=342534253245767867586476577
