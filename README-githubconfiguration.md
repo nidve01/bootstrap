@@ -20,11 +20,14 @@ To configure  <a href="https://developer.github.com/apps/building-integrations/s
     Description : Qubeship Builder
     call back URL: http://<docker-machine-ip>:8080/securityRealm/finishLogin
 ```
+
+![Example](https://raw.githubusercontent.com/Qubeship/bootstrap/community_beta/oauthbuilder.png)   
 Note: Run the below command to find the docker-machine IP. If you have multiple IPs, make sure to provide the correct one.
 ```
  docker-machine ip
  192.168.99.100
 ```
+
 Copy and paste the client id and secret into the qubeship_home/config/scm.config 
 in the variables **GITHUB_BUILDER_CLIENTID** and **GITHUB_BUILDER_SECRET**
 
@@ -35,6 +38,8 @@ in the variables **GITHUB_BUILDER_CLIENTID** and **GITHUB_BUILDER_SECRET**
     Description : Qubeship CLI client
     call back URL: http://cli.qubeship.io/index.html
 ```
+![Example](https://raw.githubusercontent.com/Qubeship/bootstrap/community_beta/oauthcli.png)   
+
 Copy and paste the client id and secret into the qubeship_home/config/scm.config 
 in the variables **GITHUB_CLI_CLIENTID** and **GITHUB_CLI_SECRET**
 
@@ -45,6 +50,7 @@ in the variables **GITHUB_CLI_CLIENTID** and **GITHUB_CLI_SECRET**
     Description : Qubeship GUI APP client
     call back URL:  http://<docker-machine-ip>:7000/api/v1/auth/callback?provider=github
 ```
+![Example](https://raw.githubusercontent.com/Qubeship/bootstrap/community_beta/oauthapp.png)  
 
 Copy and paste the client id and secret into the qubeship_home/config/scm.config 
 in the variables **GITHUB_GUI_CLIENTID** and **GITHUB_GUI_SECRET**
@@ -60,7 +66,7 @@ GITHUB_ENTERPRISE_HOST  =   # no trailing slashes , only schema://hostname
 ```
 #### 5. SYSTEM_GITHUB_ORG:  
 This denotes the default system  organization for Qubeship. All users with membership to this org will be considered admin users for that Qubeship instance.   
-![Example](https://raw.githubusercontent.com/Qubeship/bootstrap/master/GithubORG.png)   
+![Example](https://raw.githubusercontent.com/Qubeship/bootstrap/community_beta/githuborg.png)    
 
 ```
 SYSTEM_GITHUB_ORG  =  #pick one from your list of organization as shown similar in above screenshot
