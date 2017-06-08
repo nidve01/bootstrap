@@ -14,45 +14,51 @@
 4. **_A valid and running Docker Host._**
    You should be able to run the following command and get a valid output:
 ```
-    $ docker ps -a 
+    mac1234:~ user$ docker ps -a 
     CONTAINER ID        IMAGE                                                             COMMAND                  CREATED             STATUS                  PORTS                                                                      NAMES
 ```
 5. **Git client** has to be installed on your machine. Run the below command to verify, you should see your Git version displayed back to you:
 ```
-   $ git --version
+   mac1234:~ user$ git --version
    git version 2.11.0 (Apple Git-81)
 ```
-
-6. To **download Qubeship installation scripts**, copy the following line into your terminal:
+6. Please have your **github enterprise url**, **username** & **password** handy and also an active connection with your corporate network before proceeding. You need to provide them as arguments for below step 9 and Install-step 1.
 ```
-$ git clone https://github.com/Qubeship/bootstrap && cd bootstrap && git checkout community_beta 
+   mac1234:~ user$ curl -k -I {your_github_enterprise_url} | grep HTTP/1.1
+   HTTP/1.1 200 OK
 ```
 
-7. **Configuration** 
-   * **Beta Users**: copy the **beta.config** file to qubeship_home/config  (** this file will be a part of Beta Welcome Kit email that you've received from Qubeship **)
+7. To **download Qubeship installation scripts**, copy the following line into your terminal:
+```
+mac1234:~ user$ cd ~
+mac1234:~ user$ git clone https://github.com/Qubeship/bootstrap && cd bootstrap && git checkout community_beta 
+mac1234:bootstrap username$ pwd
+~/bootstrap
+```
+
+8. **Configuration**: copy the **beta.config** file to ~/bootstrap/qubeship_home/config  (** this file will be a part of Beta Welcome Kit email that you've received from Qubeship **)
    
-   * **Community users**: create  scm.config file in qubeship_home/config. For instructions, please refer to: https://github.com/Qubeship/bootstrap/blob/master/OPEN_SOURCE_README.md
    
-8. **Register Qubeship** with your GitHub account: run the following command for the automated script. 
+9. **Register Qubeship** with your GitHub account: run the following command from **bootstrap** folder to automate the registration. 
 <pre> 
-$ ./register-qubeship.sh --username <i>github_username</i> --password [github_password] [--github-host github_enterprise_url] [--organization github_organization]
+mac1234:bootstrap user$ ./register-qubeship.sh --username <i>your_github_username</i> --password --github-host your_github_enterprise_url
 </pre>
 
-**Note**: if you are the **Github Enterprise** user, the argument <code>--github-host <i>github_enterprise_url</i></code> should be also passed to the script. Please refer to [Help](#help) for all available agruments.
+**Note**: **Github Enterprise** users, connect to VPN and supply the argument <code>--github-host <i>your_github_enterprise_url</i></code> Please refer to [Help](#help) for all other available agruments.
 
-Optional: you can use the <a href="https://github.com/Qubeship/bootstrap/blob/community_beta/README-githubconfiguration.md" target="_blank"> GitHub configuration manual steps </a> in case of an error.
+**Optional**: you can use the <a href="https://github.com/Qubeship/bootstrap/blob/community_beta/README-githubconfiguration.md" target="_blank"> Register Qubeship manual steps </a> in case of any errors with register-qubeship.sh script.
 
-9. **The Internet Connection:** make sure that you can connect to the internet from within your corporate firewall. Qubeship uses Firebase, which requires internet connectivity.
+10. **The Internet Connection:** make sure that you can connect to the internet from within your corporate firewall. Qubeship uses Firebase, which requires internet connectivity.
 ----
 
 ## Install
 
-1.  **Run** the install script
+1.  **Run** the install script from **bootstrap** folder
 <pre>
-$ ./install.sh --username <i>github_username</i> --password [github_password] [--github-host github_enterprise_url]  [--organization github_organization]
+mac1234:bootstrap user$ ./install.sh --username <i>your_github_username</i> --password --github-host <i>your_github_enterprise_url</i>
 </pre>
 
-Note: if you are the **Github Enterprise** user, the argument <code>--github-host <i>github_enterprise_url</i></code> should be also passed to the script. Please refer to [Help](#help) for all available arguments.
+Note: if you are the **Github Enterprise** user, the argument <code>--github-host <i>github_enterprise_url</i></code> should be github enterprise url. Please refer to [Help](#help) for all other available arguments.
 
 At the end of installation, you should see a message like this:
 ```
@@ -65,7 +71,7 @@ APP: http://192.168.99.100:7000
 ===================================================
 ```
 
-2. **Login** to Qubeship app using the URL showed in the message you see when done with the step 3.
+2. **Login** to Qubeship app using the URL showed in the message shown above.
 ```
 You can use your GITHUB credentials to login !!!!
 APP: http://192.168.99.100:7000
@@ -81,7 +87,7 @@ Now, it is time to try qubeship. Please follow the <a href="https://github.com/Q
 ## Uninstall:
 1. If your release has errors, simply run the following command from the Qubeship release directory:
 ```
-   $ ./uninstall.sh
+mac1234:bootstrap user$ ./uninstall.sh
 ```
 2. Restart the <a href="https://github.com/Qubeship/bootstrap/blob/community_beta/README.md#install" target="_blank">installation process
 ----
