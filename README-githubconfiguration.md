@@ -9,9 +9,17 @@ There are three primary interfaces to Qubeship.
 Qubeship manages authentication for all three interfaces through Github OAuth. This allows for single sign-on 
 through Github identity management. The first time you use Qubeship, register the above applications
 as 0Auth applications in GitHub. You will only need to do this once. 
- 
-To configure  <a href="https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/registering-oauth-apps/" target="_blank">OAuth applications</a>, enter the following information in GitHub OAuth:
 
+
+To configure  <a href="https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/registering-oauth-apps/" target="_blank">OAuth applications</a>, please follow these steps:
+
+Hit the settings button on your github home page
+
+![Example](https://raw.githubusercontent.com/Qubeship/bootstrap/community_beta/gitsettings.png)
+
+Click the button to register a new application 
+
+![Example](https://raw.githubusercontent.com/Qubeship/bootstrap/community_beta/beforeauthsetup.png)
 
 #### 1. Builder:  
 ```
@@ -20,11 +28,16 @@ To configure  <a href="https://developer.github.com/apps/building-integrations/s
     Description : Qubeship Builder
     call back URL: http://<docker-machine-ip>:8080/securityRealm/finishLogin
 ```
+
+![Example](https://raw.githubusercontent.com/Qubeship/bootstrap/community_beta/oauthbuilder.png)   
 Note: Run the below command to find the docker-machine IP. If you have multiple IPs, make sure to provide the correct one.
 ```
  docker-machine ip
  192.168.99.100
 ```
+Once the  application is created, you will get the Client id and Client secret 
+![Example](https://raw.githubusercontent.com/Qubeship/bootstrap/community_beta/clientidsecret.png)
+
 Copy and paste the client id and secret into the qubeship_home/config/scm.config 
 in the variables **GITHUB_BUILDER_CLIENTID** and **GITHUB_BUILDER_SECRET**
 
@@ -35,6 +48,8 @@ in the variables **GITHUB_BUILDER_CLIENTID** and **GITHUB_BUILDER_SECRET**
     Description : Qubeship CLI client
     call back URL: http://cli.qubeship.io/index.html
 ```
+![Example](https://raw.githubusercontent.com/Qubeship/bootstrap/community_beta/oauthcli.png)   
+
 Copy and paste the client id and secret into the qubeship_home/config/scm.config 
 in the variables **GITHUB_CLI_CLIENTID** and **GITHUB_CLI_SECRET**
 
@@ -45,11 +60,16 @@ in the variables **GITHUB_CLI_CLIENTID** and **GITHUB_CLI_SECRET**
     Description : Qubeship GUI APP client
     call back URL:  http://<docker-machine-ip>:7000/api/v1/auth/callback?provider=github
 ```
+![Example](https://raw.githubusercontent.com/Qubeship/bootstrap/community_beta/oauthapp.png)  
 
 Copy and paste the client id and secret into the qubeship_home/config/scm.config 
 in the variables **GITHUB_GUI_CLIENTID** and **GITHUB_GUI_SECRET**
 
-### Other Configuration Entries
+If you have something like this, you have successfully registered the oauth applications
+
+![Example](https://raw.githubusercontent.com/Qubeship/bootstrap/community_beta/afteroauthsetup.png)
+
+### Other entries that are needed for scm.config file are listed below
 
 #### 4. GITHUB_ENTERPRISE_HOST:
 This is the Github entrerprise instance url to be used with qubeship. Qubeship will use this system as the defacto identity manager for Qubeship authentication , as well as use this for pulling the source code for builds. if this is left blank, the GITHUB_ENTERPRISE_HOST will be defaulted to https://github.com
@@ -59,8 +79,9 @@ Qubeship currently supports only http(s):// . SSH is in pipeline.
 GITHUB_ENTERPRISE_HOST  =   # no trailing slashes , only schema://hostname
 ```
 #### 5. SYSTEM_GITHUB_ORG:  
-This denotes the default system  organization for Qubeship. All users with membership to this org will be considered admin users for that Qubeship instance.   
-![Example](https://raw.githubusercontent.com/Qubeship/bootstrap/master/GithubORG.png)   
+This denotes the default system  organization for Qubeship. All users with membership to this org will be considered admin users for that Qubeship instance. 
+
+![Example](https://raw.githubusercontent.com/Qubeship/bootstrap/community_beta/githuborg.png)    
 
 ```
 SYSTEM_GITHUB_ORG  =  #pick one from your list of organization as shown similar in above screenshot
@@ -70,10 +91,8 @@ SYSTEM_GITHUB_ORG  =  #pick one from your list of organization as shown similar 
 
 This is what an example config file looks like:
 ```
-#optional - use only for onprem github : format : https://github_enterprise_host (no trailing slash)
-GITHUB_ENTERPRISE_HOST= https://github_enterpise_url
-
-# required
+#format : https://github_enterprise_host (no trailing slash)
+GITHUB_ENTERPRISE_HOST= https://<your-github-enterprise-host>
 # Qubeship GUI client Authentication Realm
 GITHUB_GUI_CLIENTID=32425453647567568768567868
 GITHUB_GUI_SECRET=342534253245767867586476577
