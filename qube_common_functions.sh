@@ -92,7 +92,7 @@ exit 1
 }
 
 function url_ready() {
-  url="$1"
+  url="$@"
   echo -n "Waiting for ${url} to become available." >&2
   while [ ! "200" = "$(curl -sLiI -w "%{http_code}\\n" -o /dev/null ${url})" ]; do
     echo -n '.' >&2

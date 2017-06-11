@@ -4,16 +4,6 @@ cd $DIR
 set -o allexport
 source $DIR/qube_common_functions.sh
 
-function url_ready() {
-  url="$1"
-  echo -n "Waiting for ${url} to become available."
-  while [ ! "200" = "$(curl -sLiI -w "%{http_code}\\n" -o /dev/null ${url})" ]; do
-    echo -n '.'
-    sleep 1
-  done
-  echo 'ready.'
-}
-
 BETA_CONFIG_FILE=qubeship_home/config/beta.config
 SCM_CONFIG_FILE=qubeship_home/config/scm.config
 
@@ -40,7 +30,6 @@ wait_for_services=${1}
 if [ ! -z $wait_for_services ]; then
     url_ready http://"${QUBE_HOST}:${QUBE_BUILDER_PORT}/jnlpJars/jenkins-cli.jar"
     url_ready "http://$QUBE_HOST:${QUBESERVICE_API_PORT}$QUBESERVICE_API_PATH/version"
-
 fi
 
 echo "collecting qubeship service status"

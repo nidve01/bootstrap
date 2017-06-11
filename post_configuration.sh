@@ -56,10 +56,11 @@ set +e +x
 #fi
 for i in `seq 1 3`;
 do
-    output_ready=$(curl -u qubebuilder:$access_token -s $QUBE_BUILDER_URL)
+    url_ready -u qubebuilder:$access_token -s $QUBE_BUILDER_URL
     output=$(qube service postconfiguration | jq -r '.status')
     if [  "$output"=="Accepted"  ]; then
         qube_service_configuration_complete="true"
+        echo "post configuration completed"
         break
     fi
     sleep 20
@@ -73,9 +74,9 @@ if [ $verbose ]; then
     set -x
 fi
 
-$DIR/run.sh
-set +x
-qube service postconfiguration
+# $DIR/run.sh
+# set +x
+# qube service postconfiguration
 
 echo "=================================================="
 echo "Your Qubeship Installation is ready for use!!!!"
