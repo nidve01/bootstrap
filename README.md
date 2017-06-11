@@ -17,12 +17,12 @@
     mac1234:~ user$ docker ps -a 
     CONTAINER ID        IMAGE                                                             COMMAND                  CREATED             STATUS                  PORTS                                                                      NAMES
 ```
-5. **Git client** has to be installed on your machine. Run the below command to verify, you should see your Git version displayed back to you:
+5. Install **Git client** on your machine. Run the below command to verify that you have it, you should see your Git version displayed back to you:
 ```
    mac1234:~ user$ git --version
    git version 2.11.0 (Apple Git-81)
 ```
-6. Please have your **github enterprise url**, **username** & **password** handy and also an active connection with your corporate network before proceeding. You need to provide them as arguments for below step 9 and Install-step 1.
+6. Have your **github enterprise url**, **username** & **password** handy. You also need an active connection to your corporate network. You will provide them in step nine and Install-Step 1.
 
 ```
    mac1234:~ user$ curl -k -I {your_github_enterprise_url} | grep HTTP/1.1
@@ -80,14 +80,14 @@ APP: http://192.168.99.100:7000
 ```
 ----
 ## Post Install
-Congratulations, you have successfully installed qubeship.
+Congratulations, you have successfully installed Qubeship!
 
 Now, it is time to try qubeship. Please follow the <a href="https://github.com/Qubeship/bootstrap/blob/community_beta/README-postInstall.md"> post install instructions </a>
 
 ----
 
 ## Uninstall:
-1. If your release has errors, simply run the following command from the Qubeship release directory:
+1. To uninstall, run the following command from the Qubeship release directory:
 ```
 mac1234:bootstrap user$ ./uninstall.sh
 ```
