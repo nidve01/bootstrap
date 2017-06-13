@@ -87,11 +87,11 @@ Now, it is time to try qubeship. Please follow the <a href="https://github.com/Q
 ----
 
 ## Restart
-> Note: make sure NOT TO HAVE `CONF_SERVER_ADDR` and/or `CONF_SERVER_TOKEN` in `.client_env` file!
+> Note: make sure that you do NOT have a `CONF_SERVER_ADDR` or `CONF_SERVER_TOKEN` entry in your .client_env file. If you do have either of these, please remove them from your .client_env file before continuing with the restart.
 
 **Run** the following from **bootstrap** folder
 <pre> 
-$ ./run.sh --username <i>your_github_username</i> --password --github-host your_github_enterprise_url
+mac1234:bootstrap user$ ./run.sh --username <i>your_github_username</i> --password --github-host your_github_enterprise_url
 </pre>
 
 ----
