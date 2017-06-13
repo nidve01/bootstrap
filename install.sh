@@ -8,10 +8,7 @@ eval $(get_options $@)
 if [ "$return_code" -eq 1 ]; then
     exit $return_code
 fi
-if [ "$no_args" -eq 1 ]; then
-    show_help;
-    exit 1
-fi
+
 if [ ! -z "$DOCKER_INSTALL_TYPE" ]; then
     if [ "$DOCKER_INSTALL_TYPE" == "mac" ]; then
         echo "ERROR: Qubeship installation on docker for mac is still on roadmap. please install docker toolbox instead"
