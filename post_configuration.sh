@@ -35,6 +35,12 @@ if [ -e $BETA_CONFIG_FILE ] ; then
     source $BETA_CONFIG_FILE
 fi
 
+# qubebuilder logs in to Qubeship
+if [ ! -z $github_username ]; then
+    extra_args="--username $github_username --password $github_password --organization $SYSTEM_GITHUB_ORG --skip-defaults"
+    qube auth login $extra_args
+fi
+
 orgId=$(qube auth user-info --org | jq -r '.tenant.orgs[0].id')
 sed "s/<SYSTEM_GITHUB_ORG>/${orgId}/g" load.js.template | sed  "s/beta_access/${is_beta:-false}/g" | sed "s/install_registry/${install_registry:-false}/g" | sed "s/install_target_cluster/${install_target_cluster:-false}/g"  > load.js
 
