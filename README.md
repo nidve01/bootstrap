@@ -55,7 +55,7 @@ mac1234:bootstrap user$ ./register-qubeship.sh --username <i>your_github_usernam
 
 ## Install
 
-1.  **Run** the install script from **bootstrap** folder
+1. **Run** the install script from **bootstrap** folder
 <pre>
 mac1234:bootstrap user$ ./install.sh --username <i>your_github_username</i> --password --github-host <i>your_github_enterprise_url</i>
 </pre>
@@ -89,7 +89,7 @@ Now, it is time to try qubeship. Please follow the <a href="https://github.com/Q
 ## Restart
 > Note: make sure NOT TO HAVE `CONF_SERVER_ADDR` and/or `CONF_SERVER_TOKEN` in `.client_env` file!
 
-On `bootstrap` directory,
+**Run** the following from **bootstrap** folder
 <pre> 
 $ ./run.sh --username <i>your_github_username</i> --password --github-host your_github_enterprise_url
 </pre>
