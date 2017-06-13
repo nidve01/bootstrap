@@ -28,6 +28,7 @@ services:
       - "${TENANT_API_PORT}:${TENANT_API_PORT}"
     depends_on:
       - qube-vault-opener
+      - qube-consul
     links:
       - qube-consul
 
@@ -433,16 +434,16 @@ services:
     container_name: busybox
     volumes:
       - vault_data:/vault/data:rw
-      - qubeship-consul-data:/consul:rw
+      - qubeship-consul-data:/consul/config:rw
     depends_on:
       - ngrok
 
   qube-consul:
     image: consul:latest
     container_name: qube-consul
-    command: agent -server -bootstrap -ui -client 0.0.0.0 -config-file=/consul/config/consul.json
+    command: agent -server -dev -ui -client 0.0.0.0 -config-file=/consul/config/consul.json
     volumes:
-      - qubeship-consul-data:/consul:rw
+      - qubeship-consul-data:/consul/config:rw
     ports:
       - "${CONSUL_PORT}:${CONSUL_PORT}"
 
