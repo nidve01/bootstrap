@@ -49,6 +49,7 @@ QUBE_BUILDER_CREDENTIALS=$($RUN_VAULT_CMD read --format=json secret/resources/$T
 qubebuilder_username=$(echo $QUBE_BUILDER_CREDENTIALS | jq -r .data.user)
 access_token=$(echo $QUBE_BUILDER_CREDENTIALS | jq -r .data.access_token)
 
+url_ready -s $QUBE_BUILDER_URL
 CRUMB=$(curl -u $qubebuilder_username:$access_token -s $QUBE_BUILDER_URL/crumbIssuer/api/xml?xpath=concat\(//crumbRequestField,%22:%22,//crumb\))
 
 set +e +x
