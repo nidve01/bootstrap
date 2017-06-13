@@ -135,7 +135,6 @@ echo "GITHUB_AUTH_URL=$GITHUB_ENTERPRISE_HOST/login/oauth/authorize" >> .client_
 echo "GITHUB_TOKEN_URL=$GITHUB_ENTERPRISE_HOST/login/oauth/access_token" >> .client_env
 
 sed -ibak "s#<system_github_org>#$SYSTEM_GITHUB_ORG#g" .client_env
-sed -ibak "s#<conf_server_token>#${consul_access_token}#g" .client_env
 echo "sourcing .client_env"
 source .client_env
 

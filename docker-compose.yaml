@@ -16,10 +16,9 @@ services:
        - .client_env
     environment:
       DEFAULT_LISTENER_PORT: ${TENANT_API_PORT}
-      CONF_SERVER_TOKEN: ${CONF_SERVER_TOKEN}
       VAULT_TOKEN: ${VAULT_TOKEN}
       ENV_ID: ${ENV_ID}
-      CONF_SERVER_ADDR: ${CONF_SERVER_ADDR}
+      CONF_SERVER_ADDR: qube-consul:${CONSUL_PORT}
       VAULT_ADDR: ${VAULT_ADDR}
       TENANT: ${TENANT}
       ENV_TYPE: ${ENV_TYPE}
@@ -340,10 +339,8 @@ services:
        - .env
        - .client_env
     environment:
-      CONF_SERVER_TOKEN: ${CONF_SERVER_TOKEN}
       VAULT_TOKEN: ${VAULT_TOKEN}
       ENV_ID: ${ENV_ID}
-      CONF_SERVER_ADDR: ${CONF_SERVER_ADDR}
       VAULT_ADDR: ${VAULT_ADDR}
       TENANT: ${TENANT}
       ENV_TYPE: ${ENV_TYPE}
