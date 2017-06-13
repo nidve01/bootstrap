@@ -6,6 +6,19 @@ cd $DIR
 set -o allexport
 source $DIR/qube_common_functions.sh
 get_options $@ > /dev/null
+
+if [ -z "$github_username" ] ; then
+    echo "ERROR: missing username"
+    show_help run.sh
+    exit -1
+fi
+
+if [ -z "$github_password" ] ; then
+    echo "ERROR: missing password"
+    show_help run.sh
+    exit -1
+fi
+
 eval $(get_options $@)
 if [ "$return_code" -eq 1 ]; then
     exit $return_code

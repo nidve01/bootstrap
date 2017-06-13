@@ -43,13 +43,13 @@ fi
 
 if [ -z "$github_username" ] ; then
     echo "ERROR: missing username"
-    show_help
+    show_help register-qubeship.sh
     exit -1
 fi
 
 if [ -z "$github_password" ] ; then
     echo "ERROR: missing password"
-    show_help
+    show_help register-qubeship.sh
     exit -1
 fi
 

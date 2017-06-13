@@ -56,8 +56,7 @@ echo "INFO: base64 utility : $base64_encode $base64_decode" >&2
 
 function show_help() {
 (>&2 cat << EOF
-./install.sh --help
-Usage: install.sh [-h|--help] [--verbose] [--username githubusername] [--password githubpassword]  [--organization orgname] [--github-host host ] [--install-registry] [--install-target target_cluster_type] [--install-sample-projects]
+Usage: $1 [-h|--help] [--verbose] [--username githubusername] [--password githubpassword]  [--organization orgname] [--github-host host ] [--install-registry] [--install-target target_cluster_type] [--install-sample-projects]
     --username              github username
     --password              github password. password can be provided in command line. if not, qubeship will prompt for password
     --organization          default github organization
