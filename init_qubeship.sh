@@ -71,13 +71,13 @@ APP_URL=http://$QUBE_HOST:$APP_PORT
 BUILDER_URL=http://$QUBE_HOST:$QUBE_BUILDER_PORT
 
 consul_access_token=$(uuidgen | tr '[:upper:]' '[:lower:]')
-sed "s#\$consul_acl_master_token#$consul_access_token#g" qubeship_home/consul/data/consul.json.template  > qubeship_home/consul/data/consul.json
+sed "s#\$consul_acl_master_token#$consul_access_token#g" qubeship_home/consul/config/consul.json.template  > qubeship_home/consul/config/consul.json
 # copy vault config.json, firebase.json, and consul.json to busybox
 docker-compose up -d busybox 2>/dev/null
 for file in $(ls $DIR/qubeship_home/vault/data/) ; do
     docker cp qubeship_home/vault/data/$file "$(docker-compose ps -q busybox  2>/dev/null)":/vault/data
 done
-docker cp qubeship_home/consul/data/consul.json "$(docker-compose ps -q busybox 2>/dev/null)":/consul/data/
+docker cp qubeship_home/consul/config "$(docker-compose ps -q busybox 2>/dev/null)":/consul
 
 ########################## START: VAULT INITIALIZATION ##########################
 # start qube-vault service

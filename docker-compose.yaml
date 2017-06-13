@@ -433,16 +433,16 @@ services:
     container_name: busybox
     volumes:
       - vault_data:/vault/data:rw
-      - qubeship-consul-data:/consul/data:rw
+      - qubeship-consul-data:/consul:rw
     depends_on:
       - ngrok
 
   qube-consul:
     image: consul:latest
     container_name: qube-consul
-    command: agent -server -bootstrap -ui -client 0.0.0.0 -config-file=/consul/data/consul.json
+    command: agent -server -bootstrap -ui -client 0.0.0.0 -config-file=/consul/config/consul.json
     volumes:
-      - qubeship-consul-data:/consul/data:rw
+      - qubeship-consul-data:/consul:rw
     ports:
       - "${CONSUL_PORT}:${CONSUL_PORT}"
 
