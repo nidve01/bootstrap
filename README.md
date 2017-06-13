@@ -86,6 +86,16 @@ Now, it is time to try qubeship. Please follow the <a href="https://github.com/Q
 
 ----
 
+## Restart
+> Note: make sure NOT TO HAVE `CONF_SERVER_ADDR` and/or `CONF_SERVER_TOKEN` in `.client_env` file!
+
+On `bootstrap` directory,
+<pre> 
+$ ./run.sh --username <i>your_github_username</i> --password --github-host your_github_enterprise_url
+</pre>
+
+----
+
 ## Uninstall:
 1. To uninstall, run the following command from the Qubeship release directory:
 ```
