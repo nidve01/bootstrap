@@ -445,12 +445,10 @@ services:
       - "${CONSUL_PORT}:${CONSUL_PORT}"
 
   qube-vault-opener:
+    env_file:
+      - .client_env
     image: vault
     container_name: qube-vault-opener
     command: vault unseal ${UNSEAL_KEY}
     depends_on:
       - qube-vault
-    environment:
-      VAULT_ADDR: ${VAULT_ADDR}
-      VAULT_TOKEN: ${VAULT_TOKEN}
-      UNSEAL_KEY: ${UNSEAL_KEY}
