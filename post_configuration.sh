@@ -21,6 +21,9 @@ fi
 
 if [ -e .client_env ]; then
     source $DIR/.client_env
+fi
+
+if [ -e ~/.qube_cli_profile ]; then
     source ~/.qube_cli_profile
 fi
 
@@ -31,13 +34,6 @@ fi
 if [ -e $BETA_CONFIG_FILE ] ; then
     source $BETA_CONFIG_FILE
 fi
-extra_args=""
-if [ ! -z $github_username ]; then
-    extra_args="--username $github_username --password $github_password --organization $SYSTEM_GITHUB_ORG --skip-defaults"
-fi
-#extra_args=""
-
-qube auth login $extra_args
 
 orgId=$(qube auth user-info --org | jq -r '.tenant.orgs[0].id')
 sed "s/<SYSTEM_GITHUB_ORG>/${orgId}/g" load.js.template | sed  "s/beta_access/${is_beta:-false}/g" | sed "s/install_registry/${install_registry:-false}/g" | sed "s/install_target_cluster/${install_target_cluster:-false}/g"  > load.js
@@ -49,14 +45,19 @@ qube_service_configuration_complete="false"
 RUN_VAULT_CMD="docker-compose exec qube-vault vault"
 $RUN_VAULT_CMD auth $VAULT_TOKEN
 
-access_token=$($RUN_VAULT_CMD read -field=access_token secret/resources/$TENANT/$ENV_TYPE/$ENV_ID/qubebuilder)
+QUBE_BUILDER_CREDENTIALS=$($RUN_VAULT_CMD read --format=json secret/resources/$TENANT/$ENV_TYPE/$ENV_ID/qubebuilder)
+qubebuilder_username=$(echo $QUBE_BUILDER_CREDENTIALS | jq -r .data.user)
+access_token=$(echo $QUBE_BUILDER_CREDENTIALS | jq -r .data.access_token)
+
+url_ready -s $QUBE_BUILDER_URL
+CRUMB=$(curl -u $qubebuilder_username:$access_token -s $QUBE_BUILDER_URL/crumbIssuer/api/xml?xpath=concat\(//crumbRequestField,%22:%22,//crumb\))
 
 set +e +x
 #if [ $verbose ]; then
 #fi
 for i in `seq 1 3`;
 do
-    url_ready -u qubebuilder:$access_token -s $QUBE_BUILDER_URL
+    url_ready -H $CRUMB -u $qubebuilder_username:$access_token -s $QUBE_BUILDER_URL
     output=$(qube service postconfiguration | jq -r '.status')
     if [  "$output"=="Accepted"  ]; then
         qube_service_configuration_complete="true"

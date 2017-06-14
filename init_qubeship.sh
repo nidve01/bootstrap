@@ -77,12 +77,10 @@ docker-compose up -d busybox 2>/dev/null
 for file in $(ls $DIR/qubeship_home/vault/data/) ; do
     docker cp qubeship_home/vault/data/$file "$(docker-compose ps -q busybox  2>/dev/null)":/vault/data
 done
-docker cp qubeship_home/consul/data/consul.json "$(docker-compose ps -q busybox 2>/dev/null)":/consul/data/
+docker cp qubeship_home/consul/data/consul.json "$(docker-compose ps -q busybox 2>/dev/null)":/consul/config/
 
-########################## START: VAULT INITIALIZATION ##########################
 # start qube-vault service
 docker-compose up -d $QUBE_VAULT_SERVICE $QUBE_CONSUL_SERVICE  2>/dev/null
-
 
 RUN_VAULT_CMD="docker-compose exec $QUBE_VAULT_SERVICE vault"
 
@@ -90,9 +88,6 @@ RUN_VAULT_CMD="docker-compose exec $QUBE_VAULT_SERVICE vault"
 $RUN_VAULT_CMD init -key-shares=1 -key-threshold=1 > $LOG_FILE
 UNSEAL_KEY=$(cat $LOG_FILE | awk -F': ' 'NR==1{print $2}' | tr -d '\r')
 VAULT_TOKEN=$(cat $LOG_FILE | awk -F': ' 'NR==2{print $2}' | tr -d '\r')
-
-# unseal vault server
-$RUN_VAULT_CMD unseal $UNSEAL_KEY
 
 if [ -f $BETA_CONFIG_FILE ]; then
     echo "sourcing $BETA_CONFIG_FILE"
@@ -135,7 +130,6 @@ echo "GITHUB_AUTH_URL=$GITHUB_ENTERPRISE_HOST/login/oauth/authorize" >> .client_
 echo "GITHUB_TOKEN_URL=$GITHUB_ENTERPRISE_HOST/login/oauth/access_token" >> .client_env
 
 sed -ibak "s#<system_github_org>#$SYSTEM_GITHUB_ORG#g" .client_env
-sed -ibak "s#<conf_server_token>#${consul_access_token}#g" .client_env
 echo "sourcing .client_env"
 source .client_env
 
@@ -155,16 +149,9 @@ github_token=$(curl -s -X POST \
   -d "$data" | jq -r .token)
 
 
-# export variables in .client_env
-########################## START: CONSUL INITIALIZATION ##########################
-# start qube-consul service
-
-
-########################## END: CONSUL INITIALIZATION ##########################
-
-
-
-set -o allexport
+########################## START: VAULT INITIALIZATION ##########################
+# unseal vault server
+$RUN_VAULT_CMD unseal $UNSEAL_KEY
 
 # vault auth
 $RUN_VAULT_CMD auth $VAULT_TOKEN
@@ -182,7 +169,7 @@ $RUN_VAULT_CMD write $BASE_PATH/$TENANT/$ENV_TYPE/$ENV_ID/github_builder_client 
 $RUN_VAULT_CMD write $BASE_PATH/$TENANT/$ENV_TYPE/$ENV_ID/github_cli_client id=$GITHUB_CLI_CLIENTID secret=$GITHUB_CLI_SECRET
 $RUN_VAULT_CMD write $BASE_PATH/$TENANT/$ENV_TYPE/$ENV_ID/github_gui_client id=$GITHUB_GUI_CLIENTID secret=$GITHUB_GUI_SECRET
 
-$RUN_VAULT_CMD write $BASE_PATH/$TENANT/$ENV_TYPE/$ENV_ID/qubebuilder user=qubebuilder access_token=$github_token
+$RUN_VAULT_CMD write $BASE_PATH/$TENANT/$ENV_TYPE/$ENV_ID/qubebuilder user=$github_username access_token=$github_token
 
 RUN_CONSUL_CMD="docker-compose exec $QUBE_CONSUL_SERVICE sh"
 $RUN_CONSUL_CMD -c 'echo {\"X\":\"X\"}  | consul kv put qubeship/envs/'${ENV_TYPE}'/settings -'

@@ -8,10 +8,7 @@ eval $(get_options $@)
 if [ "$return_code" -eq 1 ]; then
     exit $return_code
 fi
-if [ "$no_args" -eq 1 ]; then
-    show_help;
-    exit 1
-fi
+
 if [ ! -z "$DOCKER_INSTALL_TYPE" ]; then
     if [ "$DOCKER_INSTALL_TYPE" == "mac" ]; then
         echo "ERROR: Qubeship installation on docker for mac is still on roadmap. please install docker toolbox instead"
@@ -81,13 +78,13 @@ if [ -z "$(which curl)" ]; then
 fi
 if [ -z "$github_username" ] ; then
     echo "ERROR: missing username"
-    show_help
+    show_help install.sh
     exit -1
 fi
 
 if [ -z "$github_password" ] ; then
     echo "ERROR: missing password"
-    show_help
+    show_help install.sh
     exit -1
 fi
 
@@ -96,9 +93,6 @@ $DIR/init_qubeship.sh $resolved_args
 
 echo "install.sh: $( date ) :starting qubeship server"
 $DIR/run.sh
-
-echo "install.sh: $( date ) :waiting until all qubeship services are up"
-./status.sh "true"
 
 echo "install.sh: $( date ) :running post configuration"
 $DIR/post_configuration.sh $resolved_args

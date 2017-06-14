@@ -9,10 +9,7 @@ get_options $@ > /dev/null
 if [ "$return_code" -eq 1 ]; then
     exit $return_code
 fi
-if [ "$no_args" -eq 1 ]; then
-    show_help;
-    exit 1
-fi
+
 if [ ! -z "$DOCKER_INSTALL_TYPE" ]; then
     if [ "$DOCKER_INSTALL_TYPE" == "mac" ]; then
         echo "ERROR: Qubeship installation on docker for mac is still on roadmap. please install docker toolbox instead"
@@ -46,13 +43,13 @@ fi
 
 if [ -z "$github_username" ] ; then
     echo "ERROR: missing username"
-    show_help
+    show_help register-qubeship.sh
     exit -1
 fi
 
 if [ -z "$github_password" ] ; then
     echo "ERROR: missing password"
-    show_help
+    show_help register-qubeship.sh
     exit -1
 fi
 
