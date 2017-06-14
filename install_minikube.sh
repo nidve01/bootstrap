@@ -81,3 +81,6 @@ do
 done
 
 
+# Setup ingress controller
+minikube addons enable ingress
+
