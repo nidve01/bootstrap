@@ -79,10 +79,8 @@ for file in $(ls $DIR/qubeship_home/vault/data/) ; do
 done
 docker cp qubeship_home/consul/data/consul.json "$(docker-compose ps -q busybox 2>/dev/null)":/consul/config/
 
-########################## START: VAULT INITIALIZATION ##########################
 # start qube-vault service
 docker-compose up -d $QUBE_VAULT_SERVICE $QUBE_CONSUL_SERVICE  2>/dev/null
-
 
 RUN_VAULT_CMD="docker-compose exec $QUBE_VAULT_SERVICE vault"
 
@@ -90,9 +88,6 @@ RUN_VAULT_CMD="docker-compose exec $QUBE_VAULT_SERVICE vault"
 $RUN_VAULT_CMD init -key-shares=1 -key-threshold=1 > $LOG_FILE
 UNSEAL_KEY=$(cat $LOG_FILE | awk -F': ' 'NR==1{print $2}' | tr -d '\r')
 VAULT_TOKEN=$(cat $LOG_FILE | awk -F': ' 'NR==2{print $2}' | tr -d '\r')
-
-# unseal vault server
-$RUN_VAULT_CMD unseal $UNSEAL_KEY
 
 if [ -f $BETA_CONFIG_FILE ]; then
     echo "sourcing $BETA_CONFIG_FILE"
@@ -154,16 +149,9 @@ github_token=$(curl -s -X POST \
   -d "$data" | jq -r .token)
 
 
-# export variables in .client_env
-########################## START: CONSUL INITIALIZATION ##########################
-# start qube-consul service
-
-
-########################## END: CONSUL INITIALIZATION ##########################
-
-
-
-set -o allexport
+########################## START: VAULT INITIALIZATION ##########################
+# unseal vault server
+$RUN_VAULT_CMD unseal $UNSEAL_KEY
 
 # vault auth
 $RUN_VAULT_CMD auth $VAULT_TOKEN
