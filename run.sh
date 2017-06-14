@@ -73,6 +73,9 @@ docker-compose pull cli
 echo "starting $base_command $files $options"
 $base_command $files $options
 
+echo "waiting until all qubeship services are up"
+./status.sh "true"
+
 # as qube-consul runs in development mode, it won't persist any data(tenant info)
 # therefore, the qubebuilder should always log in to the system to populate the tenant data
 # this will be gone after the tenant API is re-written to use different database

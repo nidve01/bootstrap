@@ -94,9 +94,6 @@ $DIR/init_qubeship.sh $resolved_args
 echo "install.sh: $( date ) :starting qubeship server"
 $DIR/run.sh
 
-echo "install.sh: $( date ) :waiting until all qubeship services are up"
-./status.sh "true"
-
 echo "install.sh: $( date ) :running post configuration"
 $DIR/post_configuration.sh $resolved_args
 echo "install.sh: $( date ) :completed qubeship installation in $SECONDS seconds"
