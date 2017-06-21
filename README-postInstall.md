@@ -228,8 +228,6 @@ If your ingress has been created and has an IP address;  and your service is up 
 
 To access the ingress,  use the the URL path with the same hostname defined in (2) and used in yaml file in (3)
 
-In the above example, "pypet-service" can be accessed with the following URL:
-
-<code> http://myinghost/ </code>
+In the above example, "pypet-service" can be accessed with the following URL: <code> http://myinghost/ </code>
 
 
