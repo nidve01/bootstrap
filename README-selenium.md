@@ -22,13 +22,13 @@ For Kubernetes, this can be done either by:
 Specify an opinion for the functional test execution.  This done at the stage go deploy_to_qa or deploy_to_prod.
 eg:
 
-<code>
+<pre>
   deploy_to_prod:
     has:
       - release_to_prod
       - wait_for_service_ready
       - functional_test
-</code>
+</pre>
 
 
 
