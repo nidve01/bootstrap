@@ -1,0 +1,10 @@
+# Performing functional test using Selenium
+
+
+# Exposing endpoints
+
+# Configuring qube.yaml
+
+# Configuring opinion.yaml
+
+# Test output
