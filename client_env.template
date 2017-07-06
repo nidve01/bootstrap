@@ -1,0 +1,17 @@
+UNSEAL_KEY=<unseal_key>
+FIREBASE_API_KEY=AIzaSyDJ-zZsUmVV-l_VDhyyHrtlnseqGDZqlbQ
+VAULT_TOKEN=<vault_token>
+ENV_ID=qubeship_dev
+VAULT_ADDR=http://<vault_addr>:<vault_port>
+TENANT=qubeship
+ENV_TYPE=dev
+API_URL_BASE=<api_url_base>
+FIREBASE_DB_URL=https://qubeship-sandbox.firebaseio.com/
+INSTALL_TYPE=on-prem
+APP_URL=<app_url>
+QUBE_APP_URL=<app_url>/projects
+QUBE_BUILDER_URL=<qube_builder_url>
+QUBE_HOST=<qube_host>
+ANALYTICS_ENDPOINT=https://qubeship-analytics.firebaseio.com
+CI_ADDR=<qube_builder_url>
+SYSTEM_GITHUB_ORG=<system_github_org>

@@ -1,0 +1,215 @@
+use toolchain;
+try {
+db.Toolchain.deleteOne( { "_id" : ObjectId("58e56a68acac5a0020e2b930") } );
+db.Toolchain.deleteOne( { "_id" : ObjectId("58e3fad09a148400216611cc") } );
+db.Toolchain.deleteOne( { "_id" : ObjectId("58e573feacac5a001de2b932") } );
+db.Toolchain.deleteOne( { "_id" : ObjectId("5909a34697b368001ead237a") } );
+}catch (e) {
+ print (e);
+}
+db.Toolchain.insertMany(
+[
+	{
+		"_id" : ObjectId("58e3fad09a148400216611cc"),
+		"orgId" : "<SYSTEM_GITHUB_ORG>",
+		"imageName" : "qubeship-python",
+		"status" : "published",
+		"modifiedBy" : "e2ba0158-f880-3f2c-b5eb-3e3745fd9c81",
+		"id" : "58cc31874117e7001ec0716f",
+		"modifiedDate" : "1492503580",
+		"statusMsg" : "success",
+		"createdBy" : "e2ba0158-f880-3f2c-b5eb-3e3745fd9c81",
+		"visibility" : "public",
+		"builderTrackingId" : "182",
+		"description" : "Qubeship-Python-Toolchain",
+		"tagName" : "v0.0.2",
+		"sourceId" : "58dd9155c3817b0021b21030",
+		"endpointId" : "e1234567890",
+		"language" : "python",
+		"isDefault" : true,
+		"manifest" : "LS0tCmJ1aWxkLmNvbXBpbGU6ICJwaXAgbGlzdCAmJiB0b3ggLS1yZWNyZWF0ZSAtZSBweTMgLWUgbGludCAmJiBweXRob24gc2V0dXAucHkgYmRpc3Rfd2hlZWwiCmJ1aWxkLnVuaXR0ZXN0OiAibm9zZXRlc3RzIC0td2l0aC14dW5pdCBxdWJlL3Rlc3QgJiYgcHkudGVzdCAtLWNvdj1xdWJlIC0tY292LXJlcG9ydCBodG1sOmNvdl9odG1sIC0tY292LXJlcG9ydCB4bWw6Y292LnhtbCAtLWNvdi1yZXBvcnQgYW5ub3RhdGU6Y292X2Fubm90YXRlIC0tY292LXJlcG9ydD10ZXJtIgpidWlsZC5zdGF0aWNfY29kZV9hbmFseXNpczogImVjaG8gc3RhdGljX2NvZGVfYW5hbHlzaXMiCmJha2UuaGFyZGVuOiAiZWNobyBoYXJkZW4iCmRlcGxveV90b19xYS5mdW5jdGlvbmFsX3Rlc3Q6ICJlY2hvIGZ1bmN0aW9uYWxfdGVzdCIKZGVwbG95X3RvX3FhLm1hbnVhbF9hcHByb3ZlOiAiZWNobyBtYW51YWxfYXBwcm92ZSIK",
+		"tenantId" : "d25a61af-3f88-3c58-9bff-0c44244f1d42",
+		"dockerfile" : "RlJPTSBweXRob246My41DQoNClJVTiBwaXAgaW5zdGFsbCBlbnVtMzQgbW9jayBub3NlIHBlcDggcmVxdWVzdHMgdG94IHdoZWVsDQpSVU4gcGlwIGluc3RhbGwgY29sb3Jsb2c+PTIuNy4wDQpSVU4gcGlwIGluc3RhbGwgY292ZXJhZ2U9PTQuMy40DQpSVU4gcGlwIGluc3RhbGwgZmxhc2s+PTAuMTEuMQ0KUlVOIHBpcCBpbnN0YWxsIGZsYXNrX2NvcnM9PTMuMC4yDQpSVU4gcGlwIGluc3RhbGwgZmxhc2stcmVzdGZ1bD49MC4zLjUNClJVTiBwaXAgaW5zdGFsbCBmbGFzay1yZXN0ZnVsLXN3YWdnZXItMj49MC4zMQ0KUlVOIHBpcCBpbnN0YWxsIGZsYXNrLXN3YWdnZXItdWk9PTAuMC4yDQpSVU4gcGlwIGluc3RhbGwgRmxhc2stTW9uZ29BbGNoZW15PT0wLjcuMg0KUlVOIHBpcCBpbnN0YWxsIG1hZ2ljbW9jaz09MC4wMw0KUlVOIHBpcCBpbnN0YWxsIG1vbmdvbW9jaz09My43LjANClJVTiBwaXAgaW5zdGFsbCBweXRlc3QtY292PT0yLjQuMA0KUlVOIHBpcCBpbnN0YWxsIHV3c2dpDQo=",
+		"name" : "Qubeship-Python-Toolchain",
+		"createdDate" : "1491335888"
+	},
+	{
+		"_id" : ObjectId("58e56a68acac5a0020e2b930"),
+		"tagName" : "latest",
+		"tenantId" : "d25a61af-3f88-3c58-9bff-0c44244f1d42",
+		"language" : "java",
+		"imageName" : "qubeship-java",
+		"status" : "published",
+		"orgId" : "<SYSTEM_GITHUB_ORG>",
+		"builderTrackingId" : "191",
+		"manifest" : "YnVpbGQuY29tcGlsZTogJ212biBjbGVhbiBpbnN0YWxsJwpidWlsZC51bml0dGVzdDogJ212biB0ZXN0JwpidWlsZC5zdGF0aWNfY29kZV9hbmFseXNpczogJ3NvbmFyLXJ1bm5lcicKYmFrZS5oYXJkZW46ICdlY2hvIGhhcmRlbicKZGVwbG95X3RvX3FhLmUyZTogJ2JhdHMgJDEnCmRlcGxveV90b19xYS5mdW5jdGlvbmFsX3Rlc3Q6ICJlY2hvIGZ1bmN0aW9uYWxfdGVzdCIKZGVwbG95X3RvX3FhLm1hbnVhbF9hcHByb3ZlOiAiZWNobyBtYW51YWxfYXBwcm92ZSIK",
+		"id" : "58e56a68acac5a0020e2b930",
+		"endpointId" : "6v9123123456",
+		"modifiedDate" : "1492026554",
+		"name" : "Qubeship-Java-Toolchain",
+		"createdBy" : "e2ba0158-f880-3f2c-b5eb-3e3745fd9c81",
+		"isDefault" : true,
+		"modifiedBy" : "e92e2051-2674-3015-8bd2-34e870803f9c",
+		"createdDate" : "1491429992",
+		"description" : "java-ootb-toolchain",
+		"visibility" : "public",
+		"statusMsg" : "success",
+		"dockerfile" : "RlJPTSBtYXZlbjozLjMtamRrLTgKClJVTiBhcHQtZ2V0IHVwZGF0ZSAmJiBhcHQtZ2V0IGluc3RhbGwgYmF0cwoKRU5WIFNPTkFSX1JVTk5FUl9WRVJTSU9OIDIuNApFTlYgU09OQVJfUlVOTkVSX0hPTUUgL29wdC9zb25hci1ydW5uZXItJHtTT05BUl9SVU5ORVJfVkVSU0lPTn0KRU5WIFNPTkFSX1JVTk5FUl9QQUNLQUdFIHNvbmFyLXJ1bm5lci1kaXN0LSR7U09OQVJfUlVOTkVSX1ZFUlNJT059LnppcApFTlYgSE9NRSAke1NPTkFSX1JVTk5FUl9IT01FfQpFTlYgUEFUSCAiJFBBVEg6JHtTT05BUl9SVU5ORVJfSE9NRX0vYmluIgpXT1JLRElSIC9vcHQKClJVTiB3Z2V0IGh0dHA6Ly9yZXBvMS5tYXZlbi5vcmcvbWF2ZW4yL29yZy9jb2RlaGF1cy9zb25hci9ydW5uZXIvc29uYXItcnVubmVyLWRpc3QvJHtTT05BUl9SVU5ORVJfVkVSU0lPTn0vJHtTT05BUl9SVU5ORVJfUEFDS0FHRX0gXAogJiYgdW56aXAgc29uYXItcnVubmVyLWRpc3QtJHtTT05BUl9SVU5ORVJfVkVSU0lPTn0uemlwIFwKICYmIHJtICR7U09OQVJfUlVOTkVSX1BBQ0tBR0V9CgojUlVOIGdyb3VwYWRkIC1yIHNvbmFyIFwKIyAmJiB1c2VyYWRkIC1yIC1zIC91c3Ivc2Jpbi9ub2xvZ2luIC1kICR7U09OQVJfUlVOTkVSX0hPTUV9IC1jICJTb25hciBzZXJ2aWNlIHVzZXIiIC1nIHNvbmFyIHNvbmFyIFwKIyAmJiBjaG93biAtUiBzb25hcjpzb25hciAke1NPTkFSX1JVTk5FUl9IT01FfSBcCiMgJiYgbWtkaXIgLXAgL2RhdGEgXAojICYmIGNob3duIC1SIHNvbmFyOnNvbmFyIC9kYXRhCiMgVVNFUiBzb25hcgoKV09SS0RJUiAvZGF0YQoKVk9MVU1FIC9kYXRhClJVTiBlY2hvICIiID4+ICR7U09OQVJfUlVOTkVSX0hPTUV9L2NvbmYvc29uYXItcnVubmVyLnByb3BlcnRpZXMKUlVOIGVjaG8gc29uYXIuaG9zdC51cmw9aHR0cDovL3NvbmFyLnF1YmVzaGlwLmlvID4+ICR7U09OQVJfUlVOTkVSX0hPTUV9L2NvbmYvc29uYXItcnVubmVyLnByb3BlcnRpZXMKCiNFTlRSWVBPSU5UICR7U09OQVJfUlVOTkVSX0hPTUV9L2Jpbi9zb25hci1ydW5uZXIKQ01EIFsibXZuIiwic29uYXItcnVubmVyIiwiYmF0cyJdCg=="
+	},
+	{
+		"_id" : ObjectId("58e573feacac5a001de2b932"),
+		"modifiedDate" : "1493667560",
+		"status" : "published",
+		"createdDate" : "1491432446",
+		"createdBy" : "13e29f6d-be3b-3308-902c-aa8515803515",
+		"sourceId" : "58e56a68acac5a0020e2b930",
+		"statusMsg" : "success",
+		"imageName" : "qubeship-gradle",
+		"name" : "Qubeship-Gradle-Toolchain",
+		"tagName" : "latest",
+		"isDefault" : true,
+		"language" : "java",
+		"visibility" : "public",
+		"manifest" : "YnVpbGQuY29tcGlsZTogJ2dyYWRsZSBidWlsZCAteCB0ZXN0ICcKYnVpbGQudW5pdHRlc3Q6ICdncmFkbGUgYnVpbGQnCmJ1aWxkLnN0YXRpY19jb2RlX2FuYWx5c2lzOiAnc29uYXItcnVubmVyJwpiYWtlLmhhcmRlbjogJ2VjaG8gaGFyZGVuJwpkZXBsb3lfdG9fcWEuZTJlOiAnYmF0cyAkMScKZGVwbG95X3RvX3FhLmZ1bmN0aW9uYWxfdGVzdDogImVjaG8gZnVuY3Rpb25hbF90ZXN0IgpkZXBsb3lfdG9fcWEubWFudWFsX2FwcHJvdmU6ICJlY2hvIG1hbnVhbF9hcHByb3ZlIgo=",
+		"description" : "qubeship-gradle-toolchain",
+		"endpointId" : "6v9123123456",
+		"tenantId" : "c26cd23f-5bfc-3117-9181-34dbbe31c9cb",
+		"builderTrackingId" : "227",
+		"orgId" : "<SYSTEM_GITHUB_ORG>",
+		"id" : "58e573feacac5a001de2b932",
+		"modifiedBy" : "ef322d6d-05f1-3625-b7af-ed0beeeee232",
+		"dockerfile" : "I0ZST00gbWF2ZW46My4zLWpkay04CkZST00gZ3JhZGxlOjMuNS1qZGs4ClVTRVIgcm9vdApSVU4gYXB0LWdldCB1cGRhdGUgJiYgYXB0LWdldCBpbnN0YWxsIGJhdHMKCkVOViBTT05BUl9SVU5ORVJfVkVSU0lPTiAyLjQKRU5WIFNPTkFSX1JVTk5FUl9IT01FIC9vcHQvc29uYXItcnVubmVyLSR7U09OQVJfUlVOTkVSX1ZFUlNJT059CkVOViBTT05BUl9SVU5ORVJfUEFDS0FHRSBzb25hci1ydW5uZXItZGlzdC0ke1NPTkFSX1JVTk5FUl9WRVJTSU9OfS56aXAKRU5WIEhPTUUgJHtTT05BUl9SVU5ORVJfSE9NRX0KRU5WIFBBVEggIiRQQVRIOiR7U09OQVJfUlVOTkVSX0hPTUV9L2JpbiIKV09SS0RJUiAvb3B0CgpSVU4gd2dldCBodHRwOi8vcmVwbzEubWF2ZW4ub3JnL21hdmVuMi9vcmcvY29kZWhhdXMvc29uYXIvcnVubmVyL3NvbmFyLXJ1bm5lci1kaXN0LyR7U09OQVJfUlVOTkVSX1ZFUlNJT059LyR7U09OQVJfUlVOTkVSX1BBQ0tBR0V9IFwKICYmIHVuemlwIHNvbmFyLXJ1bm5lci1kaXN0LSR7U09OQVJfUlVOTkVSX1ZFUlNJT059LnppcCBcCiAmJiBybSAke1NPTkFSX1JVTk5FUl9QQUNLQUdFfQoKI1JVTiBncm91cGFkZCAtciBzb25hciBcCiMgJiYgdXNlcmFkZCAtciAtcyAvdXNyL3NiaW4vbm9sb2dpbiAtZCAke1NPTkFSX1JVTk5FUl9IT01FfSAtYyAiU29uYXIgc2VydmljZSB1c2VyIiAtZyBzb25hciBzb25hciBcCiMgJiYgY2hvd24gLVIgc29uYXI6c29uYXIgJHtTT05BUl9SVU5ORVJfSE9NRX0gXAojICYmIG1rZGlyIC1wIC9kYXRhIFwKIyAmJiBjaG93biAtUiBzb25hcjpzb25hciAvZGF0YQojIFVTRVIgc29uYXIKCldPUktESVIgL2RhdGEKClZPTFVNRSAvZGF0YQpSVU4gZWNobyAiIiA+PiAke1NPTkFSX1JVTk5FUl9IT01FfS9jb25mL3NvbmFyLXJ1bm5lci5wcm9wZXJ0aWVzClJVTiBlY2hvIHNvbmFyLmhvc3QudXJsPWh0dHA6Ly9zb25hci5xdWJlc2hpcC5pbyA+PiAke1NPTkFSX1JVTk5FUl9IT01FfS9jb25mL3NvbmFyLXJ1bm5lci5wcm9wZXJ0aWVzCgojRU5UUllQT0lOVCAke1NPTkFSX1JVTk5FUl9IT01FfS9iaW4vc29uYXItcnVubmVyCkNNRCBbIm12biIsInNvbmFyLXJ1bm5lciIsImJhdHMiXQo="
+	},
+	{
+		"_id" : ObjectId("5909a34697b368001ead237a"),
+		"tagName" : "latest",
+		"visibility" : "public",
+		"name" : "Qubeship-Jarvis-Toolchain",
+		"modifiedDate" : "1493803846",
+		"imageName" : "qubeship/jarvis-toolchain",
+		"isDefault" : false,
+		"tenantId" : "d25a61af-3f88-3c58-9bff-0c44244f1d42",
+		"createdBy" : "e2ba0158-f880-3f2c-b5eb-3e3745fd9c81",
+		"manifest" : "YnVpbGQuY29tcGlsZTogJ3NlcnZpY2Ugc3VwZXJ2aXNvciBzdGFydCAmJiBncmFkbGUgYnVpbGQnCmJ1aWxkLnVuaXR0ZXN0OiAnZ3JhZGxlIGJ1aWxkJwpidWlsZC5zdGF0aWNfY29kZV9hbmFseXNpczogJ3NvbmFyLXJ1bm5lcicKYmFrZS5oYXJkZW46ICdlY2hvIGhhcmRlbicKZGVwbG95X3RvX3FhLmUyZTogJ2JhdHMgJDEnCmRlcGxveV90b19xYS5mdW5jdGlvbmFsX3Rlc3Q6ICJlY2hvIGZ1bmN0aW9uYWxfdGVzdCIKZGVwbG95X3RvX3FhLm1hbnVhbF9hcHByb3ZlOiAiZWNobyBtYW51YWxfYXBwcm92ZSIK",
+		"orgId" : "<SYSTEM_GITHUB_ORG>",
+		"isFinal" : true,
+		"language" : "java",
+		"createdDate" : "1493803846",
+		"modifiedBy" : "e2ba0158-f880-3f2c-b5eb-3e3745fd9c81",
+		"endpointId" : "123",
+		"status" : "published"
+	}
+]
+);
+use opinions;
+try {
+db.Opinion.deleteOne( { "_id" : ObjectId("58e5596a13d0cc000e88a95d") } );
+}catch (e) {
+ print (e);
+}
+db.Opinion.insertMany(
+[
+	{
+		"_id" : ObjectId("58e5596a13d0cc000e88a95d"),
+		"yaml" : "LS0tDQppZDogJzU4ZTU1OTZhMTNkMGNjMDAwZTg4YTk1ZCcNCm5hbWU6ICdRdWJlc2hpcCBiYXNpYyAgb3BpbmlvbiAoYnVpbGQgb25seSknDQpkZXNjcmlwdGlvbjogJ1F1YmVzaGlwIEJhc2ljIE9waW5pb24nDQp2aXNpYmlsaXR5OiAncHVibGljJw0KDQp2YXJpYWJsZXM6DQogIC0gbmFtZTogQkFTRV9VUkxfRTJFDQogICAgb3B0aW9uYWw6IHRydWUNCmlzRGVmYXVsdDogJ1RydWUnDQpncmFtbDoNCiAgdmVyc2lvbjogMS4wDQpncmFwaDoNCiAgYnVpbGQ6DQogICAgaGFzOg0KICAgICAgLSBjb21waWxlDQogICAgICAtIHVuaXR0ZXN0DQogICAgb25fZXJyb3I6DQogICAgICAtIG5vdGlmeQ0KIyBiZWxvdyBpcyB0aGUgZGVmYXVsdCBpbXBsZW1lbnRhdGlvbg0KdmVydGljZXM6DQogIGJ1aWxkOg0KICAgIHNraXBwYWJsZTogdHJ1ZQ0K",
+		"tenantId" : "0a39fe82-f235-33dc-afda-91dc85f1601f",
+		"createdDate" : "1491425642",
+		"isDefault" : true,
+		"status" : "published",
+		"createdBy" : "5c9d596e-d999-3ac4-bbf9-bee5d58c6566",
+		"orgId" : "<SYSTEM_GITHUB_ORG>",
+		"visibility" : "public",
+		"modifiedDate" : "1492465971",
+		"description" : "qubeship basic opinion",
+		"name" : "Qubeship basic opinion",
+		"modifiedBy" : "13e29f6d-be3b-3308-902c-aa8515803515"
+	},
+	{
+    "_id" : ObjectId("5930725dc07d6a9b2f54a244"),
+    "yaml" : "LS0tDQppZDogJzU5MzA3MjVkYzA3ZDZhOWIyZjU0YTI0NCcNCm5hbWU6ICdRdWJlc2hpcCBCdWlsZC1CYWtlLURlcGxveSBvcGluaW9uJw0KZGVzY3JpcHRpb246ICdCdWlsZC1CYWtlLURlcGxveS1PcGluaW9uJw0KdmlzaWJpbGl0eTogJ3B1YmxpYycNCg0KdmFyaWFibGVzOg0KICAtIG5hbWU6IEJBU0VfVVJMX0UyRQ0KICAgIG9wdGlvbmFsOiB0cnVlDQogIC0gbmFtZTogRE9DS0VSRklMRQ0KICAgIG9wdGlvbmFsOiBmYWxzZQ0KICAgIHZhbHVlOiBEb2NrZXJmaWxlDQogIC0gbmFtZTogUFJPSkVDVF9OQU1FDQogICAgb3B0aW9uYWw6IGZhbHNlDQogICAgdmFsdWU6ICQocXViZXNoaXA6cHJvamVjdDo6bmFtZSkNCiAgLSBuYW1lOiB0YXJnZXRfcmVnaXN0cnkNCiAgICBvcHRpb25hbDogdHJ1ZQ0KICAgIHZhbHVlOiAkKHF1YmVzaGlwOmVuZHBvaW50czpbaXNEZWZhdWx0LmVxKHRydWUpLmFuZCh0eXBlLmVxKCdyZWdpc3RyeScpKV0pDQogIC0gbmFtZTogdGFyZ2V0X2s4c19jbHVzdGVyDQogICAgb3B0aW9uYWw6IGZhbHNlDQogICAgdmFsdWU6ICQocXViZXNoaXA6ZW5kcG9pbnRzOltpc0RlZmF1bHQuZXEodHJ1ZSkuYW5kKHR5cGUuZXEoJ3RhcmdldCcpKS5hbmQocHJvdmlkZXIuZXEoJ2t1YmVybmV0ZXMnKSldKQ0KICAtIG5hbWU6IENPTlRBSU5FUl9OQU1FDQogICAgb3B0aW9uYWw6IGZhbHNlDQogICAgdmFsdWU6ICQocXViZXNoaXA6cHJvamVjdDo6Y29udGFpbmVyTmFtZSkNCiAgLSBuYW1lOiBDT05UQUlORVJfVEFHDQogICAgb3B0aW9uYWw6IHRydWUNCiAgICB2YWx1ZTogbGF0ZXN0DQogIC0gbmFtZTogQUNDRVNTX1RPS0VODQogICAgb3B0aW9uYWw6IHRydWUNCiAgICB2YWx1ZTogJChxdWJlc2hpcDpzZWNyZXQ6W2lzRGVmYXVsdC5lcSh0cnVlKS5hbmQodHlwZS5lcSgndGFyZ2V0JykpLmFuZChwcm92aWRlci5lcSgna3ViZXJuZXRlcycpKV0pDQoNCmlzRGVmYXVsdDogJ0ZhbHNlJw0KZ3JhbWw6DQogIHZlcnNpb246IDEuMA0KZ3JhcGg6DQogIGJ1aWxkOg0KICAgIGhhczoNCiAgICAgIC0gY29tcGlsZQ0KICAgICAgLSB1bml0dGVzdA0KICAgIG9uX2Vycm9yOg0KICAgICAgLSBub3RpZnkNCiAgICBuZXh0OiBiYWtlDQogIGJha2U6DQogICAgaGFzOg0KICAgICAgLSBkb2NrZXJfYnVpbGQNCiAgICAgIC0gcHVzaF90b19yZWdpc3RyeQ0KICAgIG9uX2Vycm9yOg0KICAgICAgLSBub3RpZnkNCiAgICBuZXh0OiBkZXBsb3lfdG9fcWENCiAgZGVwbG95X3RvX3FhOg0KICAgIGhhczoNCiAgICAgIC0gcmVsZWFzZV90b19xYQ0KICAgIG9uX2Vycm9yOg0KICAgICAgLSBub3RpZnkNCiAgICBuZXh0OiBkZXBsb3lfdG9fcHJvZA0KICBkZXBsb3lfdG9fcHJvZDoNCiAgICBoYXM6DQogICAgICAtIHJlbGVhc2VfdG9fcHJvZA0KICAgIG9uX2Vycm9yOg0KICAgICAgLSBub3RpZnkNCiMgYmVsb3cgaXMgdGhlIGRlZmF1bHQgaW1wbGVtZW50YXRpb24NCnZlcnRpY2VzOg0KICBidWlsZDoNCiAgICBza2lwcGFibGU6IHRydWUNCiAgYmFrZToNCiAgICBza2lwcGFibGU6IHRydWUNCiAgZG9ja2VyX2J1aWxkOg0KICAgIGFjdGlvbjoNCiAgICAgIC0gImRvY2tlciBidWlsZCAtdCAkMSAtZiAkMiAuIg0KICAgIGFyZ3M6DQogICAgICAtICQoQ09OVEFJTkVSX05BTUUpDQogICAgICAtIERvY2tlcmZpbGUNCiAgICBleGVjdXRlX291dHNpZGVfdG9vbGNoYWluOiB0cnVlDQogIHB1c2hfdG9fcmVnaXN0cnk6DQogICAgYWN0aW9uOg0KICAgICAgLSAiZG9ja2VyIHRhZyAkMSAkMi8kMzokNCINCiAgICAgIC0gImRvY2tlciBwdXNoICQyLyQzOiQ0Ig0KICAgIGFyZ3M6DQogICAgICAtICQoQ09OVEFJTkVSX05BTUUpDQogICAgICAtICQodGFyZ2V0X3JlZ2lzdHJ5KS5hZGRpdGlvbmFsSW5mby5hY2NvdW50DQogICAgICAtICQoQ09OVEFJTkVSX05BTUUpDQogICAgICAtICQoQ09OVEFJTkVSX1RBRykNCiAgICBleGVjdXRlX291dHNpZGVfdG9vbGNoYWluOiB0cnVlDQogIGRlcGxveV90b19xYToNCiAgICBza2lwcGFibGU6IHRydWUNCiAgcmVsZWFzZV90b19xYToNCiAgICBhY3Rpb246DQogICAgICAtICJlY2hvICQxIg0KICAgIGFyZ3M6DQogICAgICAtICJoZWxsbyB3b3JsZCAtIGhvd2R5PyINCiAgZGVwbG95X3RvX3Byb2Q6DQogICAgc2tpcHBhYmxlOiB0cnVlDQogIHJlbGVhc2VfdG9fcHJvZDoNCiAgICBhY3Rpb246DQogICAgICAtICJxdWJlX3V0aWxzL2RlcGxveW1lbnRfdGVtcGxhdGVzL2s4cy9xdWJlX2RlcGxveV9rOHMuc2ggJDE0LyQxOiQyICQzICQ0ICQ1LWRlcGxveW1lbnQgL3RtcC9kZXBsb3ltZW50LyQ2ICQ3ICQ4ICQ5ICQxMCAkMTEgJDEyICQxMyINCiAgICBhcmdzOg0KICAgICAgLSAkKENPTlRBSU5FUl9OQU1FKQ0KICAgICAgLSAkKENPTlRBSU5FUl9UQUcpDQogICAgICAtICQodGFyZ2V0X2s4c19jbHVzdGVyKS5hZGRpdGlvbmFsSW5mby5uYW1lc3BhY2UNCiAgICAgIC0gJChDT05UQUlORVJfTkFNRSkNCiAgICAgIC0gJChDT05UQUlORVJfTkFNRSkNCiAgICAgIC0gJChxdWJlc2hpcDplbnY6OkJVSUxEX05VTUJFUikNCiAgICAgIC0gcXViZV9leHRlcm5hbF9hcHBfdjENCiAgICAgIC0gJChxdWJlc2hpcDplbnY6OldPUktTUEFDRSkNCiAgICAgIC0gJCh0YXJnZXRfazhzX2NsdXN0ZXIpLmNhdGVnb3J5DQogICAgICAtICQodGFyZ2V0X2s4c19jbHVzdGVyKS5pZA0KICAgICAgLSAkKHRhcmdldF9rOHNfY2x1c3RlcikudGVuYW50DQogICAgICAtICQodGFyZ2V0X2s4c19jbHVzdGVyKS5wcm92aWRlcg0KICAgICAgLSAkKHRhcmdldF9rOHNfY2x1c3RlcikuZW5kUG9pbnQNCiAgICAgIC0gJCh0YXJnZXRfcmVnaXN0cnkpLmFkZGl0aW9uYWxJbmZvLmFjY291bnQNCg0K",
+    "tenantId" : "0a39fe82-f235-33dc-afda-91dc85f1601f",
+    "createdDate" : "1491425642",
+    "isDefault" : false,
+    "status" : "published",
+    "createdBy" : "5c9d596e-d999-3ac4-bbf9-bee5d58c6566",
+	"orgId" : "<SYSTEM_GITHUB_ORG>",
+    "visibility" : "public",
+    "modifiedDate" : "1492465971",
+    "description" : "qubeship build-bake-deploy opinion",
+    "name" : "Qubeship build-bake-deploy opinion",
+    "modifiedBy" : "13e29f6d-be3b-3308-902c-aa8515803515"
+	}
+]
+);
+use qubeship;
+if (beta_access) {
+    db.endPoint.remove(
+        {_id: ObjectId("58edb422238503000b74d7a6")}
+    );
+    db.endPoint.remove(
+        {_id: ObjectId("58e3fad42a0603000b3e58a8")}
+    );
+
+    if (install_registry) {
+       db.endPoint.insertMany(
+       [
+	  {
+              "_id" : ObjectId("58edb422238503000b74d7a6"),
+              "_class" : "com.ca.io.qubeship.model.EndPoint",
+              "tenant" : "4b95bf35-1b75-3e8a-8b02-6e4dd989e098",
+              "orgId" : "<SYSTEM_GITHUB_ORG>",
+     	      "owner" : "0e83ea2b-82cc-3846-bf4a-0c7fda85c085",
+              "credentialId" : "925750d0-f719-4a69-8e07-5ff4f4fac400",
+              "credentialPath" : "secret/resources/<SYSTEM_GITHUB_ORG>/production/creds/925750d0-f719-4a69-8e07-5ff4f4fac400",
+     	      "createdBy" : "0e83ea2b-82cc-3846-bf4a-0c7fda85c085",
+              "createdDate" : "1493916853258",
+              "modifiedBy" : "0e83ea2b-82cc-3846-bf4a-0c7fda85c085",
+              "modifiedDate" : "1493916853258",
+              "credentialType" : "username_password",
+              "name" : "Qubeship Default Docker Registry",
+              "provider" : "generic",
+              "category" : "production",
+              "endPoint" : "https://some_registry/",
+              "type" : "registry",
+              "visibility" : "public_",
+              "isDefault" : true,
+              "additionalInfo" : {
+                  "account" : "someregistryprefix"
+              }
+        }
+      ]);
+    }
+
+    if (install_target_cluster)  {
+       db.endPoint.insertMany(
+       [
+        {
+            "_id" : ObjectId("58e3fad42a0603000b3e58a8"),
+            "_class" : "com.ca.io.qubeship.model.EndPoint",
+            "tenant" : "d25a61af-3f88-3c58-9bff-0c44244f1d42",
+            "orgId" : "<SYSTEM_GITHUB_ORG>",
+            "owner" : "e2ba0158-f880-3f2c-b5eb-3e3745fd9c81",
+            "credentialId" : "a7a08aec-8955-46e1-941d-7602b3190d41",
+            "credentialPath" : "secret/resources/<SYSTEM_GITHUB_ORG>/production/creds/a7a08aec-8955-46e1-941d-7602b3190d41",
+            "createdBy" : "e2ba0158-f880-3f2c-b5eb-3e3745fd9c81",
+            "createdDate" : "1491335892154",
+            "modifiedBy" : "e2ba0158-f880-3f2c-b5eb-3e3745fd9c81",
+            "modifiedDate" : "1492021530755",
+            "sourceId" : "589933543c2d090006a6a48a",
+            "credentialType" : "access_token",
+            "name" : "Qubeship Sandbox Cluster",
+            "provider" : "kubernetes",
+            "category" : "production",
+            "endPoint" : "https://somelocalhost:8443",
+            "type" : "target",
+            "visibility" : "public_",
+            "isDefault" : false,
+            "additionalInfo" : {
+                "namespace" : "somenamespace"
+            }
+        }
+    ]);
+  }
+}
+
+

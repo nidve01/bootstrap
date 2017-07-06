@@ -1,0 +1,60 @@
+version: '2'
+volumes:
+  docker-registry-data:
+  docker-registry-creds:
+
+services:
+  qubeship_app:
+    env_file:
+      - .env
+      - .client_env
+    environment:
+      DEFAULT_LISTENER_PORT: ${APP_PORT}
+      VAULT_TOKEN: ${VAULT_TOKEN}
+      ENV_ID: ${ENV_ID}
+      VAULT_ADDR: ${VAULT_ADDR}
+      TENANT: ${TENANT}
+      ENV_TYPE: ${ENV_TYPE}
+      URL_BASE: ${API_URL_BASE}
+    image: ${APP_IMAGE}:${APP_VERSION}
+    ports:
+      - "${APP_PORT}:${APP_PORT}"
+    depends_on:
+      - qube-vault-opener
+
+  docker-registry:
+    env_file: .env
+    restart: always
+    image: registry:2
+    ports:
+      - "${DOCKER_REGISTRY_PORT}:5000"
+    environment:
+      REGISTRY_HTTP_TLS_CERTIFICATE: /certs/cert.pem
+      REGISTRY_HTTP_TLS_KEY: /certs/key.pem
+      REGISTRY_AUTH: htpasswd
+      REGISTRY_AUTH_HTPASSWD_PATH: /auth/htpasswd
+      REGISTRY_AUTH_HTPASSWD_REALM: Registry Realm
+    volumes:
+      - docker-registry-data:/var/lib/registry
+      - docker-registry-creds:/certs
+      - docker-registry-creds:/auth
+     # - ./qubeship_home/docker-registry/config.yml:/etc/docker/registry/config.yml
+    depends_on:
+      - docker_registry_configurator
+
+  docker_registry_configurator:
+    env_file: .env
+    image: ${DOCKER_REGISTRY_CONFIGURATOR_IMAGE}:${DOCKER_REGISTRY_CONFIGURATOR_VERSION}
+    #image: busybox
+    container_name: docker_registry_configurator
+    volumes:
+      - docker-registry-creds:/certs:rw
+      - docker-registry-creds:/auth:rw
+
+  oauth_registrator:
+    env_file: .env
+    environment:
+      APP_CB_URL: http://${QUBE_HOST}:${APP_PORT}/api/v1/auth/callback?provider=github
+      CLI_CB_URL: http://cli.qubeship.io/index.html
+      BUILDER_CB_URL: http://${QUBE_HOST}:${QUBE_BUILDER_PORT}/securityRealm/finishLogin
+    image: "${REGISTRATOR_IMAGE}:${REGISTRATOR_VERSION}"
